@@ -1,0 +1,8 @@
+# = Completed
+
+- 4/30
+  # Get better sense for how to organize css for site
+    # app.css for reusable classes regarding multiple files
+    # ____.razor.css for individual files
+  - Add dropdown for center home button
+    - Dropdown includes options for SVI, SVC and Comfort
