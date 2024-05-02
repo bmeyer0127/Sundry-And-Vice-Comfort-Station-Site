@@ -1,0 +1,10 @@
+.offcanvas-header, 
+.offcanvas-body {
+  color: #a19a61;
+  background-color: #33322a;
+}
+
+.navButton {
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 500;
+}

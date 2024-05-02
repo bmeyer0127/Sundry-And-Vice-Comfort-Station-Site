@@ -28,3 +28,5 @@ Skeleton
     - Events
     - Hours
     - Join the team
+- 5/2
+  - Consider adding breakpoint for nav menu to become horizonal and permanent on large screen
