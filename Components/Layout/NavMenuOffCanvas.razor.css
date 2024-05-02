@@ -1,7 +1,6 @@
-.offcanvas-header, 
-.offcanvas-body {
-  color: #a19a61;
-  background-color: #33322a;
+.offcanvas-part {
+  color: #a19a61 !important;
+  background-color: #33322a !important;
 }
 
 .navButton {

@@ -1,28 +1,28 @@
 ﻿<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Nav</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
+  <div class="offcanvas-header offcanvas-part">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Looking for something?</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
+  <div class="offcanvas-body offcanvas-part">
     <div class="accordion" >
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <button class="accordion-button offcanvas-part" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     <h5>Where ya headed?</h5>
                 </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <ul>
-                    <li>
+            <div class="accordion-body offcanvas-part">
+                <ul class="nav flex-column">
+                    <li class="offcanvas-part">
                         <a href="svi-home">S&V - Indy</a>
                     </li>
-                    <li>
+                    <li class="offcanvas-part">
                         <a href="svc-home">S&V - Cincy</a>
                     </li>
-                    <li>
+                    <li class="offcanvas-part">
                         <a href="cs-home">Comfort Station</a>
                     </li>
                 </ul>
@@ -30,18 +30,18 @@
             </div>
         </div>
     </div>
-    <ul class="nav-tabs">
+    <ul class="nav flex-column">
             <li class="nav-item navButton">
-                <a class="nav-link active" aria-current="page" href="events">Events</a>
+                <a class="nav-link active offcanvas-part" aria-current="page" href="events">Events</a>
             </li>
             <li class="nav-item navButton">
-                <a class="nav-link active" aria-current="page" href="gallery">Gallery</a>
+                <a class="nav-link active offcanvas-part" aria-current="page" href="gallery">Gallery</a>
             </li>
             <li class="nav-item navButton">
-                <a class="nav-link active" aria-current="page" href="hours">Hours</a>
+                <a class="nav-link active offcanvas-part" aria-current="page" href="hours">Hours</a>
             </li>
             <li class="nav-item navButton">
-                <a class="nav-link active" aria-current="page" href="join-team">Join the Team</a>
+                <a class="nav-link active offcanvas-part" aria-current="page" href="join-team">Join the Team</a>
             </li>
         </ul>
   </div>
