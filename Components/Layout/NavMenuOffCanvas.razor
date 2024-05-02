@@ -1,4 +1,6 @@
-﻿<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Nav</button>
+﻿@using MyComponents.NavigateTo
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Nav</button>
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header offcanvas-part">
@@ -16,33 +18,19 @@
             <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
             <div class="accordion-body offcanvas-part">
                 <ul class="nav flex-column">
-                    <li class="offcanvas-part">
-                        <a href="svi-home">S&V - Indy</a>
-                    </li>
-                    <li class="offcanvas-part">
-                        <a href="svc-home">S&V - Cincy</a>
-                    </li>
-                    <li class="offcanvas-part">
-                        <a href="cs-home">Comfort Station</a>
-                    </li>
+                    <NavigateTo link="svi-home" text="S&V - Indy" />
+                    <NavigateTo link="svc-home" text="S&V - Cincy" />
+                    <NavigateTo link="cs-home" text="Comfort Station" />
                 </ul>
             </div>
             </div>
         </div>
     </div>
     <ul class="nav flex-column">
-            <li class="nav-item navButton">
-                <a class="nav-link active offcanvas-part" aria-current="page" href="events">Events</a>
-            </li>
-            <li class="nav-item navButton">
-                <a class="nav-link active offcanvas-part" aria-current="page" href="gallery">Gallery</a>
-            </li>
-            <li class="nav-item navButton">
-                <a class="nav-link active offcanvas-part" aria-current="page" href="hours">Hours</a>
-            </li>
-            <li class="nav-item navButton">
-                <a class="nav-link active offcanvas-part" aria-current="page" href="join-team">Join the Team</a>
-            </li>
+            <NavigateTo link="events" text="Events" />
+            <NavigateTo link="gallery" text="Gallery" />
+            <NavigateTo link="hours" text="Hours" />
+            <NavigateTo link="join-team" text="Join the Team" />
         </ul>
   </div>
 </div>
