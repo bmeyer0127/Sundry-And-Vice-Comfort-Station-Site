@@ -1,0 +1,75 @@
+//Required
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+// Default variable overrides
+$accordion-border-width: 0;
+$accordion-button-focus-box-shadow: 0;
+$accordion-border-radius: 0;
+$accordion-icon-active-color: white;
+$accordion-icon-color: white;
+$btn-close-color: white;
+//Required
+@import "../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../node_modules/bootstrap/scss/_mixins.scss";
+// Optional Bootstrap components
+@import "../../node_modules/bootstrap/scss/_accordion.scss";
+@import "../../node_modules/bootstrap/scss/_offcanvas.scss";
+
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+.offcanvas-opener {
+width: 11%;
+height: auto;
+padding-bottom: 4%;
+padding-left: 0;
+}
+
+.offcanvas-close {
+  border-color: #a19a61 !important;
+}
+
+.offcanvas-part {
+  background-color: #33322a !important;
+  color: #a19a61 !important;
+
+}
+
+.navButton {
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 500;
+}
+
+@media (min-width: 576px) {
+  .offcanvas-opener {
+    width: 9%;
+    }
+}
+
+@media (min-width: 768px) {
+  .offcanvas-opener {
+    width: 8%;
+    }
+}
+
+@media (min-width: 992px) {
+  .offcanvas-opener {
+    width: 7%;
+    }
+}
+
+@media (min-width: 1200px ) {
+  .offcanvas-opener {
+    width: 6%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .offcanvas-opener {
+    width: 5%;
+  }
+}
