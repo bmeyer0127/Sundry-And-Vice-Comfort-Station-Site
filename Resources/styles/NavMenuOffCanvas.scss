@@ -1,3 +1,11 @@
+//Breakpoints
+// XS is default so no variable
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$XLarge: 1200px;
+$XXLarge: 1400px;
+
 //Required
 @import "../../node_modules/bootstrap/scss/_functions.scss";
 // Default variable overrides
@@ -44,31 +52,31 @@ padding-left: 0;
   font-weight: 500;
 }
 
-@media (min-width: 576px) {
+@media (min-width: $small) {
   .offcanvas-opener {
     width: 9%;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $medium) {
   .offcanvas-opener {
     width: 8%;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: $large) {
   .offcanvas-opener {
     width: 7%;
     }
 }
 
-@media (min-width: 1200px ) {
+@media (min-width: $XLarge ) {
   .offcanvas-opener {
     width: 6%;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: $XXLarge) {
   .offcanvas-opener {
     width: 5%;
   }
