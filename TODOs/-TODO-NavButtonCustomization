@@ -8,5 +8,4 @@
   # Change color of accordion carrot
   # Currently have all of mf bootstrap in NavMenuOffCanvas.css
     # Go through and import only what is needed
-  - Change color of offcanvas exit button
-  - Fix sizing of offcanvas open button. This is a me thing. Im just bad at finding good sizes.
+  # Fix sizing of offcanvas open button. This is a me thing. Im just bad at finding good sizes.

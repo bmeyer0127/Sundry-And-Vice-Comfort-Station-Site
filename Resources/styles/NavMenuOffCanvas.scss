@@ -12,8 +12,8 @@ $XXLarge: 1400px;
 $accordion-border-width: 0;
 $accordion-button-focus-box-shadow: 0;
 $accordion-border-radius: 0;
-$accordion-icon-active-color: white;
-$accordion-icon-color: white;
+$accordion-icon-active-color: #a19a61;
+$accordion-icon-color: #a19a61;
 $btn-close-color: white;
 //Required
 @import "../../node_modules/bootstrap/scss/_variables.scss";
@@ -31,14 +31,14 @@ $btn-close-color: white;
 
 
 .offcanvas-opener {
-width: 11%;
+width: 35px;
 height: auto;
 padding-bottom: 4%;
 padding-left: 0;
 }
 
 .offcanvas-close {
-  border-color: #a19a61 !important;
+  
 }
 
 .offcanvas-part {
@@ -51,33 +51,37 @@ padding-left: 0;
   font-family: "Raleway", Arial, sans-serif;
   font-weight: 500;
 }
-
+// 576px width
 @media (min-width: $small) {
   .offcanvas-opener {
-    width: 9%;
+    width: 45px;
     }
 }
 
+// 768px width
 @media (min-width: $medium) {
   .offcanvas-opener {
-    width: 8%;
+    width: 45px;
     }
 }
 
+// 992px width
 @media (min-width: $large) {
   .offcanvas-opener {
-    width: 7%;
+    width: 50px;
     }
 }
 
+// 1200px width
 @media (min-width: $XLarge ) {
   .offcanvas-opener {
-    width: 6%;
+    width: 50px;
   }
 }
 
+// 1400px width
 @media (min-width: $XXLarge) {
   .offcanvas-opener {
-    width: 5%;
+    width: 50px;
   }
 }
