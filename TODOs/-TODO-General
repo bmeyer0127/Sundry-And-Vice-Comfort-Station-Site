@@ -1,8 +1,5 @@
-# = Completed
-
-Skeleton
 - Create navigation mechanism to switch between home pages
-- Create reusable components for:
+- Create reusable components for
   - Gallery
   - Events
   - Hours
@@ -11,7 +8,6 @@ Skeleton
   - Menu Item
 - Create admin page for editing, removing and adding cocktails
   - This will utilize EF Core
-
 - 4/30
   # Get better sense for how to organize css for site
     # app.css for reusable classes regarding multiple files
@@ -22,7 +18,7 @@ Skeleton
   - Enter site, ask for location
   - Location logo permiates through navigation
   - on click brings up dropdown menu for other locations
-  - after initial location tag, provide option for dropdown nav menu for the side, this provides nav options for:
+  - after initial location tag, provide option for dropdown nav menu for the side, this provides nav options for
     - Menu (default)
     - Gallery
     - Events
