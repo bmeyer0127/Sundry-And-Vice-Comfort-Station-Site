@@ -5,9 +5,14 @@
 # Dropdown includes options for SVI, SVC and Comfort
 
 - Splash page that asks for location they are looking for
-- Location logo permiates through navigation
+  - This will probably just be main home page, rather than modal. This page:
+    - Will not have navigation button or tab
+    - Will not be scrollable
+    - Will consist of header that says something sexy like, "Where ya headed, handsome?"
+    - Will have 3 logos to choose from
+    - Will not be able to be navigated to after this option besides searchbar I guess
+  - Create a component that will act as the logo buttons. Maybe this can be used in the navbar too
 
-- Create navigation mechanism to switch between home pages
 - Create reusable components for
   - Gallery
   - Events
