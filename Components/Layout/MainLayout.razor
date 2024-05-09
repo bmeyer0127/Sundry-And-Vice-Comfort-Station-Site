@@ -1,5 +1,5 @@
-﻿@namespace Layout.MainLayout
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
+@using MyComponents.NavMenuOffCanvas
 
 <div class="page">
     <main>
@@ -17,12 +17,3 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
-
-@code {
-    @* public bool isSplash { get; set; } = true;
-
-public void SetSplash()
-{
-isSplash = !isSplash;
-} *@
-}

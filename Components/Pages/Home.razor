@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using MyComponents.SplashLogo
-@using Layout.NavMenuOffCanvas
+@using MyComponents.NavMenuOffCanvas
 
 <PageTitle>Home</PageTitle>
 
@@ -24,3 +24,10 @@
     </div>
   </div>
 </div>
+
+@code {
+  public void SetSplash()
+  {
+    isSplash = !isSplash
+  }
+}

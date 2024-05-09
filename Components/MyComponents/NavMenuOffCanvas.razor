@@ -1,4 +1,4 @@
-﻿@namespace Layout.NavMenuOffCanvas
+﻿@namespace MyComponents.NavMenuOffCanvas
 @using MyComponents.NavigateTo
 
 <img class="btn offcanvas-opener prevent-select" type="button" data-bs-toggle="offcanvas"
@@ -42,10 +42,6 @@
 </div>
 
 @code {
+    [CascadingParameter]
     public bool isSplash { get; set; } = true;
-
-    public void SetSplash()
-    {
-        isSplash = !isSplash;
-    }
 }
