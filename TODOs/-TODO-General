@@ -8,13 +8,13 @@
   # Reintroduce navbutton when navigate to other home page
   # Cannot figure out how to pass the changed state of isSplash
   # State of hiding button happens in NavMenuOffCanvas
-    # if isSplash is true, display of NavButton is none. If false, display is block
+  # if isSplash is true, display of NavButton is none. If false, display is block
   # Try using NavigationManager.LocationChanged
-    # Did not work. I think this is mostly for monitoring rather than making changes
+  # Did not work. I think this is mostly for monitoring rather than making changes
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # Explaination: 
-  # NavMenuOffCanvas.razor has parameter called isSplash. The parameter is given in Home.razor
-  #   where it is then evalutated in Home.razor's @code section. This code takes the latter 
+  # NavMenuOffCanvas.razor has parameter called isSplash. The parameter is given in MainLayout.razor
+  #   where it is then evalutated in MainLayout.razor's @code section. This code takes the latter 
   #   character of the uri and if it is not '/' it returns false. This is because '/' indicates
   #   that it is the ultimate home
 
