@@ -1,0 +1,47 @@
+﻿@namespace MyComponents.NavMenuOffCanvas
+@using MyComponents.NavigateTo
+
+<img class="btn offcanvas-opener prevent-select" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"
+    style="display: @(isSplash ? "none" : "block")"
+    src="https://images.squarespace-cdn.com/content/v1/54d7dbb9e4b002f56c3f34ca/1473388448478-59R1LBCCJE5PAVDEIS4S/favicon.ico?" />
+
+<div class="offcanvas offcanvas-start prevent-select" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header offcanvas-part">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Looking for something?</h5>
+        <button type="button" class="btn-close offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body offcanvas-part">
+        <div class="accordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button offcanvas-part" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <h5>Where ya headed?</h5>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                    <div class="accordion-body offcanvas-part">
+                        <ul class="nav flex-column">
+                            <NavigateTo link="svi-home" text="S&V - Indy" />
+                            <NavigateTo link="svc-home" text="S&V - Cincy" />
+                            <NavigateTo link="cs-home" text="Comfort Station" />
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav flex-column">
+            <NavigateTo link="events" text="Events" />
+            <NavigateTo link="gallery" text="Gallery" />
+            <NavigateTo link="hours" text="Hours" />
+            <NavigateTo link="join-team" text="Join the Team" />
+        </ul>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public bool isSplash { get; set; } = true;
+}

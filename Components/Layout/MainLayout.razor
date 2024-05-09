@@ -1,9 +1,11 @@
 ﻿@inherits LayoutComponentBase
+@using MyComponents.NavMenuOffCanvas
+@inject NavigationManager MyNavMan
 
 <div class="page">
     <main>
         <div>
-            <NavMenuOffCanvas />
+            <NavMenuOffCanvas isSplash=@isPageSplash() />
         </div>
         <article class="content main-content px-4">
             @Body
@@ -16,3 +18,18 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+@code {
+    private bool isPageSplash()
+    {
+        string uriSubstring = (MyNavMan.Uri).Substring(MyNavMan.Uri.Length - 1);
+        if (uriSubstring == "/")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

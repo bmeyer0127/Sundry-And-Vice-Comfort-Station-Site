@@ -4,10 +4,40 @@
 # Add dropdown for center home button
 # Dropdown includes options for SVI, SVC and Comfort
 
-- Splash page that asks for location they are looking for
-- Location logo permiates through navigation
+  # Trying to remove the navbutton on load of splash screen
+  # Reintroduce navbutton when navigate to other home page
+  # Cannot figure out how to pass the changed state of isSplash
+  # State of hiding button happens in NavMenuOffCanvas
+    # if isSplash is true, display of NavButton is none. If false, display is block
+  # Try using NavigationManager.LocationChanged
+    # Did not work. I think this is mostly for monitoring rather than making changes
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Explaination: 
+  # NavMenuOffCanvas.razor has parameter called isSplash. The parameter is given in Home.razor
+  #   where it is then evalutated in Home.razor's @code section. This code takes the latter 
+  #   character of the uri and if it is not '/' it returns false. This is because '/' indicates
+  #   that it is the ultimate home
 
-- Create navigation mechanism to switch between home pages
+  
+- CURRENT STATE:
+
+- Splash page that asks for location they are looking for
+  - This will probably just be main home page, rather than modal. This page:
+    - Will not have navigation button or tab
+    - Will not be scrollable
+    - Will consist of header that says something sexy like, "Where ya headed, handsome?"
+    - Will have 3 logos to choose from
+    - Will not be able to be navigated to after this option besides searchbar I guess
+  # Create a component that will act as the logo buttons. Maybe this can be used in the navbar too
+
+
+- Understand how to load an image asset from local files rather than linking to squarespace asset
+
+- Events Page:
+  - Have a form to let people leave info
+  - Have a few emails to leave on the bottom of the page
+  - Maybe figure a dummy phone number
+
 - Create reusable components for
   - Gallery
   - Events

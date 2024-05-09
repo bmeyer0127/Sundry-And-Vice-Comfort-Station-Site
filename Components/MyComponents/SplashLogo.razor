@@ -1,0 +1,12 @@
+@namespace MyComponents.SplashLogo
+
+<a href='@string.Format("{0}", link)'>@logo</a>
+
+@code {
+  [Parameter]
+  public string? logo { get; set; } = "";
+
+  [Parameter]
+  public string? link { get; set; } = "";
+
+}
