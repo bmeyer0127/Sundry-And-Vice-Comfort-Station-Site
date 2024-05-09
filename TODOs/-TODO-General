@@ -4,6 +4,10 @@
 # Add dropdown for center home button
 # Dropdown includes options for SVI, SVC and Comfort
 
+- CURRENT STATE:
+  - Trying to remove the navbutton on load of splash screen
+  - Reintroduce navbutton onclick of one of the logos
+
 - Splash page that asks for location they are looking for
   - This will probably just be main home page, rather than modal. This page:
     - Will not have navigation button or tab
@@ -12,6 +16,13 @@
     - Will have 3 logos to choose from
     - Will not be able to be navigated to after this option besides searchbar I guess
   - Create a component that will act as the logo buttons. Maybe this can be used in the navbar too
+
+- Understand how to load an image asset from local files rather than linking to squarespace asset
+
+- Events Page:
+  - Have a form to let people leave info
+  - Have a few emails to leave on the bottom of the page
+  - Maybe figure a dummy phone number
 
 - Create reusable components for
   - Gallery

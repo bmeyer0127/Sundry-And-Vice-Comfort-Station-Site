@@ -1,0 +1,15 @@
+@namespace MyComponents.SplashLogo
+
+<button href='@string.Format("{0}", link)'>@logo</button>
+
+@code {
+  [Parameter]
+  public string? logo { get; set; } = "";
+
+  [Parameter]
+  public string? link { get; set; } = "";
+
+  [CascadingParameter]
+  bool isSplash { get; set; }
+
+}
