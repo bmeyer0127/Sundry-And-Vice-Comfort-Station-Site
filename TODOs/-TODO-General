@@ -16,7 +16,7 @@
   # NavMenuOffCanvas.razor has parameter called isSplash. The parameter is given in MainLayout.razor
   #   where it is then evalutated in MainLayout.razor's @code section. This code takes the latter 
   #   character of the uri and if it is not '/' it returns false. This is because '/' indicates
-  #   that it is the ultimate home
+  #   that it is the base for the URI
 
   
 - CURRENT STATE:
