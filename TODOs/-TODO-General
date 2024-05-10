@@ -1,9 +1,11 @@
 # CURRENT TASK ###########################################################################################
 
-- Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
-- These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
+
 
 # TODO #####################################################################################################
+
+- Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
+- These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
 
 - Understand how to load an image asset from local files rather than linking to squarespace asset
 - Download specific font styles to use
