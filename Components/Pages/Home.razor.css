@@ -1,5 +1,5 @@
-* {
-  overflow: hidden;
+html, body {
+  overflow: hidden !important;
 }
 
 /*# sourceMappingURL=Home.razor.css.map */

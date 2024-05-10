@@ -1,37 +1,12 @@
-# Get better sense for how to organize css for site
-# app.css for reusable classes regarding multiple files
-# ____.razor.css for individual files
-# Add dropdown for center home button
-# Dropdown includes options for SVI, SVC and Comfort
+# CURRENT TASK ###########################################################################################
 
-  # Trying to remove the navbutton on load of splash screen
-  # Reintroduce navbutton when navigate to other home page
-  # Cannot figure out how to pass the changed state of isSplash
-  # State of hiding button happens in NavMenuOffCanvas
-  # if isSplash is true, display of NavButton is none. If false, display is block
-  # Try using NavigationManager.LocationChanged
-  # Did not work. I think this is mostly for monitoring rather than making changes
-# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-# Explaination: 
-  # NavMenuOffCanvas.razor has parameter called isSplash. The parameter is given in MainLayout.razor
-  #   where it is then evalutated in MainLayout.razor's @code section. This code takes the latter 
-  #   character of the uri and if it is not '/' it returns false. This is because '/' indicates
-  #   that it is the base for the URI
+- Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
+- These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
 
-  
-- CURRENT STATE:
-
-- Splash page that asks for location they are looking for
-  - This will probably just be main home page, rather than modal. This page:
-    - Will not have navigation button or tab
-    - Will not be scrollable
-    - Will consist of header that says something sexy like, "Where ya headed, handsome?"
-    - Will have 3 logos to choose from
-    - Will not be able to be navigated to after this option besides searchbar I guess
-  # Create a component that will act as the logo buttons. Maybe this can be used in the navbar too
-
+# TODO #####################################################################################################
 
 - Understand how to load an image asset from local files rather than linking to squarespace asset
+- Download specific font styles to use
 
 - Events Page:
   - Have a form to let people leave info
@@ -56,3 +31,46 @@
     - Join the team
   - Consider adding breakpoint for nav menu to become horizonal and permanent on large screen
   - Make a navigation button component to reuse with all pages and homes
+
+# FINISHED #################################################################################################
+
+  # Get better sense for how to organize css for site
+# app.css for reusable classes regarding multiple files
+# ____.razor.css for individual files
+# Add dropdown for center home button
+# Dropdown includes options for SVI, SVC and Comfort
+
+# Make the nav button on main screen look less weird
+  # Match color pallete
+  # Add css breakpoints
+  # Align nav button margin with rest of page
+  # Figure out a good and clean way to allow sass to run scripts without always having bypass on current user
+  #   Used RemoteSigned for CurrentUser
+  # Remove border of accordion in offcanvas
+  # Change color of accordion carrot
+  # Currently have all of mf bootstrap in NavMenuOffCanvas.css
+  #   Go through and import only what is needed
+  # Fix sizing of offcanvas open button. This is a me thing. Im just bad at finding good sizes.
+
+  # Trying to remove the navbutton on load of splash screen
+  # Reintroduce navbutton when navigate to other home page
+  # Cannot figure out how to pass the changed state of isSplash
+  # State of hiding button happens in NavMenuOffCanvas
+  # if isSplash is true, display of NavButton is none. If false, display is block
+  # Try using NavigationManager.LocationChanged
+  # Did not work. I think this is mostly for monitoring rather than making changes
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# Explaination: 
+  # NavMenuOffCanvas.razor has parameter called isSplash. The parameter is given in MainLayout.razor
+  #   where it is then evalutated in MainLayout.razor's @code section. This code takes the latter 
+  #   character of the uri and if it is not '/' it returns false. This is because '/' indicates
+  #   that it is the base for the URI
+
+# Splash page that asks for location they are looking for
+  # Create a component that will act as the logo buttons. Maybe this can be used in the navbar too
+  # This will probably just be main home page, rather than modal. This page:
+  #   Will not have navigation button or tab
+  #   Will consist of header that says something sexy like, "Where ya headed, handsome?"
+  #   Will have 3 logos to choose from
+  #   Scrollbar will not be visible
+  #   Will not be able to be navigated to after this option besides searchbar I guess
