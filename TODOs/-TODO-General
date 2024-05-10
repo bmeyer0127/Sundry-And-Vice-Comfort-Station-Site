@@ -1,6 +1,7 @@
 # CURRENT TASK ###########################################################################################
 
-
+- Add Entity to project
+-   Do greater research into best practices. Would love to just make the model of the DB once.
 
 # TODO #####################################################################################################
 
@@ -14,6 +15,9 @@
   - Have a form to let people leave info
   - Have a few emails to leave on the bottom of the page
   - Maybe figure a dummy phone number
+
+- Admin Page:
+  - Just create a razor page and give no way to navigate to 
 
 - Create reusable components for
   - Gallery
