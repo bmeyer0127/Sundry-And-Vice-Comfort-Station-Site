@@ -1,7 +1,20 @@
 # CURRENT TASK ###########################################################################################
 
 - Add Entity to project
+#   I am creating the context of it all within a new "Data" folder but I will not build the context until I am sure of it
+#   Basic classes are created. Waiting to create context
+-   Go through each table and make sure to add necessary table instances
 -   Do greater research into best practices. Would love to just make the model of the DB once.
+-   Table Column Attributes:
+-     Location
+-     LocationMenu
+-     MenuItem
+-     ItemType
+-     ItemIngredient
+-     Ingredient
+-     Measurement
+-     Gallery
+-     HoursOpen
 
 # TODO #####################################################################################################
 
