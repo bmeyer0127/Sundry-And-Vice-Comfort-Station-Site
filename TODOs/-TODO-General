@@ -1,5 +1,7 @@
 # CURRENT TASK ###########################################################################################
 
+- I think I should continue development with sqlite but keep in mind that I should use sqlServer for production
+
 - Add Entity to project
 #   I am creating the context of it all within a new "Data" folder but I will not build the context until I am sure of it
 #   Basic classes are created. Waiting to create context
