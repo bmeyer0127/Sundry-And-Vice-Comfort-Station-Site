@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class MenuItem
 {
-  public int ItemID { get; set; }
+  public int MenuItemID { get; set; }
 
   [Required]
   public int ItemTypeID { get; set; }

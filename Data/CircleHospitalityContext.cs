@@ -4,7 +4,11 @@ using System.Collections.Generic;
 
 public class CircleHospitalityContext : DbContext
 {
-  public DbSet<Location> Locations { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+        optionsBuilder.UseSqlServer(
+            @"Server=(local);Database=CircleHospitality;Trusted_Connection=True");
+
+    public DbSet<Location> Locations { get; set; }
   public DbSet<LocationMenu> LocationMenus { get; set; }
   public DbSet<MenuItem> MenuItems { get; set; }
   public DbSet<ItemType> ItemTypes { get; set; }
