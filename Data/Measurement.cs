@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class Measurement
 {
-  public int MeasurementID { get; set; }
-
-  [Required]
-  public string? MeasurementDescription { get; set; }
+    public int MeasurementID { get; set; }
+    [Required]
+    public string? MeasurementDescription { get; set; }
 }

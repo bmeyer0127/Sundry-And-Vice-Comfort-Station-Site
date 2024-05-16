@@ -1,24 +1,13 @@
 # CURRENT TASK ###########################################################################################
 
-- I think I should continue development with sqlite but keep in mind that I should use sqlServer for production
+- Create admin page for CRUD options for all of the tables
+  - Just create a razor page and give no way to navigate to 
 
-- Add Entity to project
-#   I am creating the context of it all within a new "Data" folder but I will not build the context until I am sure of it
-#   Basic classes are created. Waiting to create context
--   Go through each table and make sure to add necessary table instances
--   Do greater research into best practices. Would love to just make the model of the DB once.
--   Table Column Attributes:
--     Location
--     LocationMenu
--     MenuItem
--     ItemType
--     ItemIngredient
--     Ingredient
--     Measurement
--     Gallery
--     HoursOpen
+- Find a way to share database with laptop and desktop. Cannot keep database running at all times. 
 
 # TODO #####################################################################################################
+
+- Look into server hosting for Circle Hospitality database
 
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
 - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
@@ -30,9 +19,6 @@
   - Have a form to let people leave info
   - Have a few emails to leave on the bottom of the page
   - Maybe figure a dummy phone number
-
-- Admin Page:
-  - Just create a razor page and give no way to navigate to 
 
 - Create reusable components for
   - Gallery
@@ -54,6 +40,25 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Add Entity to project
+#   Go through each table and make sure to add necessary table instances
+#   Do greater research into best practices. Would love to just make the model of the DB once.
+# Create the parent-child relationships between tables
+# Remove Gallery, Hours, and LocationMenus from database
+# Integrate LocationMenus into MenuItems (LocationID for each MenuItem, null if not being used)
+#   I am creating the context of it all within a new "Data" folder but I will not build the context until I am sure of it
+#   Basic classes are created. Waiting to create context
+#   Table Column Attributes:
+#     Location
+#     LocationMenu
+#     MenuItem
+#     ItemType
+#     ItemIngredient
+#     Ingredient
+#     Measurement
+#     Gallery
+#     HoursOpen
 
   # Get better sense for how to organize css for site
 # app.css for reusable classes regarding multiple files

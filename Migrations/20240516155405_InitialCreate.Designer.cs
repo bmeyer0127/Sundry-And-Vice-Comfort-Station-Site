@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SundryAndViceComfortStationSite.Migrations
 {
     [DbContext(typeof(CircleHospitalityContext))]
-    [Migration("20240515190008_mssql.local_migration_528")]
-    partial class mssqllocal_migration_528
+    [Migration("20240516155405_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
