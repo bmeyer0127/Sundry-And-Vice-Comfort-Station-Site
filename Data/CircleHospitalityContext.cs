@@ -13,7 +13,7 @@ public class CircleHospitalityContext : DbContext
     // Change the Connection string depending on whether I am on my laptop or desktop for SQL Server connection
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
         optionsBuilder.UseSqlServer(_config.GetConnectionString("DesktopDatabaseConnection"));
-
+     
 
     public DbSet<Location> Locations { get; set; }
     public DbSet<MenuItem> MenuItems { get; set; }
@@ -21,8 +21,5 @@ public class CircleHospitalityContext : DbContext
     public DbSet<ItemIngredient> ItemIngredients { get; set; }
     public DbSet<Ingredient> Ingredients { get; set; }
     public DbSet<Measurement> Measurements { get; set; }
-
-    /*public DbSet<LocationMenu> LocationMenus { get; set; }
-    public DbSet<HoursOpen> HoursOpens { get; set; }
-    public DbSet<Gallery> Galleries { get; set; }*/
+    public DbSet<LocationMenu> LocationMenus { get; set; }
 }

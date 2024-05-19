@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SundryAndViceComfortStationSite.Migrations
 {
     [DbContext(typeof(CircleHospitalityContext))]
-    partial class CircleHospitalityContextModelSnapshot : ModelSnapshot
+    [Migration("20240517172650_Fixing-MenuItem")]
+    partial class FixingMenuItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,27 +98,6 @@ namespace SundryAndViceComfortStationSite.Migrations
                     b.ToTable("Locations");
                 });
 
-            modelBuilder.Entity("LocationMenu", b =>
-                {
-                    b.Property<int>("LocationID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MenuItemID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("HasDairy")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasEgg")
-                        .HasColumnType("bit");
-
-                    b.HasKey("LocationID", "MenuItemID");
-
-                    b.HasIndex("MenuItemID");
-
-                    b.ToTable("LocationMenus");
-                });
-
             modelBuilder.Entity("Measurement", b =>
                 {
                     b.Property<int>("MeasurementID")
@@ -184,25 +166,6 @@ namespace SundryAndViceComfortStationSite.Migrations
                     b.Navigation("Ingredient");
 
                     b.Navigation("Measurement");
-
-                    b.Navigation("MenuItem");
-                });
-
-            modelBuilder.Entity("LocationMenu", b =>
-                {
-                    b.HasOne("Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MenuItem", "MenuItem")
-                        .WithMany()
-                        .HasForeignKey("MenuItemID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Location");
 
                     b.Navigation("MenuItem");
                 });
