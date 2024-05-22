@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Sundry_And_Vice_Comfort_Station_Site.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddBlazorBootstrap();
+
+builder.Services.AddDbContext<CircleHospitalityContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CircleHospitalityContext")));
 
 var app = builder.Build();
 
