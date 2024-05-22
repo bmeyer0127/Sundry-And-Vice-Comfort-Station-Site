@@ -1,9 +1,5 @@
 # CURRENT TASK ###########################################################################################
 
-- Create admin page for CRUD options for all of the tables
-    - Just create a razor page and give no way to navigate to 
-
-
 - Admin functionality:
     - Add form
         - Creates a menu item from scratch. Will have:
@@ -17,6 +13,9 @@
             - Form for type of cocktail (draft, classic, unique)
     - Update/Delete form
     - 
+
+- Create admin page for CRUD options for all of the tables
+    - Just create a razor page and give no way to navigate to 
 
 - Find a way to share database with laptop and desktop. Cannot keep database running at all times. 
     - Cloud server maybe?

@@ -1,7 +1,11 @@
-﻿<h3>Admin</h3>
+﻿@page "/admin"
+@namespace Pages.Admin
+@using System.Linq
+
+
+<h3>Admin</h3>
 
 @code {
-    using System.Linq
     using var dbContext = new CircleHospitalityContext
     public string sviAddy = from l in dbContext.Location
                             select LocationAddress
