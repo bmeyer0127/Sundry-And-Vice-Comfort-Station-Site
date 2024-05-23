@@ -1,28 +1,30 @@
 # CURRENT TASK ###########################################################################################
 
+- Build Admin Page:
+
 - Admin functionality:
     - Add form
         - Creates a menu item from scratch. Will have:
-            - Cocktail name form
-            - Cocktail description form
-            - Ingredients form
-            - Creator form
-            - Boxes to check for which locations its at
-            - Box for HasDairy
-            - Box for HasEgg
+            # Cocktail name form
+            # Cocktail description form
+            # Ingredients form
+            # Creator form
+            # Boxes to check for which locations its at
+            # Box for HasDairy
+            # Box for HasEgg
             - Form for type of cocktail (draft, classic, unique)
     - Update/Delete form
-    - 
 
 - Create admin page for CRUD options for all of the tables
-    - Just create a razor page and give no way to navigate to 
+    # Just create a razor page and give no way to navigate to
+    - Add password protection for admins.
+        - Creates accounts manually rather than having a separate page for that.
+
+
+# TODO #####################################################################################################
 
 - Find a way to share database with laptop and desktop. Cannot keep database running at all times. 
     - Cloud server maybe?
-
-# Add back LocationMenu Table
-
-# TODO #####################################################################################################
 
 - Look into server hosting for Circle Hospitality database
 
