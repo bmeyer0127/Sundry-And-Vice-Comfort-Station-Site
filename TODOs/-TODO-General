@@ -34,6 +34,8 @@
 
 # TODO #####################################################################################################
 
+- Add bootstrap grid to Home.razor
+
 - Find a way to share database with laptop and desktop. Cannot keep database running at all times. 
     - Cloud server maybe?
 

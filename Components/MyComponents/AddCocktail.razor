@@ -1,4 +1,5 @@
 ﻿@namespace MyComponenets.AddCocktail
+@using MyComponents.ItemTypeDropdown
 @using System
 @using System.Linq
 
@@ -76,6 +77,14 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Cocktail Type:</label>
+                    </div>
+                    <div class="col">
+                        <ItemTypeDropdown />
                     </div>
                 </div>
             </div>

@@ -9,7 +9,10 @@
         Cocktail Type
     </button>
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
+        @foreach (ItemType type in Context.ItemTypes)
+        {
+            <li><a class="dropdown-item" href="#">@type.ItemTypeDescription</a></li>
+        }
     </ul>
 
 </div>
