@@ -1,0 +1,21 @@
+﻿@namespace MyComponents.ItemTypeDropdown
+@using System
+@using System.Collections.Generic
+@using System.Linq
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Cocktail Type
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+    </ul>
+</div>
+
+@code {
+    public void UseItemTypes()
+    {
+        using var itemTypes = new CircleHospitalityContext();
+    }
+    // IEnumerable<string> ItemTypes = 
+}

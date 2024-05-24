@@ -7,12 +7,23 @@
         - Creates a menu item from scratch. Will have:
             # Cocktail name form
             # Cocktail description form
-            # Ingredients form
             # Creator form
             # Boxes to check for which locations its at
             # Box for HasDairy
             # Box for HasEgg
-            - Form for type of cocktail (draft, classic, unique)
+!            - Form for type of cocktail (draft, classic, unique)
+!                - Dropdown list to select the type. Types are:
+!                    - Draft, classic, house
+            (Potentially use ENUMS rather than database. This will be unchanging I'd imagine)
+            (Then again, I wouldn't be able to use LINQ to query I don't think)
+            - Ingredients checklist. Specs of functionality will be as follows:
+                - A scroll form will list all of the ingredients in the database
+                - Each ingredient will have a checkbox next to it
+                - Once checked, another container will be populated and will look like the following:
+                    - To the left: a dropdown menu to select the amount necessary
+                    - In the center: the name of the ingredient
+                    - To the right: an X to remove the ingredient
+                - The container will also have a search function that filters with each letter typed
     - Update/Delete form
 
 - Create admin page for CRUD options for all of the tables
