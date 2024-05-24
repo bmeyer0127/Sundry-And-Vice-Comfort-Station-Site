@@ -1,5 +1,9 @@
 ﻿@page "/"
 @namespace Pages.Home
+@inject CircleHospitalityContext Context
+@using System
+@using System.Collections.Generic
+@using System.Linq
 @using MyComponents.SplashLogo
 @using MyComponents.NavMenuOffCanvas
 
@@ -25,6 +29,11 @@
     </div>
   </div>
 </div>
+
+@foreach (Location location in Context.Locations)
+{
+    <p>@location.LocationAddress</p>
+}
 
 @code {
 }
