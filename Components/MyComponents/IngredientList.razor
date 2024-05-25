@@ -1,0 +1,33 @@
+﻿@namespace MyComponents.IngredientList
+@inject CircleHospitalityContext Context
+@using System
+@using System.Linq
+
+<div class="container">
+    @*<div class="list-group overflow-auto" style="max-height: 150px">
+        @foreach (Ingredient ingredient in Context.Ingredients)
+        {
+            <li class="list-group-item d-flex">
+                <input class="form-check-input me-2" type="checkbox" value="" />
+                <label class="form-check-label">@ingredient.IngredientName</label>
+            </li>
+        }
+    </div>*@
+    <div class="list-group overflow-auto" style="max-height: 150px">
+        @foreach (Ingredient ingredient in Context.Ingredients.Where (i => i.IngredientName.StartsWith("L")
+        {
+            <li class="list-group-item d-flex">
+                <input class="form-check-input me-2" type="checkbox" value="" />
+                <label class="form-check-label">@ingredient.IngredientName</label>
+            </li>
+        }
+    </div>
+</div>
+
+@code {
+    public IQueryable<Ingredient> GetSortedIngredients()
+    {
+        return Context.Ingredients
+                .Where(i => i.IngredientName.StartsWith("L"));
+    }
+}

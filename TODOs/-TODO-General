@@ -11,11 +11,9 @@
             # Boxes to check for which locations its at
             # Box for HasDairy
             # Box for HasEgg
-!            - Form for type of cocktail (draft, classic, unique)
-!                - Dropdown list to select the type. Types are:
-!                    - Draft, classic, house
-            (Potentially use ENUMS rather than database. This will be unchanging I'd imagine)
-            (Then again, I wouldn't be able to use LINQ to query I don't think)
+            # Form for type of cocktail (draft, classic, unique)
+                # Dropdown list to select the type. Types are:
+                    # Draft, classic, house
             - Ingredients checklist. Specs of functionality will be as follows:
                 - A scroll form will list all of the ingredients in the database
                 - Each ingredient will have a checkbox next to it
@@ -33,6 +31,8 @@
 
 
 # TODO #####################################################################################################
+
+- Consider making changes to measurement table. Maybe make separate tables for amounts and measurement descriptions
 
 - Add bootstrap grid to Home.razor
 
