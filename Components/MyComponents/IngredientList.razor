@@ -4,17 +4,9 @@
 @using System.Linq
 
 <div class="container">
-    @*<div class="list-group overflow-auto" style="max-height: 150px">
-        @foreach (Ingredient ingredient in Context.Ingredients)
-        {
-            <li class="list-group-item d-flex">
-                <input class="form-check-input me-2" type="checkbox" value="" />
-                <label class="form-check-label">@ingredient.IngredientName</label>
-            </li>
-        }
-    </div>*@
     <div class="list-group overflow-auto" style="max-height: 150px">
-        @foreach (Ingredient ingredient in Context.Ingredients.Where (i => i.IngredientName.StartsWith("L")
+        <input id="IngredientSearch" style="form-control-sm" placeholder="search" />
+        @foreach (Ingredient ingredient in GetSortedIngredients())
         {
             <li class="list-group-item d-flex">
                 <input class="form-check-input me-2" type="checkbox" value="" />
