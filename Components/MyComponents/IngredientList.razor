@@ -1,28 +1,25 @@
 ﻿@namespace MyComponents.IngredientList
+@rendermode InteractiveServer
 @inject CircleHospitalityContext Context
 @using System
 @using System.Linq
 
 <div class="container">
-    <div class="list-group overflow-auto" style="max-height: 150px">
-        @*<input name="IngredientSearch" class="form-control-sm" placeholder="search" />*@
-        <InputText @bind-Value="searchInput" />
-        @foreach (Ingredient ingredient in GetSortedIngredients(searchInput))
-        {
-            <li class="list-group-item d-flex">
-                <input class="form-check-input me-2" type="checkbox" value="" />
-                <label class="form-check-label">@ingredient.IngredientName</label>
+    <input type="text" class="form-control-sm" placeholder="search" @bind="searchInput" />
+    <div class="list-group overflow-auto" style="max-height: 150px; min-height: 150px">
+        <ul>
+            @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName.StartsWith(searchInput)))
+            {
+                <li class="list-group-item d-flex">
+                    <input class="form-check-input me-2" type="checkbox" value="" />
+                    <label class="form-check-label">@ingredient.IngredientName</label>
                 
-            </li>
-        }
+                </li>
+            }
+        </ul>
     </div>
 </div>
 
 @code {
-    public string searchInput;
-    public IQueryable<Ingredient> GetSortedIngredients(string searchTerm)
-    {
-        return Context.Ingredients
-                .Where(i => i.IngredientName.StartsWith(searchTerm));
-    }
+    string searchInput = "";
 }

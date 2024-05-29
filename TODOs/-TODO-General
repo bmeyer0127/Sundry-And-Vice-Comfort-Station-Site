@@ -15,13 +15,13 @@
                 # Dropdown list to select the type. Types are:
                     # Draft, classic, house
             - Ingredients checklist. Specs of functionality will be as follows:
-                - A scroll form will list all of the ingredients in the database
-                - Each ingredient will have a checkbox next to it
+                # A scroll form will list all of the ingredients in the database
+                # Each ingredient will have a checkbox next to it
                 - Once checked, another container will be populated and will look like the following:
                     - To the left: a dropdown menu to select the amount necessary
                     - In the center: the name of the ingredient
                     - To the right: an X to remove the ingredient
-                - The container will also have a search function that filters with each letter typed
+                # The container will also have a search function that filters with each letter typed
     - Update/Delete form
 
 - Create admin page for CRUD options for all of the tables
