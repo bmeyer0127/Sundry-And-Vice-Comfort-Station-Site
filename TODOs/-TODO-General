@@ -1,5 +1,8 @@
 # CURRENT TASK ###########################################################################################
 
+- Currently:
+    - Trying to populate a collection of Ingredients to a list if they are checked
+
 - Admin functionality:
     - Add form
         - Creates a menu item from scratch. Will have:
@@ -31,6 +34,8 @@
 
 
 # TODO #####################################################################################################
+
+- Consider attempting to make it so IngredientList updates with each keystroke instead of having to tab out
 
 - Consider making changes to measurement table. Maybe make separate tables for amounts and measurement descriptions
 
