@@ -2,6 +2,8 @@
 @rendermode InteractiveServer
 @inject CircleHospitalityContext Context
 @using System
+@using System.Collections.Generic
+@using System.Collections
 @using System.Linq
 
 <div class="container">
@@ -11,13 +13,15 @@
             @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName!.Contains(searchInput)))
             {
                 <li class="list-group-item d-flex">
-                    <input 
-                        class="form-check-input me-2" 
-                        type="checkbox" 
+                    <button 
+                        class="btn btn-outline-primary me-2" 
+                        type="button" 
                         id="@ingredient.IngredientID"
                         value="@ingredient.IngredientID" 
-                        onclick="() => checkedIngredients.Add(ingredient)"
-                        />
+                        @* Want to use linq to add ItemIngredient to table *@
+                        >
+                        Add
+                        </button>
                     <label 
                         class="form-check-label"
                         for="@ingredient.IngredientID">
@@ -30,7 +34,7 @@
 </div>
 <div class="container">
     <ul>
-        @foreach (Ingredient ingredient1 in checkedIngredients)
+        @foreach (Ingredient ingredient1 in addedIngredients)
         {
             <li>@ingredient1.IngredientName</li>
         }
@@ -39,8 +43,10 @@
 
 @code {
     string searchInput = "";
+    public List<Ingredient> addedIngredients = new List<Ingredient>();
 
-    public bool isChecked { get; set; }
-    public Ingredient? ingredient { get; set; }
-    public ICollection<Ingredient>? checkedIngredients { get; set; }
+    public void addIngredient(Ingredient ingredientName)
+    {
+        addedIngredients.Append(ingredientName);
+    }
 }

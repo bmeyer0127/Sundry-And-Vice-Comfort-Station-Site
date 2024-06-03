@@ -2,6 +2,8 @@
 
 - Currently:
     - Trying to populate a collection of Ingredients to a list if they are checked
+    - I am not looking to add anything to any database until the AddCocktail submit button is hit
+    - I just need to create a temorary array to hold the ingredient names (and maybe IDs) 
 
 - Admin functionality:
     - Add form
