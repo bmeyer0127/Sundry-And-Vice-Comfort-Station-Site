@@ -18,8 +18,7 @@
                         type="button" 
                         id="@ingredient.IngredientID"
                         value="@ingredient.IngredientID" 
-                        @* Want to use linq to add ItemIngredient to table *@
-                        >
+                        onclick="@addedIngredients.Append(ingredient)">
                         Add
                         </button>
                     <label 
@@ -45,8 +44,8 @@
     string searchInput = "";
     public List<Ingredient> addedIngredients = new List<Ingredient>();
 
-    public void addIngredient(Ingredient ingredientName)
+    public void addIngredient()
     {
-        addedIngredients.Append(ingredientName);
+        
     }
 }
