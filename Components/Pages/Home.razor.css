@@ -2,4 +2,12 @@ html, body {
   overflow: hidden !important;
 }
 
+.header {
+  padding-bottom: 10%;
+}
+
+.logo-row {
+  padding-bottom: 10%;
+}
+
 /*# sourceMappingURL=Home.razor.css.map */
