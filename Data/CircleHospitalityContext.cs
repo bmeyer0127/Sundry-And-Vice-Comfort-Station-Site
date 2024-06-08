@@ -12,11 +12,11 @@ public class CircleHospitalityContext : DbContext
 
     // Change the Connection string depending on whether I am on my laptop or desktop for SQL Server connection
     // Desktop Connection
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
-    //    optionsBuilder.UseSqlServer(_config.GetConnectionString("DesktopDatabaseConnection"));
-    //XPS Connection
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        optionsBuilder.UseSqlServer(_config.GetConnectionString("XPSConnection"));
+        optionsBuilder.UseSqlServer(_config.GetConnectionString("DesktopDatabaseConnection"));
+    //XPS Connection
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+    //    optionsBuilder.UseSqlServer(_config.GetConnectionString("XPSConnection"));
 
 
     public DbSet<Location> Locations { get; set; }

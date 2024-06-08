@@ -10,4 +10,11 @@ html, body {
   padding-bottom: 10%;
 }
 
+.caveat-header {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /*# sourceMappingURL=Home.razor.css.map */

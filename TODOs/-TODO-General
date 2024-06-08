@@ -1,9 +1,8 @@
 # CURRENT TASK ###########################################################################################
 
 # Put Home.razor on a grid system
-- Change border colors to match theme. Will have to do through bootstrap
-- Use logos as tags to click on
-    - Need logos that say SVI, SVC and CS
+- Center homebuttons to fit around the picture with breakpoints
+
 
 # TODO #####################################################################################################
 
