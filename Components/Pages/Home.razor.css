@@ -1,5 +1,5 @@
 html, body {
-  overflow: hidden !important;
+  overflow-y: auto !important;
 }
 
 .header {
@@ -15,6 +15,13 @@ html, body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+@media (min-width: 992px) {
+  .background {
+    display: block;
+    overflow-y: auto;
+  }
 }
 
 /*# sourceMappingURL=Home.razor.css.map */

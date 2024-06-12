@@ -2,6 +2,7 @@
 
 # Put Home.razor on a grid system
 - Center homebuttons to fit around the picture with breakpoints
+- Instead of setting display: none to picture, try  keeping the size of the picture the exact same and just cropping it for breakpoints
 
 
 # TODO #####################################################################################################
