@@ -3,7 +3,7 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 
 html, body {
-    overflow-y: auto !important;
+    
 }
 
 .header {
@@ -25,17 +25,20 @@ html, body {
 }
 
 .background {
-    //display: none;
+    overflow: hidden;
+    object-fit: cover;
+    width: 2500px;
+    height: 2000px;
 }
 
-@include media-breakpoint-down(lg) {
-    .background {
-    }
-}
+//@include media-breakpoint-down(lg) {
+//    .background {
+//    }
+//}
 
-@include media-breakpoint-up(lg) {
-    .background {
-        display: block;
-        overflow-y: auto;
-    }
-}
+//@include media-breakpoint-up(lg) {
+    //.background {
+    //    display: block;
+    //    overflow-y: auto;
+    //}
+//}

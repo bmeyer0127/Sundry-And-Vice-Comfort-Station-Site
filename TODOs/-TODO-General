@@ -3,6 +3,11 @@
 # Put Home.razor on a grid system
 - Center homebuttons to fit around the picture with breakpoints
 - Instead of setting display: none to picture, try  keeping the size of the picture the exact same and just cropping it for breakpoints
+- What I want for the background image:
+    - It will span the entire width of the view
+    - It will span the entire height of the view
+    - It will not resize, but rather cut off or crop sides of the image that are not in view port
+    ! If I disable flex on main it kinda goes away but fucks up the positioning of everything on the page?
 
 
 # TODO #####################################################################################################
