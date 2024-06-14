@@ -31,14 +31,8 @@ html, body {
     height: 100%;
 }
 
-//@include media-breakpoint-down(lg) {
-//    .background {
-//    }
-//}
-
-//@include media-breakpoint-up(lg) {
-    //.background {
-    //    display: block;
-    //    overflow-y: auto;
-    //}
-//}
+@include media-breakpoint-up(sm) {
+    .logo-row {
+        padding-bottom: 5%;
+    }
+}
