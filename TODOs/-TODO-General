@@ -1,9 +1,21 @@
 # CURRENT TASK ###########################################################################################
 
+# Put Home.razor on a grid system
+- Center homebuttons to fit around the picture with breakpoints
+- Instead of setting display: none to picture, try  keeping the size of the picture the exact same and just cropping it for breakpoints
+- What I want for the background image:
+    - It will span the entire width of the view
+    - It will span the entire height of the view
+    - It will not resize, but rather cut off or crop sides of the image that are not in view port
+    ! If I disable flex on main it kinda goes away but fucks up the positioning of everything on the page?
+
+
+# TODO #####################################################################################################
+=======
 - Currently:
     - Trying to populate a collection of Ingredients to a list if they are checked
     - I am not looking to add anything to any database until the AddCocktail submit button is hit
-    - I just need to create a temorary array to hold the ingredient names (and maybe IDs) 
+    - I just need to create a temorary array to hold the ingredient names (and maybe IDs
 
 - Admin functionality:
     - Add form
@@ -34,24 +46,13 @@
     - Add password protection for admins.
         - Creates accounts manually rather than having a separate page for that.
 
-
-# TODO #####################################################################################################
-
-- Consider attempting to make it so IngredientList updates with each keystroke instead of having to tab out
-
-- Consider making changes to measurement table. Maybe make separate tables for amounts and measurement descriptions
-
-- Add bootstrap grid to Home.razor
-
-- Find a way to share database with laptop and desktop. Cannot keep database running at all times. 
-    - Cloud server maybe?
-
 - Look into server hosting for Circle Hospitality database
 
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
 - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
 
-- Understand how to load an image asset from local files rather than linking to squarespace asset
+# Understand how to load an image asset from local files rather than linking to squarespace asset
+    # Use PostImage
 - Download specific font styles to use
 
 - Events Page:

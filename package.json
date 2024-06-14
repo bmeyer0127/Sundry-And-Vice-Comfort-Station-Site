@@ -1,5 +1,8 @@
 {
+  "name": "sundry-and-vice-comfort-station-site",
+  "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "node": "^22.3.0"
   }
 }
