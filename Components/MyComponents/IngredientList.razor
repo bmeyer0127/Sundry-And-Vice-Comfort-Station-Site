@@ -1,0 +1,51 @@
+﻿@namespace MyComponents.IngredientList
+@rendermode InteractiveServer
+@inject CircleHospitalityContext Context
+@using System
+@using System.Collections.Generic
+@using System.Collections
+@using System.Linq
+
+<div class="container">
+    <input type="text" class="form-control-sm" placeholder="search" @bind="searchInput" />
+    <div class="list-group overflow-auto" style="max-height: 150px; min-height: 150px">
+        <ul>
+            @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName!.Contains(searchInput)))
+            {
+                <li class="list-group-item d-flex">
+                    <button 
+                        class="btn btn-outline-primary me-2" 
+                        type="button" 
+                        id="@ingredient.IngredientID"
+                        value="@ingredient.IngredientID" 
+                        onclick="@addedIngredients.Append(ingredient)">
+                        Add
+                        </button>
+                    <label 
+                        class="form-check-label"
+                        for="@ingredient.IngredientID">
+                        @ingredient.IngredientName
+                        </label>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <ul>
+        @foreach (Ingredient ingredient1 in addedIngredients)
+        {
+            <li>@ingredient1.IngredientName</li>
+        }
+    </ul>
+</div>
+
+@code {
+    string searchInput = "";
+    public List<Ingredient> addedIngredients = new List<Ingredient>();
+
+    public void addIngredient()
+    {
+        
+    }
+}

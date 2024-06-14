@@ -1,9 +1,23 @@
 ﻿@page "/admin"
 @namespace Pages.Admin
 @using System.Linq
+@using MyComponenets.AddCocktail
 
-
-<h3>Admin</h3>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h3>Admin</h3>
+        </div>
+    </div>
+    <div class="row border pt-3">
+        <div class="col">
+            <h5>Add Cocktail</h5>
+        </div>
+        <div class="col">
+            <AddCocktail />
+        </div>
+    </div>
+</div>
 
 @code {
 
