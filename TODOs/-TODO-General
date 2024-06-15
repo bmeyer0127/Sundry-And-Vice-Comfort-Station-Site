@@ -1,21 +1,19 @@
 # CURRENT TASK ###########################################################################################
 
-# Put Home.razor on a grid system
-- Center homebuttons to fit around the picture with breakpoints
-- Instead of setting display: none to picture, try  keeping the size of the picture the exact same and just cropping it for breakpoints
-- What I want for the background image:
-    - It will span the entire width of the view
-    - It will span the entire height of the view
-    - It will not resize, but rather cut off or crop sides of the image that are not in view port
-    ! If I disable flex on main it kinda goes away but fucks up the positioning of everything on the page?
+- Creating menu item component right now.
 
+- Populate each cooresponding location homepage with a greeting, and maybe a separate navbar
+-   and the menu, with filtering options, below it.
+- Filtering options: 
+    - The menu will be laid out in full with corresponding headers for each section
+    - Filtering options will remove everything that is not included. 
+    - Filtering options will not be stackable, but rather replace the other optons
 
 # TODO #####################################################################################################
-=======
-- Currently:
-    - Trying to populate a collection of Ingredients to a list if they are checked
-    - I am not looking to add anything to any database until the AddCocktail submit button is hit
-    - I just need to create a temorary array to hold the ingredient names (and maybe IDs
+
+- Trying to populate a collection of Ingredients to a list if they are checked
+- I am not looking to add anything to any database until the AddCocktail submit button is hit
+- I just need to create a temorary array to hold the ingredient names (and maybe IDs
 
 - Admin functionality:
     - Add form
@@ -80,6 +78,15 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Put Home.razor on a grid system
+# Center homebuttons to fit around the picture with breakpoints
+# Instead of setting display: none to picture, try  keeping the size of the picture the exact same and just cropping it for breakpoints
+# What I want for the background image:
+    # It will span the entire width of the view
+    # It will span the entire height of the view
+    # It will not resize, but rather cut off or crop sides of the image that are not in view port
+    # If I disable flex on main it kinda goes away but fucks up the positioning of everything on the page?
 
 # Add Entity to project
 #   Go through each table and make sure to add necessary table instances
