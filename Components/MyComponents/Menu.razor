@@ -1,6 +1,17 @@
 ﻿@namespace MyComponents.Menu
+@rendermode InteractiveServer
+@inject CircleHospitalityContext Context
+@using System
+@using System.Collections.Generic
+@using System.Collections
+@using System.Linq
 
-<p class="menu-item-name"></p>
+@foreach (MenuItem item in Context.MenuItems)
+{
+    <p class="menu-item-name">@item.ItemName</p>
+    <p class="menu-item-name">@item.ItemDescription</p>
+    <p class="menu-item-name">@item.CreatorName</p>
+}
 
 @code {
 
