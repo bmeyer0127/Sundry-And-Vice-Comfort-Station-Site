@@ -10,10 +10,6 @@ public class CircleHospitalityContext : DbContext
         _config = config;
     }
 
-    // Change the Connection string depending on whether I am on my laptop or desktop for SQL Server connection
-    // Desktop Connection
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-    //    optionsBuilder.UseSqlServer(_config.GetConnectionString("DesktopDatabaseConnection"));
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
         optionsBuilder.UseSqlServer(_config.GetConnectionString("DBConnection"));
 

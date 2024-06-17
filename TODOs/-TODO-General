@@ -1,7 +1,5 @@
 # CURRENT TASK ###########################################################################################
 
-- Set up environment variables with for the SQL connection string using appsettings.Development.json (and make that ingored by git)
-
 - Creating menu item component right now.
     - Separate each menu item in its own container. 
 
@@ -12,14 +10,12 @@
     - Filtering options will remove everything that is not included. 
     - Filtering options will not be stackable, but rather replace the other optons
 
-# Rework measurement table to just include description (oz, dash instead of 1oz, 3dash). 
-# ItemIngredients table will have another column for amount.
 
 # TODO #####################################################################################################
 
 - Trying to populate a collection of Ingredients to a list if they are checked
 - I am not looking to add anything to any database until the AddCocktail submit button is hit
-- I just need to create a temorary array to hold the ingredient names (and maybe IDs
+- I just need to create a temorary array to hold the ingredient names (and maybe IDs)
 
 - Admin functionality:
     - Add form
@@ -84,6 +80,11 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Set up environment variables with for the SQL connection string using appsettings.Development.json (and make that ingored by git)
+
+# Rework measurement table to just include description (oz, dash instead of 1oz, 3dash). 
+# ItemIngredients table will have another column for amount.
 
 # Put Home.razor on a grid system
 # Center homebuttons to fit around the picture with breakpoints
