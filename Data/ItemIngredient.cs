@@ -8,6 +8,7 @@ public class ItemIngredient
     public int MenuItemID { get; set; }
     public int IngredientID { get; set; }
     public int MeasurementID { get; set; }
+    public int MeasurementAmount { get; set; }
 
     public virtual Measurement? Measurement { get; set; }
     public virtual Ingredient? Ingredient { get; set; }

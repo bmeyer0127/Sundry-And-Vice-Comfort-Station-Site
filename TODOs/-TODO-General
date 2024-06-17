@@ -12,8 +12,8 @@
     - Filtering options will remove everything that is not included. 
     - Filtering options will not be stackable, but rather replace the other optons
 
-- Rework measurement table to just include description (oz, dash instead of 1oz, 3dash). 
-- ItemIngredients table will have another column for amount.
+# Rework measurement table to just include description (oz, dash instead of 1oz, 3dash). 
+# ItemIngredients table will have another column for amount.
 
 # TODO #####################################################################################################
 
