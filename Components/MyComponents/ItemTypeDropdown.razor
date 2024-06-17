@@ -1,0 +1,22 @@
+﻿@namespace MyComponents.ItemTypeDropdown
+@inject CircleHospitalityContext Context
+@using System
+@using System.Collections.Generic
+@using System.Linq
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Cocktail Type
+    </button>
+    <ul class="dropdown-menu">
+        @foreach (ItemType type in Context.ItemTypes)
+        {
+            <li><a class="dropdown-item" href="#">@type.ItemTypeDescription</a></li>
+        }
+    </ul>
+
+</div>
+
+@code {
+
+}

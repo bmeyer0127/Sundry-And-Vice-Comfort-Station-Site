@@ -45,6 +45,9 @@ namespace SundryAndViceComfortStationSite.Migrations
                     b.Property<int>("IngredientID")
                         .HasColumnType("int");
 
+                    b.Property<float>("MeasurementAmount")
+                        .HasColumnType("real");
+
                     b.Property<int>("MeasurementID")
                         .HasColumnType("int");
 

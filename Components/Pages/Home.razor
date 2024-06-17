@@ -1,29 +1,33 @@
 ﻿@page "/"
 @namespace Pages.Home
+@inject CircleHospitalityContext Context
+@using System
+@using System.Collections.Generic
+@using System.Linq
 @using MyComponents.SplashLogo
 @using MyComponents.NavMenuOffCanvas
 
 <PageTitle>Home</PageTitle>
-
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-      <h1>Where ya headed, handsome?</h1>
+<img class="background img-fluid position-absolute z-0" src="https://i.postimg.cc/d3rx75Y7/Rosey-Baby.jpg" />
+<div class="container text-center position-relative z-1">
+    <div class="row">
+    <div class="col header">
+        <h1 class="caveat-header mt-3">Where ya headed, handsome?</h1>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <SplashLogo logo="SVI" link="svi-home" />
     </div>
-    <div class="col">
-      <SplashLogo logo="SVC" link="svc-home" />
+    <div class="row logo-row">
+    <div class="col logo-col">
+        <SplashLogo logo="Sundry - Indy" link="svi-home" />
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <SplashLogo logo="CS" link="cs-home" />
+    <div class="col logo-col">
+        <SplashLogo logo="Sundry - Cincy" link="svc-home" />
     </div>
-  </div>
+    </div>
+    <div class="row logo-row">
+    <div class="col logo-col">
+        <SplashLogo logo="Comfort - Cincy" link="cs-home" />
+    </div>
+    </div>
 </div>
 
 @code {

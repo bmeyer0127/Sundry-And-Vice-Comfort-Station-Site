@@ -1,12 +1,13 @@
 @namespace MyComponents.SplashLogo
+@inject NavigationManager _nav
 
-<a href='@string.Format("{0}", link)'>@logo</a>
+<a class="btn logo-button border sm" href='@string.Format("{0}", link)'>@logo</a>
+
 
 @code {
-  [Parameter]
-  public string? logo { get; set; } = "";
+    [Parameter]
+    public string? logo { get; set; } = "";
 
-  [Parameter]
-  public string? link { get; set; } = "";
-
+    [Parameter]
+    public string? link { get; set; } = "";
 }

@@ -1,35 +1,58 @@
 # CURRENT TASK ###########################################################################################
 
+- Creating menu item component right now.
+    - Separate each menu item in its own container. 
+
+- Populate each cooresponding location homepage with a greeting, and maybe a separate navbar
+-   and the menu, with filtering options, below it.
+- Filtering options: 
+    - The menu will be laid out in full with corresponding headers for each section
+    - Filtering options will remove everything that is not included. 
+    - Filtering options will not be stackable, but rather replace the other optons
+
+
+# TODO #####################################################################################################
+
+- Trying to populate a collection of Ingredients to a list if they are checked
+- I am not looking to add anything to any database until the AddCocktail submit button is hit
+- I just need to create a temorary array to hold the ingredient names (and maybe IDs)
+
 - Admin functionality:
     - Add form
         - Creates a menu item from scratch. Will have:
-            - Cocktail name form
-            - Cocktail description form
-            - Ingredients form
-            - Creator form
-            - Boxes to check for which locations its at
-            - Box for HasDairy
-            - Box for HasEgg
-            - Form for type of cocktail (draft, classic, unique)
+            # Cocktail name form
+            # Cocktail description form
+            # Creator form
+            # Boxes to check for which locations its at
+            # Box for HasDairy
+            # Box for HasEgg
+            # Form for type of cocktail (draft, classic, unique)
+                # Dropdown list to select the type. Types are:
+                    # Draft, classic, house
+            - Ingredients checklist. Specs of functionality will be as follows:
+                # A scroll form will list all of the ingredients in the database
+                # The container will also have a search function that filters with each letter typed
+                # Each ingredient will have a checkbox next to it
+
+                - Once checked, another container will be populated and will look like the following:
+                    - To the left: a dropdown menu to select the amount necessary
+                    - In the center: the name of the ingredient
+                    - To the right: an X to remove the ingredient
+                - Populate the container and then add the ingredient - menuitem combo on submit
     - Update/Delete form
-    - 
 
 - Create admin page for CRUD options for all of the tables
-    - Just create a razor page and give no way to navigate to 
-
-- Find a way to share database with laptop and desktop. Cannot keep database running at all times. 
-    - Cloud server maybe?
-
-# Add back LocationMenu Table
-
-# TODO #####################################################################################################
+    # Just create a razor page and give no way to navigate to
+    - Add password protection for admins.
+        - Creates accounts manually rather than having a separate page for that.
 
 - Look into server hosting for Circle Hospitality database
 
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
 - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
 
-- Understand how to load an image asset from local files rather than linking to squarespace asset
+# Understand how to load an image asset from local files rather than linking to squarespace asset
+    # Use PostImage
 - Download specific font styles to use
 
 - Events Page:
@@ -57,6 +80,20 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Set up environment variables with for the SQL connection string using appsettings.Development.json (and make that ingored by git)
+
+# Rework measurement table to just include description (oz, dash instead of 1oz, 3dash). 
+# ItemIngredients table will have another column for amount.
+
+# Put Home.razor on a grid system
+# Center homebuttons to fit around the picture with breakpoints
+# Instead of setting display: none to picture, try  keeping the size of the picture the exact same and just cropping it for breakpoints
+# What I want for the background image:
+    # It will span the entire width of the view
+    # It will span the entire height of the view
+    # It will not resize, but rather cut off or crop sides of the image that are not in view port
+    # If I disable flex on main it kinda goes away but fucks up the positioning of everything on the page?
 
 # Add Entity to project
 #   Go through each table and make sure to add necessary table instances

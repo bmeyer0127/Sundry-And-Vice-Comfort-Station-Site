@@ -284,8 +284,8 @@ FakesAssemblies/
 *.GhostDoc.xml
 
 # Node.js Tools for Visual Studio
-.ntvs_analysis.dat
-node_modules/
+#.ntvs_analysis.dat
+#node_modules/
 
 # Visual Studio 6 build log
 *.plg
@@ -398,3 +398,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/appsettings.Development.json
