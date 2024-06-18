@@ -1,6 +1,19 @@
 # CURRENT TASK ###########################################################################################
 
-- Creating menu item component right now.
+Create sass class to apply to all non home pages
+
+- Welcome Component
+    - Display the same message with a unique styling depending on the current location
+        - Unsure about the message
+        - Styles:
+            SVI:
+                - Art deco. Think if Gatsby was a little more depressed and broody.
+            SVC: 
+                - Sexy apothocary. Classic and moody
+            CS:
+                - Under the stars kind of vibe. Dark blues, some whites
+
+- Menu Component
     - Separate each menu item in its own container. 
 
 - Populate each cooresponding location homepage with a greeting, and maybe a separate navbar

@@ -8,9 +8,13 @@
 
 @foreach (MenuItem item in Context.MenuItems)
 {
-    <p class="menu-item-name">@item.ItemName</p>
-    <p class="menu-item-name">@item.ItemDescription</p>
-    <p class="menu-item-name">@item.CreatorName</p>
+    <div class="container-fluid text-center w-25 mb-3">
+        <div class="border pt-3 pb-3">
+            <p class="menu-item-name">@item.ItemName</p>
+            <p class="menu-item-name">@item.ItemDescription</p>
+            <p class="menu-item-name">@item.CreatorName</p>
+        </div>
+    </div>
 }
 
 @code {
