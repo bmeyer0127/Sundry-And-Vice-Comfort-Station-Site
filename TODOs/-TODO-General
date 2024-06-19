@@ -1,6 +1,8 @@
 # CURRENT TASK ###########################################################################################
 
-Create sass class to apply to all non home pages
+- Create a seeding file for the database. It's getting really annoying updating two databases at once
+
+- Create sass class to apply to all non home pages
 
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
