@@ -1,6 +1,9 @@
-﻿namespace Sundry-And-Vice-Comfort-Station-Site.Utilities
-{
-    public class SeedDatabase
-{
-}
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Utilities.SeedDatabase;
+
+public class SeedDatabase
+    {
+    using (var dbContext = new CircleHospitalityContext());
+    
 }
