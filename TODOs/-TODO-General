@@ -1,6 +1,10 @@
 # CURRENT TASK ###########################################################################################
 
+- Fix side margins on non-splash screen pages
+
 - Create sass class to apply to all non home pages
+
+- Add beer to ItemType
 
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
@@ -14,8 +18,8 @@
                 - Under the stars kind of vibe. Dark blues, some whites
 
 - Menu Component
-    - Menu items displayed are not differentiating based on location
-    - Separate each menu item in its own container. 
+    # Menu items displayed are not differentiating based on location
+    # Separate each menu item in its own container. 
 
 - Populate each cooresponding location homepage with a greeting, and maybe a separate navbar
 -   and the menu, with filtering options, below it.
