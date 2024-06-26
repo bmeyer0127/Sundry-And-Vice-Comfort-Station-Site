@@ -1,7 +1,5 @@
 # CURRENT TASK ###########################################################################################
 
-- Create a seeding file for the database. It's getting really annoying updating two databases at once
-
 - Create sass class to apply to all non home pages
 
 - Welcome Component
@@ -16,6 +14,7 @@
                 - Under the stars kind of vibe. Dark blues, some whites
 
 - Menu Component
+    - Menu items displayed are not differentiating based on location
     - Separate each menu item in its own container. 
 
 - Populate each cooresponding location homepage with a greeting, and maybe a separate navbar
@@ -95,6 +94,8 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Create a seeding file for the database. It's getting really annoying updating two databases at once
 
 # Set up environment variables with for the SQL connection string using appsettings.Development.json (and make that ingored by git)
 
