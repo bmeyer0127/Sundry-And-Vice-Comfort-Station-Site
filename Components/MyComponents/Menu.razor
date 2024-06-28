@@ -6,6 +6,8 @@
 @using System.Collections
 @using System.Linq
 
+
+
 @foreach (var item in (from MI in Context.MenuItems
                             join L in Context.LocationMenus
                             on MI.MenuItemID equals L.MenuItemID

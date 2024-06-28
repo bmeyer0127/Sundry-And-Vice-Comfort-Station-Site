@@ -1,10 +1,11 @@
 # CURRENT TASK ###########################################################################################
 
+- Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
+    - This will involve just creating a component that holds all the buttons
+
 - Fix side margins on non-splash screen pages
 
 - Create sass class to apply to all non home pages
-
-- Add beer to ItemType
 
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
@@ -98,6 +99,9 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Add beer to ItemType
+    # Add a few beers to the seed file too. To test sorting
 
 # Create a seeding file for the database. It's getting really annoying updating two databases at once
 

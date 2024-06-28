@@ -43,7 +43,13 @@ public class CircleHospitalityContext : DbContext
             new MenuItem
             { MenuItemID = 4, ItemTypeID = 1, ItemName = "Whiskey Sour", ItemDescription = "You know" },
             new MenuItem
-            { MenuItemID = 5, ItemTypeID = 1, ItemName = "Daiquiri", ItemDescription = "You need one" }
+            { MenuItemID = 5, ItemTypeID = 1, ItemName = "Daiquiri", ItemDescription = "You need one" },
+            new MenuItem
+            { MenuItemID = 6, ItemTypeID = 4, ItemName = "Narraganset", ItemDescription = "Taste the East Coast" },
+            new MenuItem
+            { MenuItemID = 7, ItemTypeID = 4, ItemName = "PBR", ItemDescription = "I want it so bad" },
+            new MenuItem
+            { MenuItemID = 8, ItemTypeID = 3, ItemName = "Draft Old Fashioned", ItemDescription = "It's fine" }
         );
 
         // ITEMTYPE
@@ -53,7 +59,9 @@ public class CircleHospitalityContext : DbContext
             new ItemType
             { ItemTypeID = 2, ItemTypeDescription = "House" },
             new ItemType
-            { ItemTypeID = 3, ItemTypeDescription = "Draft" }
+            { ItemTypeID = 3, ItemTypeDescription = "Draft" },
+            new ItemType
+            { ItemTypeID = 4, ItemTypeDescription = "Beer" }
         );
 
         // ITEMINGREDIENT
@@ -197,7 +205,21 @@ public class CircleHospitalityContext : DbContext
             new LocationMenu
             { LocationID = 3, MenuItemID = 4, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 5, HasEgg = false, HasDairy = false }
+            { LocationID = 3, MenuItemID = 5, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 1, MenuItemID = 6, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 1, MenuItemID = 7, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 1, MenuItemID = 8, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 2, MenuItemID = 6, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 2, MenuItemID = 7, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 2, MenuItemID = 8, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 8, HasEgg = false, HasDairy = false }
         );
     }
 
