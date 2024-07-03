@@ -1,7 +1,9 @@
 # CURRENT TASK ###########################################################################################
 
-- Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
-    - This will involve just creating a component that holds all the buttons
+# Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
+    # This will involve just creating a component that holds all the buttons
+    - Add actual sorting functionality
+    - On mobile breakpoint either put sort buttons on different rows or have an accordion dropdown
 
 - Fix side margins on non-splash screen pages
 
@@ -17,6 +19,7 @@
                 - Sexy apothocary. Classic and moody
             CS:
                 - Under the stars kind of vibe. Dark blues, some whites
+                - Consider navy and bright yellow
 
 - Menu Component
     # Menu items displayed are not differentiating based on location
@@ -31,6 +34,9 @@
 
 
 # TODO #####################################################################################################
+
+- Admin page: 
+    - Allow user to reorganize item ingredients for how they are displayed
 
 - Trying to populate a collection of Ingredients to a list if they are checked
 - I am not looking to add anything to any database until the AddCocktail submit button is hit

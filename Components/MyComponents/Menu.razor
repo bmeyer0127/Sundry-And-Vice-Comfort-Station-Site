@@ -1,29 +1,65 @@
 ﻿@namespace MyComponents.Menu
 @rendermode InteractiveServer
 @inject CircleHospitalityContext Context
+@using MyComponents.ItemSorter
 @using System
 @using System.Collections.Generic
 @using System.Collections
 @using System.Linq
 
-
-
-@foreach (var item in (from MI in Context.MenuItems
-                            join L in Context.LocationMenus
-                            on MI.MenuItemID equals L.MenuItemID
-                            where L.LocationID == locationID
-                            select (MI)))
-{
-    <div class="container-fluid text-center w-25 mb-3">
-        <div class="border pt-3 pb-3">
-            <p class="menu-item-name">@item.ItemName</p>
-            <p class="menu-item-name">@item.ItemDescription</p>
-            <p class="menu-item-name">@item.CreatorName</p>
+<div class="container text-center">
+    <div class="row p-5">
+        <div class="col">
+            <ItemSorter />
         </div>
     </div>
-}
+
+    @switch(sortType)
+    {
+        case "all":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  where L.LocationID == locationID
+                                  select (MI)))
+            {
+                <div class="container-fluid text-center w-25 mb-3">
+                    <div class="border pt-3 pb-3">
+                        <p class="menu-item-name">@item.ItemName</p>
+                        <p class="menu-item-name">@item.ItemDescription</p>
+                        <p class="menu-item-name">@item.CreatorName</p>
+                    </div>
+                </div>
+            }
+            break;
+        case "house":
+            @foreach (var item in (from MI in Context.MenuItems
+                              join L in Context.LocationMenus
+                              on MI.MenuItemID equals L.MenuItemID
+                              join T in Context.ItemTypes
+                              on MI.ItemTypeID equals T.ItemTypeID
+                              where (L.LocationID == locationID)
+                              where (T.ItemTypeDescription == "House")
+                              select (MI)))
+            {
+                <div class="container-fluid text-center w-25 mb-3">
+                    <div class="border pt-3 pb-3">
+                        <p class="menu-item-name">@item.ItemName</p>
+                        <p class="menu-item-name">@item.ItemDescription</p>
+                        <p class="menu-item-name">@item.CreatorName</p>
+                    </div>
+                </div>
+            }
+            break;
+    }
+</div>
 
 @code {
     [Parameter]
     public int locationID { get; set; }
+
+    public string? sortType { get; set; } = "all";
+
+    // [CascadingParameter(Name="ItemSortType")]
+    // private string? sortType { get; set; }
 }
