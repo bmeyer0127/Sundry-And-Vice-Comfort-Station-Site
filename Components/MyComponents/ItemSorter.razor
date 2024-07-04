@@ -8,10 +8,10 @@
 <button type="button" class="btn border sort-button">Beer</button>
 <button type="button" class="btn border sort-button">Wine</button>
 
-@* <CascadingValue Name="ItemSortType" Value=itemType>
-    <Menu></Menu>
-</CascadingValue> *@
+<CascadingValue Value="@itemType">
+    <Menu />
+</CascadingValue>
 
 @code {
-    // string itemType = "house";
+    string itemType = "all";
 }

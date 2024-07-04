@@ -9,6 +9,10 @@
 
 - Create sass class to apply to all non home pages
 
+- Add wines to item types
+
+- Add price column to LocationMenu table
+
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
         - Unsure about the message
