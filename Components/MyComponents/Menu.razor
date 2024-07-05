@@ -26,10 +26,18 @@
                                   select (MI)))
             {
                 <div class="container-fluid text-center w-25 mb-3">
-                    <div class="border pt-3 pb-3">
-                        <p class="menu-item-name">@item.ItemName</p>
-                        <p class="menu-item-name">@item.ItemDescription</p>
-                        <p class="menu-item-name">@item.CreatorName</p>
+                    <div class="container text-center border pt-3 pb-3">
+                        <div class="row">
+                        <p class="col menu-item-name">@item.ItemName</p>
+                        </div>
+                        <div class="row">
+                        <p class="col menu-item-name">@item.ItemDescription</p>
+                        </div>
+                        <div class="row">
+                        <p class="col menu-item-name">@item.CreatorName</p>
+                        <p class="col">Price</p>
+                        </div>
+
                     </div>
                 </div>
             }

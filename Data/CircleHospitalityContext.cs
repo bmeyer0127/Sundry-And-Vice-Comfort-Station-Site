@@ -49,7 +49,11 @@ public class CircleHospitalityContext : DbContext
             new MenuItem
             { MenuItemID = 7, ItemTypeID = 4, ItemName = "PBR", ItemDescription = "I want it so bad" },
             new MenuItem
-            { MenuItemID = 8, ItemTypeID = 3, ItemName = "Draft Old Fashioned", ItemDescription = "It's fine" }
+            { MenuItemID = 8, ItemTypeID = 3, ItemName = "Draft Old Fashioned", ItemDescription = "It's fine" },
+            new MenuItem
+            { MenuItemID = 9, ItemTypeID = 5, ItemName = "Cabernet", ItemDescription = "Dry and fine" },
+            new MenuItem
+            { MenuItemID = 10, ItemTypeID = 5, ItemName = "Chenin Blanc", ItemDescription = "Extremely mid" }
         );
 
         // ITEMTYPE
@@ -61,7 +65,9 @@ public class CircleHospitalityContext : DbContext
             new ItemType
             { ItemTypeID = 3, ItemTypeDescription = "Draft" },
             new ItemType
-            { ItemTypeID = 4, ItemTypeDescription = "Beer" }
+            { ItemTypeID = 4, ItemTypeDescription = "Beer" },
+            new ItemType
+            { ItemTypeID = 5, ItemTypeDescription= "Wine" }
         );
 
         // ITEMINGREDIENT
@@ -187,39 +193,51 @@ public class CircleHospitalityContext : DbContext
         // LOCATIONMENU
         modelBuilder.Entity<LocationMenu>().HasData(
             new LocationMenu
-            { LocationID = 1, MenuItemID = 1, HasEgg = false, HasDairy = false},
+            { LocationID = 1, MenuItemID = 1, Price = 14, HasEgg = false, HasDairy = false},
             new LocationMenu
-            { LocationID = 1, MenuItemID = 2, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 2, Price = 15, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 3, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 3, Price = 12, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 5, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 5, Price = 6, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 1, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 6, Price = 5, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 2, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 7, Price = 6, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 5, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 8, Price = 4, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 2, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 9, Price = 12, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 4, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 10, Price = 11, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 5, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 1, Price = 13, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 6, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 2, Price = 16, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 7, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 5, Price = 7, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 8, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 9, Price = 12, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 6, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 10, Price = 11, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 7, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 6, Price = 5, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 8, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 7, Price = 6, HasEgg = false, HasDairy = false },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 8, HasEgg = false, HasDairy = false }
+            { LocationID = 2, MenuItemID = 8, Price = 7, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 2, Price = 15, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 4, Price = 16, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 5, Price = 12, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 8, Price = 4, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 9, Price = 12, HasEgg = false, HasDairy = false },
+            new LocationMenu
+            { LocationID = 3, MenuItemID = 10, Price = 10, HasEgg = false, HasDairy = false }
         );
     }
 
