@@ -1,17 +1,34 @@
 ﻿@namespace MyComponents.ItemSorter
+@rendermode InteractiveServer
 @using MyComponents.Menu
 
-<button type="button" class="btn border sort-button">Everything we got</button>
-<button type="button" class="btn border sort-button">One's we've made</button>
-<button type="button" class="btn border sort-button">Ones others have made</button>
-<button type="button" class="btn border sort-button">Draft cocktails</button>
-<button type="button" class="btn border sort-button">Beer</button>
-<button type="button" class="btn border sort-button">Wine</button>
+<button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
+<button type="button" class="btn border sort-button" @onclick="() => setFilter(house)">One's we've made</button>
+<button type="button" class="btn border sort-button" @onclick="() => setFilter(classic)">Ones others have made</button>
+<button type="button" class="btn border sort-button" @onclick="() => setFilter(draft)">Draft cocktails</button>
+<button type="button" class="btn border sort-button" @onclick="() => setFilter(beer)">Beer</button>
+<button type="button" class="btn border sort-button" @onclick="() => setFilter(wine)">Wine</button>
 
-<CascadingValue Value="@itemType">
-    <Menu />
-</CascadingValue>
+<div>
+    <CascadingValue Value="@itemType">
+        <Menu locationID="1"/>
+    </CascadingValue>
+</div>
+
+<Menu />
 
 @code {
     string itemType = "all";
+
+    string all = "all";
+    string house = "house";
+    string classic = "classic";
+    string draft = "draft";
+    string beer = "beer";
+    string wine = "wine";
+
+    public void setFilter(string filterType)
+    {
+        itemType = filterType;
+    }
 }
