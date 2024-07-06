@@ -11,13 +11,16 @@
 
 <div>
     <CascadingValue Value="@itemType">
-        <Menu locationID="1"/>
+        <Menu locationID=respectiveLocationID/>
     </CascadingValue>
 </div>
 
 <Menu />
 
 @code {
+    [Parameter]
+    public int respectiveLocationID { get; set; }
+
     string itemType = "all";
 
     string all = "all";

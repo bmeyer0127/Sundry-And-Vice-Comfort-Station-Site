@@ -1,8 +1,10 @@
 @page "/cs-home"
-@using MyComponents.Menu
+@using MyComponents.ItemSorter
 @using MyComponents.Welcome
 
 <PageTitle>Comfort Station</PageTitle>
 
-<Welcome locationID="3" />
-<Menu locationID="3" />
+<div class="container text-center">
+    <Welcome locationID="3" />
+    <ItemSorter respectiveLocationID=3/>
+</div>

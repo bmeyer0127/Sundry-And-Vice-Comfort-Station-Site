@@ -1,8 +1,9 @@
 # CURRENT TASK ###########################################################################################
 
 Menu format:
-    - Display price off to the bottom right of the box formatted with a dollar sign
-    - Display the creater with a "Created by: " preface on the bottom left
+    # Display price off to the bottom right of the box 
+    # Display the creater with a "Created by: " preface on the bottom left
+        # This is conditional depending on if the cocktail has a creator listed
 
 # Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
     # This will involve just creating a component that holds all the buttons
@@ -97,6 +98,10 @@ Menu format:
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Select Price from LocationMenu to display on respective menu items
+
+# Pass locationID from respective homepage top ItemSorter to be able to get correct menu info
 
 # Add wines to item types
 

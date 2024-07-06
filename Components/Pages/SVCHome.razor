@@ -1,8 +1,10 @@
 @page "/svc-home"
-@using MyComponents.Menu
+@using MyComponents.ItemSorter
 @using MyComponents.Welcome
 
 <PageTitle>SVC</PageTitle>
 
-<Welcome locationID="2" />
-<Menu locationID="2"/>
+<div class="container text-center">
+    <Welcome locationID="2" />
+    <ItemSorter respectiveLocationID=2/>
+</div>
