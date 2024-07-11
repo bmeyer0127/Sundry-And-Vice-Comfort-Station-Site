@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../Resources/styles/Itemsorter.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;;;AAGJ;EACI;EACA","file":"ItemSorter.razor.css"}
+{"version":3,"sourceRoot":"","sources":["../../Resources/styles/Itemsorter.scss","../../node_modules/bootstrap/scss/mixins/_breakpoints.scss"],"names":[],"mappings":"AAIA;EACI;EACA;EACA;;;AAGJ;EACI;EACA;;;AAOJ;EACI;;;AAGJ;EACI;;;ACuCA;EDnCA;IACI;;EAEJ;IACI","file":"ItemSorter.razor.css"}

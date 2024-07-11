@@ -1,21 +1,56 @@
 ﻿@namespace MyComponents.ItemSorter
 @rendermode InteractiveServer
 @using MyComponents.Menu
+@using MyComponents.Welcome
 
-<button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
-<button type="button" class="btn border sort-button" @onclick="() => setFilter(house)">One's we've made</button>
-<button type="button" class="btn border sort-button" @onclick="() => setFilter(classic)">Ones others have made</button>
-<button type="button" class="btn border sort-button" @onclick="() => setFilter(draft)">Draft cocktails</button>
-<button type="button" class="btn border sort-button" @onclick="() => setFilter(beer)">Beer</button>
-<button type="button" class="btn border sort-button" @onclick="() => setFilter(wine)">Wine</button>
+<Welcome locationID=respectiveLocationID />
+
+<div class="container filter-container">
+    <div class="filter-options-wide">
+        <button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
+        <button type="button" class="btn border sort-button" @onclick="() => setFilter(house)">One's we've made</button>
+        <button type="button" class="btn border sort-button" @onclick="() => setFilter(classic)">Ones others have made</button>
+        <button type="button" class="btn border sort-button" @onclick="() => setFilter(draft)">Draft cocktails</button>
+        <button type="button" class="btn border sort-button" @onclick="() => setFilter(beer)">Beer</button>
+        <button type="button" class="btn border sort-button" @onclick="() => setFilter(wine)">Wine</button>
+    </div>
+
+    <div class="filter-options-narrow">
+        <div class="btn-group dropdown">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Filters
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
+                </li>
+                <li>
+                    <button type="button" class="btn border sort-button" @onclick="() => setFilter(house)">One's we've made</button>
+                </li>
+                <li>
+                    <button type="button" class="btn border sort-button" @onclick="() => setFilter(classic)">Ones others have made</button>
+                </li>
+                <li>
+                    <button type="button" class="btn border sort-button" @onclick="() => setFilter(draft)">Draft cocktails</button>
+                </li>
+                <li>
+                    <button type="button" class="btn border sort-button" @onclick="() => setFilter(beer)">Beer</button>
+                </li>
+                <li>
+                    <button type="button" class="btn border sort-button" @onclick="() => setFilter(wine)">Wine</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
 
 <div>
     <CascadingValue Value="@itemType">
         <Menu locationID=respectiveLocationID/>
     </CascadingValue>
 </div>
-
-<Menu />
 
 @code {
     [Parameter]

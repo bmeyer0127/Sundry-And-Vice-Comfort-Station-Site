@@ -1,15 +1,12 @@
 ﻿@namespace MyComponents.Menu
 @rendermode InteractiveServer
 @inject CircleHospitalityContext Context
-@* @using MyComponents.ItemSorter *@
 @using System
 @using System.Collections.Generic
 @using System.Collections
 @using System.Linq
 
-<p>@sortType</p>
-
-<div class="container text-center">
+<div class="container text-center menu-container">
 
     @switch(sortType)
     {
@@ -28,12 +25,6 @@
                         <div class="row">
                             <p class="col menu-item-name">@item.ItemDescription</p>
                         </div>
-                        @* @if (item.CreatorName != null)
-                        {
-                            <div class="row">
-                                <p class="col">Created by:</p>
-                            </div>
-                        } *@
                         <div class="row">
                             <p class="col menu-item-name">@item.CreatorName</p>
                             <p class="col">@item.Price</p>
@@ -182,8 +173,19 @@
 
 
 @code {
-    [Parameter]
-    public int locationID { get; set; }
+    [Parameter] public int locationID { get; set; }
 
     [CascadingParameter] string? sortType { get; set; }
+
+    // Trying to shorten this file
+
+    // public CircleHospitalityContext GetSortedList(string type) => (from MI in Context.MenuItems
+    //                                                                join L in Context.LocationMenus
+    //                                                                on MI.MenuItemID equals L.MenuItemID
+    //                                                                join T in Context.ItemTypes
+    //                                                                on MI.ItemTypeID equals T.ItemTypeID
+    //                                                                where (L.LocationID == locationID)
+    //                                                                where (T.ItemTypeDescription == type)
+    //                                                                select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price })
+
 }

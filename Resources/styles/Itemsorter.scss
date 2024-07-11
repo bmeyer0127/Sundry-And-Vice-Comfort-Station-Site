@@ -1,3 +1,7 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
 .sort-button {
     border: 1px;
     border-color: black;
@@ -8,3 +12,25 @@
     background-color: #8c8656;
     color: #33322a;
 }
+
+.filter-container {
+    //position: fixed;
+}
+
+.filter-options-wide {
+    display: none;
+}
+
+.filter-options-narrow {
+    display: block;
+}
+
+@include media-breakpoint-up(lg) {
+    .filter-options-wide {
+        display: block;
+    }
+    .filter-options-narrow {
+        display: none;
+    }
+}
+
