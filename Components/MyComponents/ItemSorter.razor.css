@@ -9,6 +9,10 @@
   color: #33322a;
 }
 
+.filter-container {
+  width: 350px;
+}
+
 .filter-options-wide {
   display: none;
 }

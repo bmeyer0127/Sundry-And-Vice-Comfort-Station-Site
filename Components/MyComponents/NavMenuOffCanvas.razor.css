@@ -644,7 +644,6 @@
 .offcanvas-opener {
   width: 10%;
   height: auto;
-  padding-bottom: 4%;
   padding-left: 0;
   margin: 5%;
 }
@@ -671,7 +670,7 @@
 }
 @media (min-width: 992px) {
   .offcanvas-opener {
-    width: 5%;
+    width: 3%;
   }
 }
 

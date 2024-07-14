@@ -5,7 +5,7 @@
 
 <Welcome locationID=respectiveLocationID />
 
-<div class="container filter-container">
+<div class="container filter-container p-3">
     <div class="filter-options-wide">
         <button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
         <button type="button" class="btn border sort-button" @onclick="() => setFilter(house)">One's we've made</button>
@@ -16,11 +16,15 @@
     </div>
 
     <div class="filter-options-narrow">
-        <div class="btn-group dropdown">
+
+        @if (isDropdown)
+        {
+            @* Dropdown filter list *@
+            <div class="btn-group dropdown">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Filters
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="position:absolute">
                 <li>
                     <button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
                 </li>
@@ -41,9 +45,47 @@
                 </li>
             </ul>
         </div>
+        }
+        else
+        {
+        @* Accordion filter list *@
+        <div class="accordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <h5>filter some stuff</h5>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <ul class="nav flex-column">
+                            <li>
+                                <button type="button" class="btn border sort-button" @onclick="() => setFilter(all)">Everything we got</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn border sort-button" @onclick="() => setFilter(house)">One's we've made</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn border sort-button" @onclick="() => setFilter(classic)">Ones others have made</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn border sort-button" @onclick="() => setFilter(draft)">Draft cocktails</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn border sort-button" @onclick="() => setFilter(beer)">Beer</button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn border sort-button" @onclick="() => setFilter(wine)">Wine</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
     </div>
 </div>
-
 
 
 <div>
@@ -69,4 +111,7 @@
     {
         itemType = filterType;
     }
+
+    // While I decide which one I want to use
+    public bool isDropdown = true;
 }

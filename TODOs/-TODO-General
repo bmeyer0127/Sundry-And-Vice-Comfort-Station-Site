@@ -1,11 +1,9 @@
 # CURRENT TASK ###########################################################################################
 
-- Woof definitely need to clean up NavMenuOffCanvas.scss
-    - Still not completely happy with it but breakpoints for the button are fine for now
-
 - Make navmenu opener and header for each page fixed
 
-- Consider making the filter dropdown an accordion instead
+# Consider making the filter dropdown an accordion instead
+    - Feels better but is UGLY
 
 - Create a page header component
     - Put item sorter in header and have it dissapear after scrolling down a little and then reappear on scrolling up
@@ -25,9 +23,11 @@ Menu format:
 
 # TODO #####################################################################################################
 
+- Woof definitely need to clean up NavMenuOffCanvas.scss
+    - Still not completely happy with it but breakpoints for the button are fine for now
+        - Def need to be more size appropriate
 
 
-- Create sass class to apply to all non home pages
 
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
@@ -80,7 +80,7 @@ Menu format:
 - Look into server hosting for Circle Hospitality database
 
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
-- These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
+    - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
 
 # Understand how to load an image asset from local files rather than linking to squarespace asset
     # Use PostImage
@@ -111,6 +111,8 @@ Menu format:
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Create sass class to apply to all non home pages
 
 # Fix side margins on non-splash screen pages
 
