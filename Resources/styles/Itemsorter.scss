@@ -26,6 +26,9 @@
 }
 
 @include media-breakpoint-up(lg) {
+    .filter-container {
+        width: auto;
+    }
     .filter-options-wide {
         display: block;
     }

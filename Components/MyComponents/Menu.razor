@@ -5,6 +5,7 @@
 @using System.Collections.Generic
 @using System.Collections
 @using System.Linq
+@using MyComponents.MenuItemDisplay
 
 <div class="container text-center menu-container">
 
@@ -17,20 +18,10 @@
                                   where L.LocationID == locationID
                                   select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
             {
-                <div class="container-fluid text-center mb-3">
-                    <div class="container text-center border pt-3 pb-3">
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemName</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemDescription</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.CreatorName</p>
-                            <p class="col">@item.Price</p>
-                        </div>
-                    </div>
-                </div>
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
             }
             break;
 
@@ -44,20 +35,10 @@
                               where (T.ItemTypeDescription == "House")
                               select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
             {
-                <div class="container-fluid text-center mb-3">
-                    <div class="container text-center border pt-3 pb-3">
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemName</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemDescription</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.CreatorName</p>
-                            <p class="col">@item.Price</p>
-                        </div>
-                    </div>
-                </div>
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
             }
             break;
 
@@ -71,20 +52,10 @@
                                   where (T.ItemTypeDescription == "Classic")
                                   select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
             {
-                <div class="container-fluid text-center mb-3">
-                    <div class="container text-center border pt-3 pb-3">
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemName</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemDescription</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.CreatorName</p>
-                            <p class="col">@item.Price</p>
-                        </div>
-                    </div>
-                </div>
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
             }
             break;
 
@@ -98,20 +69,10 @@
                                   where (T.ItemTypeDescription == "Draft")
                                   select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
             {
-                <div class="container-fluid text-center mb-3">
-                    <div class="container text-center border pt-3 pb-3">
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemName</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemDescription</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.CreatorName</p>
-                            <p class="col">@item.Price</p>
-                        </div>
-                    </div>
-                </div>
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
             }
             break;
 
@@ -125,20 +86,10 @@
                                   where (T.ItemTypeDescription == "Beer")
                                   select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
             {
-                <div class="container-fluid text-center mb-3">
-                    <div class="container text-center border pt-3 pb-3">
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemName</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemDescription</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.CreatorName</p>
-                            <p class="col">@item.Price</p>
-                        </div>
-                    </div>
-                </div>
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
             }
             break;
 
@@ -152,20 +103,10 @@
                                   where (T.ItemTypeDescription == "Wine")
                                   select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
             {
-                <div class="container-fluid text-center mb-3">
-                    <div class="container text-center border pt-3 pb-3">
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemName</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.ItemDescription</p>
-                        </div>
-                        <div class="row">
-                            <p class="col menu-item-name">@item.CreatorName</p>
-                            <p class="col">@item.Price</p>
-                        </div>
-                    </div>
-                </div>
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
             }
             break;
     }
@@ -176,16 +117,5 @@
     [Parameter] public int locationID { get; set; }
 
     [CascadingParameter] string? sortType { get; set; }
-
-    // Trying to shorten this file
-
-    // public CircleHospitalityContext GetSortedList(string type) => (from MI in Context.MenuItems
-    //                                                                join L in Context.LocationMenus
-    //                                                                on MI.MenuItemID equals L.MenuItemID
-    //                                                                join T in Context.ItemTypes
-    //                                                                on MI.ItemTypeID equals T.ItemTypeID
-    //                                                                where (L.LocationID == locationID)
-    //                                                                where (T.ItemTypeDescription == type)
-    //                                                                select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price })
 
 }

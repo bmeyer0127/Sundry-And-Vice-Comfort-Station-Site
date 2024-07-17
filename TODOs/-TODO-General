@@ -1,19 +1,15 @@
 # CURRENT TASK ###########################################################################################
 
-- Make navmenu opener and header for each page fixed
-
 # Consider making the filter dropdown an accordion instead
     - Feels better but is UGLY
 
-- Create a page header component
-    - Put item sorter in header and have it dissapear after scrolling down a little and then reappear on scrolling up
-    - May actually not even need to be its own component. 
-
 Menu format:
-    # Display price off to the bottom right of the box 
-    - Display the creater with a "Created by: " preface on the bottom left
-        - This is conditional depending on if the cocktail has a creator listed
-    - Display in single line if on mobile. Display in rows of 3 if on size md up
+    - Create a cocktail component to acheive the following:
+        # Display price off to the top right of the box 
+        # Allign cocktail name, description and created by to the left
+        # Display the creater with a "Created by: " preface on the bottom left
+            # This is conditional depending on if the cocktail has a creator listed
+        - Display in single line if on mobile. Display in rows of 3 if on size md up
 
 
 # Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
@@ -22,6 +18,8 @@ Menu format:
     # On mobile breakpoint either put sort buttons on different rows or have an accordion dropdown
 
 # TODO #####################################################################################################
+
+- Limit the amount of characters for the description so it fits on one line
 
 - Woof definitely need to clean up NavMenuOffCanvas.scss
     - Still not completely happy with it but breakpoints for the button are fine for now
@@ -111,6 +109,9 @@ Menu format:
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Consider the pros and cons of making a component for ItemSortButton
+    # Not exactly worth
 
 # Create sass class to apply to all non home pages
 
