@@ -10,9 +10,11 @@ Menu format:
         # Display the creater with a "Created by: " preface on the bottom left
             # This is conditional depending on if the cocktail has a creator listed
         - Display in single line if on mobile. Display in rows of 3 if on size md up
-            - possible solutions:
-                - Will not happenb uin MenuItemDisplay because it's grid system has it's own container for 
+            - progress:
+                - Probably will not happen in MenuItemDisplay because it's grid system has it's own container for 
                     each individual menu item
+                - Moved individual menu item width restrictor from Menu to MenuItemDisplay
+                - Can maybe create a weird loop to create columns and rows
 
 
 # Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"MenuItemDisplay.razor.css"}
+{"version":3,"sourceRoot":"","sources":["../../node_modules/bootstrap/scss/mixins/_breakpoints.scss","../../Resources/styles/MenuItemDisplay.scss"],"names":[],"mappings":"AA+DI;EC1DA;IACI","file":"MenuItemDisplay.razor.css"}
