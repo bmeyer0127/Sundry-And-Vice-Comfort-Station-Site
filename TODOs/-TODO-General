@@ -1,26 +1,10 @@
 # CURRENT TASK ###########################################################################################
 
-# Consider making the filter dropdown an accordion instead
-    - Feels better but is UGLY
-
-Menu format:
-    - Create a cocktail component to acheive the following:
-        # Display price off to the top right of the box 
-        # Allign cocktail name, description and created by to the left
-        # Display the creater with a "Created by: " preface on the bottom left
-            # This is conditional depending on if the cocktail has a creator listed
-        - Display in single line if on mobile. Display in rows of 3 if on size md up
-            - progress:
-                - Probably will not happen in MenuItemDisplay because it's grid system has it's own container for 
-                    each individual menu item
-                - Moved individual menu item width restrictor from Menu to MenuItemDisplay
-                - Can maybe create a weird loop to create columns and rows
-
-
-# Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
-    # This will involve just creating a component that holds all the buttons
-    # Add actual sorting functionality
-    # On mobile breakpoint either put sort buttons on different rows or have an accordion dropdown
+- Filter option stylings:
+    - Dropdown Menu:
+        - Find a better color pallete. Something that accents the background and text color of main page
+    - Button Group:
+        - Honestly not bad
 
 # TODO #####################################################################################################
 
@@ -114,6 +98,27 @@ Menu format:
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
+    # This will involve just creating a component that holds all the buttons
+    # Add actual sorting functionality
+    # On mobile breakpoint either put sort buttons on different rows or have an accordion dropdown
+
+Menu format:
+    - Create a cocktail component to acheive the following:
+        # Display price off to the top right of the box 
+        # Allign cocktail name, description and created by to the left
+        # Display the creater with a "Created by: " preface on the bottom left
+            # This is conditional depending on if the cocktail has a creator listed
+        # Display in single line if on mobile. Display in rows of 3 if on size md up
+            - progress:
+                # Probably will not happen in MenuItemDisplay because it's grid system has it's own container for 
+                    each individual menu item
+                # Moved individual menu item width restrictor from Menu to MenuItemDisplay
+                # Can maybe create a weird loop to create columns and rows
+                # Really think I'm over thinking this. I might need to step back
+            - Solution: 
+                # Wrap switch case statement in a row
 
 # Consider the pros and cons of making a component for ItemSortButton
     # Not exactly worth

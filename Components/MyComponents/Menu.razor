@@ -7,7 +7,117 @@
 @using System.Linq
 @using MyComponents.MenuItemDisplay
 
-<div class="container text-center menu-container">
+<div class="container-fluid text-center menu-container wide-screen">
+    <div class="row">
+
+    @switch (sortType)
+    {
+        case "all":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  where L.LocationID == locationID
+                                  select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
+            {
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                    ItemDescription="@item.ItemDescription"
+                                    CreatorName="@item.CreatorName"
+                                    Price="@item.Price" />
+            }
+            
+            break;
+
+
+        case "house":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  join T in Context.ItemTypes
+                                  on MI.ItemTypeID equals T.ItemTypeID
+                                  where (L.LocationID == locationID)
+                                  where (T.ItemTypeDescription == "House")
+                                  select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
+            {
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
+            }
+            break;
+
+        case "classic":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  join T in Context.ItemTypes
+                                  on MI.ItemTypeID equals T.ItemTypeID
+                                  where (L.LocationID == locationID)
+                                  where (T.ItemTypeDescription == "Classic")
+                                  select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
+            {
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
+            }
+            break;
+
+        case "draft":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  join T in Context.ItemTypes
+                                  on MI.ItemTypeID equals T.ItemTypeID
+                                  where (L.LocationID == locationID)
+                                  where (T.ItemTypeDescription == "Draft")
+                                  select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
+            {
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
+            }
+            break;
+
+        case "beer":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  join T in Context.ItemTypes
+                                  on MI.ItemTypeID equals T.ItemTypeID
+                                  where (L.LocationID == locationID)
+                                  where (T.ItemTypeDescription == "Beer")
+                                  select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
+            {
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
+            }
+            break;
+
+        case "wine":
+            @foreach (var item in (from MI in Context.MenuItems
+                                  join L in Context.LocationMenus
+                                  on MI.MenuItemID equals L.MenuItemID
+                                  join T in Context.ItemTypes
+                                  on MI.ItemTypeID equals T.ItemTypeID
+                                  where (L.LocationID == locationID)
+                                  where (T.ItemTypeDescription == "Wine")
+                                  select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
+            {
+                <MenuItemDisplay ItemName="@item.ItemName"
+                                 ItemDescription="@item.ItemDescription"
+                                 CreatorName="@item.CreatorName"
+                                 Price="@item.Price" />
+            }
+            break;
+    }
+    </div>
+</div>
+
+@* <div class="container text-center menu-container narrow-screen">
+    <div class="row">
 
     @switch(sortType)
     {
@@ -110,7 +220,8 @@
             }
             break;
     }
-</div>
+    </div>
+</div> *@
 
 
 @code {
@@ -118,4 +229,5 @@
 
     [CascadingParameter] string? sortType { get; set; }
 
+    public int rowCounter = 0;
 }

@@ -1,7 +1,5 @@
-@media (min-width: 576px) {
-  .individual-menu-container {
-    width: 350px;
-  }
+.individual-menu-container {
+  width: 350px;
 }
 
 /*# sourceMappingURL=MenuItemDisplay.razor.css.map */
