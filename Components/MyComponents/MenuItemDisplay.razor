@@ -1,0 +1,26 @@
+﻿@namespace MyComponents.MenuItemDisplay
+
+<div class="container individual-menu-container">
+    <div class="container pt-3 pb-3">
+        <div class="row">
+            <p class="col-10 text-start align-self-end mb-0 fw-bold">@ItemName</p>
+            <p class="col text-end align-self-end mb-0">@Price</p>
+        </div>
+        <div class="row">
+            <p class="col text-start align-self-end mb-0 fw-light">@ItemDescription</p>
+        </div>
+        @if (CreatorName != null)
+            {
+                <div class="row">
+                    <p class="col text-start align-self-end mb-0 fst-italic">Created by: @CreatorName</p>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public string? ItemName { get; set; }
+    [Parameter] public string? ItemDescription { get; set; }
+    [Parameter] public string? CreatorName { get; set; }
+    [Parameter] public int Price { get; set; }
+}

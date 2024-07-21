@@ -1,8 +1,14 @@
 @page "/svi-home"
 @using MyComponents.Menu
+@using MyComponents.Welcome
+@using MyComponents.ItemSorter
 
 <PageTitle>SVI</PageTitle>
 
-<h1>SVI Home</h1>
+<div class="container-fluid text-center">
+    <ItemSorter respectiveLocationID=1 />
+</div>
 
-<Menu />
+@code {
+
+}
