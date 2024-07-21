@@ -1,17 +1,35 @@
 # CURRENT TASK ###########################################################################################
 
-- Creating menu item component right now.
-    - Separate each menu item in its own container. 
-
-- Populate each cooresponding location homepage with a greeting, and maybe a separate navbar
--   and the menu, with filtering options, below it.
-- Filtering options: 
-    - The menu will be laid out in full with corresponding headers for each section
-    - Filtering options will remove everything that is not included. 
-    - Filtering options will not be stackable, but rather replace the other optons
-
+- Filter option stylings:
+    - Dropdown Menu:
+        - Find a better color pallete. Something that accents the background and text color of main page
+    - Button Group:
+        - Honestly not bad
 
 # TODO #####################################################################################################
+
+- Limit the amount of characters for the description so it fits on one line
+
+- Woof definitely need to clean up NavMenuOffCanvas.scss
+    - Still not completely happy with it but breakpoints for the button are fine for now
+        - Def need to be more size appropriate
+
+
+
+- Welcome Component
+    - Display the same message with a unique styling depending on the current location
+        - Unsure about the message
+        - Styles:
+            SVI:
+                - Art deco. Think if Gatsby was a little more depressed and broody.
+            SVC: 
+                - Sexy apothocary. Classic and moody
+            CS:
+                - Under the stars kind of vibe. Dark blues, some whites
+                - Consider navy and bright yellow
+
+- Admin page: 
+    - Allow user to reorganize item ingredients for how they are displayed
 
 - Trying to populate a collection of Ingredients to a list if they are checked
 - I am not looking to add anything to any database until the AddCocktail submit button is hit
@@ -49,7 +67,7 @@
 - Look into server hosting for Circle Hospitality database
 
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
-- These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
+    - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
 
 # Understand how to load an image asset from local files rather than linking to squarespace asset
     # Use PostImage
@@ -80,6 +98,58 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
+    # This will involve just creating a component that holds all the buttons
+    # Add actual sorting functionality
+    # On mobile breakpoint either put sort buttons on different rows or have an accordion dropdown
+
+Menu format:
+    - Create a cocktail component to acheive the following:
+        # Display price off to the top right of the box 
+        # Allign cocktail name, description and created by to the left
+        # Display the creater with a "Created by: " preface on the bottom left
+            # This is conditional depending on if the cocktail has a creator listed
+        # Display in single line if on mobile. Display in rows of 3 if on size md up
+            - progress:
+                # Probably will not happen in MenuItemDisplay because it's grid system has it's own container for 
+                    each individual menu item
+                # Moved individual menu item width restrictor from Menu to MenuItemDisplay
+                # Can maybe create a weird loop to create columns and rows
+                # Really think I'm over thinking this. I might need to step back
+            - Solution: 
+                # Wrap switch case statement in a row
+
+# Consider the pros and cons of making a component for ItemSortButton
+    # Not exactly worth
+
+# Create sass class to apply to all non home pages
+
+# Fix side margins on non-splash screen pages
+
+# Select Price from LocationMenu to display on respective menu items
+
+# Pass locationID from respective homepage top ItemSorter to be able to get correct menu info
+
+# Add wines to item types
+
+# Add price column to LocationMenu table
+
+# Menu Component
+    # Menu items displayed are not differentiating based on location
+    # Separate each menu item in its own container. 
+
+# Populate each cooresponding location homepage with a greeting, and maybe a separate navbar
+#   and the menu, with filtering options, below it.
+# Filtering options: 
+    # The menu will be laid out in full with corresponding headers for each section
+    # Filtering options will remove everything that is not included. 
+    # Filtering options will not be stackable, but rather replace the other optons
+
+# Add beer to ItemType
+    # Add a few beers to the seed file too. To test sorting
+
+# Create a seeding file for the database. It's getting really annoying updating two databases at once
 
 # Set up environment variables with for the SQL connection string using appsettings.Development.json (and make that ingored by git)
 

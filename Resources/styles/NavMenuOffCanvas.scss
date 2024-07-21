@@ -1,13 +1,14 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/_accordion.scss";
+@import "../../node_modules/bootstrap/scss/_offcanvas.scss";
+
 //Breakpoints
-// XS is default so no variable
-$small: 576px;
-$medium: 768px;
-$large: 992px;
-$XLarge: 1200px;
-$XXLarge: 1400px;
+
 
 //Required
-@import "../../node_modules/bootstrap/scss/_functions.scss";
+
 // Default variable overrides
 $accordion-border-width: 0;
 $accordion-button-focus-box-shadow: 0;
@@ -15,12 +16,6 @@ $accordion-border-radius: 0;
 $accordion-icon-active-color: #a19a61;
 $accordion-icon-color: #a19a61;
 $btn-close-color: white;
-//Required
-@import "../../node_modules/bootstrap/scss/_variables.scss";
-@import "../../node_modules/bootstrap/scss/_mixins.scss";
-// Optional Bootstrap components
-@import "../../node_modules/bootstrap/scss/_accordion.scss";
-@import "../../node_modules/bootstrap/scss/_offcanvas.scss";
 
 .prevent-select {
   -webkit-user-select: none;
@@ -28,13 +23,13 @@ $btn-close-color: white;
   user-select: none;
 }
 
-
-
 .offcanvas-opener {
-width: 35px;
+width: 10%;
 height: auto;
-padding-bottom: 4%;
+//padding-bottom: 4%;
 padding-left: 0;
+margin: 5%;
+//position: fixed;
 }
 
 .offcanvas-close {
@@ -51,37 +46,22 @@ padding-left: 0;
   font-family: "Raleway", Arial, sans-serif;
   font-weight: 500;
 }
-// 576px width
-@media (min-width: $small) {
-  .offcanvas-opener {
-    width: 45px;
+
+@include media-breakpoint-up(sm)
+{
+    .offcanvas-opener {
+        width: 7%;
     }
 }
 
-// 768px width
-@media (min-width: $medium) {
-  .offcanvas-opener {
-    width: 45px;
+@include media-breakpoint-up(md) {
+    .offcanvas-opener {
+        width: 5%;
     }
 }
 
-// 992px width
-@media (min-width: $large) {
-  .offcanvas-opener {
-    width: 50px;
+@include media-breakpoint-up(lg) {
+    .offcanvas-opener {
+        width: 3%;
     }
-}
-
-// 1200px width
-@media (min-width: $XLarge ) {
-  .offcanvas-opener {
-    width: 50px;
-  }
-}
-
-// 1400px width
-@media (min-width: $XXLarge) {
-  .offcanvas-opener {
-    width: 50px;
-  }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SundryAndViceComfortStationSite.Migrations
 {
     [DbContext(typeof(CircleHospitalityContext))]
-    partial class CircleHospitalityContextModelSnapshot : ModelSnapshot
+    [Migration("20240628060412_AddBeer")]
+    partial class AddBeer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -365,11 +368,6 @@ namespace SundryAndViceComfortStationSite.Migrations
                         {
                             ItemTypeID = 4,
                             ItemTypeDescription = "Beer"
-                        },
-                        new
-                        {
-                            ItemTypeID = 5,
-                            ItemTypeDescription = "Wine"
                         });
                 });
 
@@ -428,9 +426,6 @@ namespace SundryAndViceComfortStationSite.Migrations
                     b.Property<bool>("HasEgg")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
                     b.HasKey("LocationID", "MenuItemID");
 
                     b.HasIndex("MenuItemID");
@@ -443,184 +438,119 @@ namespace SundryAndViceComfortStationSite.Migrations
                             LocationID = 1,
                             MenuItemID = 1,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 14
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 1,
                             MenuItemID = 2,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 15
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 1,
                             MenuItemID = 3,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 12
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 1,
                             MenuItemID = 5,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 6
-                        },
-                        new
-                        {
-                            LocationID = 1,
-                            MenuItemID = 6,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 5
-                        },
-                        new
-                        {
-                            LocationID = 1,
-                            MenuItemID = 7,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 6
-                        },
-                        new
-                        {
-                            LocationID = 1,
-                            MenuItemID = 8,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 4
-                        },
-                        new
-                        {
-                            LocationID = 1,
-                            MenuItemID = 9,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 12
-                        },
-                        new
-                        {
-                            LocationID = 1,
-                            MenuItemID = 10,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 11
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 2,
                             MenuItemID = 1,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 13
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 2,
                             MenuItemID = 2,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 16
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 2,
                             MenuItemID = 5,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 7
-                        },
-                        new
-                        {
-                            LocationID = 2,
-                            MenuItemID = 9,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 12
-                        },
-                        new
-                        {
-                            LocationID = 2,
-                            MenuItemID = 10,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 11
-                        },
-                        new
-                        {
-                            LocationID = 2,
-                            MenuItemID = 6,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 5
-                        },
-                        new
-                        {
-                            LocationID = 2,
-                            MenuItemID = 7,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 6
-                        },
-                        new
-                        {
-                            LocationID = 2,
-                            MenuItemID = 8,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 7
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 3,
                             MenuItemID = 2,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 15
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 3,
                             MenuItemID = 4,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 16
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 3,
                             MenuItemID = 5,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 12
+                            HasEgg = false
+                        },
+                        new
+                        {
+                            LocationID = 1,
+                            MenuItemID = 6,
+                            HasDairy = false,
+                            HasEgg = false
+                        },
+                        new
+                        {
+                            LocationID = 1,
+                            MenuItemID = 7,
+                            HasDairy = false,
+                            HasEgg = false
+                        },
+                        new
+                        {
+                            LocationID = 1,
+                            MenuItemID = 8,
+                            HasDairy = false,
+                            HasEgg = false
+                        },
+                        new
+                        {
+                            LocationID = 2,
+                            MenuItemID = 6,
+                            HasDairy = false,
+                            HasEgg = false
+                        },
+                        new
+                        {
+                            LocationID = 2,
+                            MenuItemID = 7,
+                            HasDairy = false,
+                            HasEgg = false
+                        },
+                        new
+                        {
+                            LocationID = 2,
+                            MenuItemID = 8,
+                            HasDairy = false,
+                            HasEgg = false
                         },
                         new
                         {
                             LocationID = 3,
                             MenuItemID = 8,
                             HasDairy = false,
-                            HasEgg = false,
-                            Price = 4
-                        },
-                        new
-                        {
-                            LocationID = 3,
-                            MenuItemID = 9,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 12
-                        },
-                        new
-                        {
-                            LocationID = 3,
-                            MenuItemID = 10,
-                            HasDairy = false,
-                            HasEgg = false,
-                            Price = 10
+                            HasEgg = false
                         });
                 });
 
@@ -757,20 +687,6 @@ namespace SundryAndViceComfortStationSite.Migrations
                             ItemDescription = "It's fine",
                             ItemName = "Draft Old Fashioned",
                             ItemTypeID = 3
-                        },
-                        new
-                        {
-                            MenuItemID = 9,
-                            ItemDescription = "Dry and fine",
-                            ItemName = "Cabernet",
-                            ItemTypeID = 5
-                        },
-                        new
-                        {
-                            MenuItemID = 10,
-                            ItemDescription = "Extremely mid",
-                            ItemName = "Chenin Blanc",
-                            ItemTypeID = 5
                         });
                 });
 

@@ -1,7 +1,31 @@
 ﻿@namespace MyComponents.Welcome
 
-<h3>Welcome</h3>
+<div class="menu-page-header container">
+    <div class="row">
+        <div class="col">
+            @switch(locationID)
+            {
+                case 1:
+                    {
+                        <h3>hey there, lovely</h3>
+                        break;
+                    }
+                case 2:
+                    {
+                        <h3>hey, beautiful</h3>
+                        break;
+                    }
+                case 3:
+                    {
+                        <h3>hey, cutie</h3>
+                        break;
+                    }
+            }
+        </div>
+    </div>
+</div>
 
 @code {
-
+    [Parameter]
+    public int locationID { get; set; }
 }
