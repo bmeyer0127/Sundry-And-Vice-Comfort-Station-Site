@@ -1,10 +1,19 @@
 # CURRENT TASK ###########################################################################################
 
+--FUNCTIONALITY--
+
+--STYLINGS--
+
+- Wide screen actually may give room for too many columns at a time. Try to limit
+    - Beef up the margins of the container with for large screen
+
 - Filter option stylings:
     - Dropdown Menu:
         - Find a better color pallete. Something that accents the background and text color of main page
     - Button Group:
         - Honestly not bad
+
+- Make Admin button look natural and pretty
 
 # TODO #####################################################################################################
 
