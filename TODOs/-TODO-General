@@ -2,6 +2,10 @@
 
 --FUNCTIONALITY--
 
+- Actually add ability to add menuItem from Admin page
+    - Got to the point where it can submit successfully to the database
+    - Still trying to figure out how to accept input
+
 --STYLINGS--
 
 - Wide screen actually may give room for too many columns at a time. Try to limit
