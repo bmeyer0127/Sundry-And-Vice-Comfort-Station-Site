@@ -5,13 +5,14 @@
 @using System
 @using System.Linq
 @using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Components.Forms
 
 <div class="container text-center">
     <div class="row">
         <div class="col">
             <div class="container text-center">
-                <form method="post" @formname="itemName">
-                    <AntiforgeryToken />
+                <EditForm Model=@Context.MenuItems FormName="MenuItemForm" method="post" OnSubmit="OnPost">
+                    
                     <div asp-validation-summary="All" class="text-danger"></div>
 
                     <div class="row mb-3">
@@ -105,8 +106,8 @@
                             <IngredientList />
                         </div>
                     </div>
-                    <button onclick="OnPost">submit</button>
-                </form>
+                    <button>submit</button>
+                </EditForm>
             </div>
         </div>
     </div>
@@ -115,7 +116,7 @@
 @code {
     public void OnPost()
     {
-        var menuItem = new MenuItem { ItemTypeID = 3, ItemName = "test item", ItemDescription = "Testing something else", CreatorName = "Someone else" };
+        var menuItem = new MenuItem { ItemTypeID = 3, ItemName = "New Test item", ItemDescription = "Testing something new", CreatorName = "Someone else" };
         Context.MenuItems.Add(menuItem);
         Context.SaveChanges();
     }
