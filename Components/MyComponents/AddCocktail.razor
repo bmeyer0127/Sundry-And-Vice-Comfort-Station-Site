@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col">
             <div class="container text-center">
-                <EditForm Model=@Context.MenuItems FormName="MenuItemForm" method="post" OnSubmit="OnPost">
+                <EditForm Model=Context.MenuItems FormName="MenuItemForm" method="post" OnSubmit="OnPost">
                     
                     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -21,7 +21,8 @@
                         </div>
 
                         <div class="col">
-                            <input type="text" asp-for="itemName" class="form-control-sm" placeholder="Item Name" />
+                            @* <input type="text" asp-for="itemName" class="form-control-sm" placeholder="Item Name" /> *@
+                            <InputText @bind-Value=newMenuItem.ItemName />
                         </div>
                     </div>
 
@@ -30,17 +31,19 @@
                             <label for="description" class="form-label">Description:</label>
                         </div>
                         <div class="col">
-                            <input id="description" type="text" class="form-control-sm" placeholder="Yummy and nice" />
+                             <InputText @bind-Value=newMenuItem.ItemDescription />
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <div class="col">
                             <label for="creatorName" class="form-label">Creator:</label>
                         </div>
                         <div class="col">
-                            <input id="creatorName" type="text" class="form-control-sm" placeholder="Creator" />
+                            <InputText @bind-Value=newMenuItem.CreatorName />
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <div class="col">
                             <label class="form-label">Allergens:</label>
@@ -62,6 +65,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row mb-3">
                         <div class="col">
                             <label class="form-label">Available at:</label>
@@ -114,10 +118,12 @@
 </div>
 
 @code {
+    [SupplyParameterFromForm]
+    public MenuItem? newMenuItem { get; set; } = new MenuItem();
     public void OnPost()
     {
-        var menuItem = new MenuItem { ItemTypeID = 3, ItemName = "New Test item", ItemDescription = "Testing something new", CreatorName = "Someone else" };
-        Context.MenuItems.Add(menuItem);
+        newMenuItem.ItemTypeID = 4;
+        Context.MenuItems.Add(newMenuItem);
         Context.SaveChanges();
     }
 }
