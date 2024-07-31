@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col">
             <div class="container text-center">
-                <EditForm Model=Context.MenuItems FormName="MenuItemForm" method="post" OnSubmit="OnPost">
+                <EditForm Model=Context.LocationMenus FormName="MenuItemForm" method="post" OnSubmit="OnPost">
                     
                     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -45,19 +45,28 @@
 
                     <div class="row mb-3">
                         <div class="col">
+                            <label for="price" class="form-label">Price:</label>
+                        </div>
+                        <div class="col">
+                            <InputNumber @bind-Value="@newLocationMenu.Price" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
                             <label class="form-label">Allergens:</label>
                         </div>
                         <div class="col">
                             <div class="container text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <input id="hasDairy" class="form-check-input" type="checkbox" value="" />
+                                        <InputCheckbox @bind-Value="@newLocationMenu.HasDairy" />
                                         <label for="hasDairy" class="form-label ms-2">Has Dairy</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <input id="hasEgg" class="form-check-input" type="checkbox" value="" />
+                                        <InputCheckbox @bind-Value="@newLocationMenu.HasEgg" />
                                         <label for="hasEgg" class="form-label ms-2">Has Egg</label>
                                     </div>
                                 </div>
@@ -73,19 +82,19 @@
                             <div class="container text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <input id="availSVI" class="form-check-input" type="checkbox" value="" />
-                                        <label for="availSVI" class="form-label ms-2">Sundry - Indy</label>
+                                        <InputCheckbox @bind-Value="@IsAtSVI" />
+                                        <label for="IsAtSVI" class="form-label ms-2">Sundry - Indy</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <input id="availSVC" class="form-check-input" type="checkbox" value="" />
+                                        <InputCheckbox @bind-Value="@IsAtSVC" />
                                         <label for="availSVC" class="form-label ms-2">Sundry - Cincy</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <input id="availCS" class="form-check-input" type="checkbox" value="" />
+                                        <InputCheckbox @bind-Value="@IsAtCS" />
                                         <label for="availCS" class="form-label ms-2">Comfort - Cincy</label>
                                     </div>
                                 </div>
@@ -97,7 +106,7 @@
                             <label class="form-label">Cocktail Type:</label>
                         </div>
                         <div class="col">
-                            <InputSelect @bind-Value=newMenuItem.ItemTypeID>
+                            <InputSelect @bind-Value="@newMenuItem.ItemTypeID">
                                 @foreach (var itemType in (from IT in Context.ItemTypes
                                                       select new {IT.ItemTypeID, IT.ItemTypeDescription}))
                                 {
@@ -123,11 +132,58 @@
 </div>
 
 @code {
+    // public LocationChecker locationChecker = new LocationChecker();
+
+
+    // public class LocationChecker
+    // {
+    //     public bool IsAtSVI { get; set; }
+    //     public bool IsAtSVC { get; set; }
+    //     public bool IsAtCS { get; set; }
+    // }
+
+    // [SupplyParameterFromForm]
+    // public MenuItem newMenuItem { get; set; } = new MenuItem();
+
+    //Might be messing up how a form binds to a model by doing this
+
+    public bool IsAtSVI { get; set; } = true;
+    public bool IsAtSVC { get; set; }
+    public bool IsAtCS { get; set; }
+
     [SupplyParameterFromForm]
     public MenuItem newMenuItem { get; set; } = new MenuItem();
+
+    [SupplyParameterFromForm]
+    public LocationMenu newLocationMenu { get; set; } = new LocationMenu();
+
     public void OnPost()
     {
+
         Context.MenuItems.Add(newMenuItem);
         Context.SaveChanges();
+
+        if (IsAtSVI)
+        {
+            newLocationMenu.LocationID = 1;
+            newLocationMenu.MenuItemID = Context.MenuItems.Max(a => a.MenuItemID);
+            Context.LocationMenus.Add(newLocationMenu);
+        }
+
+        if (IsAtSVC)
+        {
+            newLocationMenu.LocationID = 2;
+            Context.LocationMenus.Add(newLocationMenu);
+        }
+
+        if (IsAtCS)
+        {
+            newLocationMenu.LocationID = 3;
+            Context.LocationMenus.Add(newLocationMenu);
+        }
+        
+        Context.SaveChanges();
     }
+
+
 }

@@ -12,8 +12,11 @@
     # Figure out how to accept dropdown info for ItemType
         # Just needed some linq and value binding
         # ItemTypeDropdown is no longer being used
+    - Add input validation
+    - Need to add a price field
     ! Need to be able to add to multiple tables at once
     - Checkbox input for locations and allergies
+        - For location this will need to 
     - Clear data input on submit
 
 
