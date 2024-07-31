@@ -9,8 +9,10 @@
         # Began using EditForm component. It felt a lot more suited for the job bc it:
             # Can use model binding
             # Can supply parameters directly from the form upon submission
-    - Figure out how to accept dropdown info for ItemType
-    - Need to be able to add to multiple tables at once
+    # Figure out how to accept dropdown info for ItemType
+        # Just needed some linq and value binding
+        # ItemTypeDropdown is no longer being used
+    ! Need to be able to add to multiple tables at once
     - Checkbox input for locations and allergies
     - Clear data input on submit
 

@@ -21,7 +21,6 @@
                         </div>
 
                         <div class="col">
-                            @* <input type="text" asp-for="itemName" class="form-control-sm" placeholder="Item Name" /> *@
                             <InputText @bind-Value=newMenuItem.ItemName />
                         </div>
                     </div>
@@ -98,7 +97,13 @@
                             <label class="form-label">Cocktail Type:</label>
                         </div>
                         <div class="col">
-                            <ItemTypeDropdown />
+                            <InputSelect @bind-Value=newMenuItem.ItemTypeID>
+                                @foreach (var itemType in (from IT in Context.ItemTypes
+                                                      select new {IT.ItemTypeID, IT.ItemTypeDescription}))
+                                {
+                                    <option value=@itemType.ItemTypeID>@itemType.ItemTypeDescription</option>
+                                }
+                            </InputSelect>
                         </div>
                     </div>
 `
@@ -119,10 +124,9 @@
 
 @code {
     [SupplyParameterFromForm]
-    public MenuItem? newMenuItem { get; set; } = new MenuItem();
+    public MenuItem newMenuItem { get; set; } = new MenuItem();
     public void OnPost()
     {
-        newMenuItem.ItemTypeID = 4;
         Context.MenuItems.Add(newMenuItem);
         Context.SaveChanges();
     }
