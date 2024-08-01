@@ -12,12 +12,15 @@
     # Figure out how to accept dropdown info for ItemType
         # Just needed some linq and value binding
         # ItemTypeDropdown is no longer being used
-    - Add input validation
     # Need to add a price field
     # Need to be able to add to multiple tables at once
-    - Checkbox input for locations
+    # Checkbox input for locations
     # Checkbox input for allergies
+    - Add input validation
     ! Clear data input on submit
+    - On submit the app works and give information to database
+        - On second submit with the same data, an unhandled error occurs
+        - This also happens on second sumbit no even if you change the inputs
 
 
 --STYLINGS--
