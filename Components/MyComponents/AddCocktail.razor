@@ -1,5 +1,6 @@
 ﻿@namespace MyComponents.AddCocktail
 @inject CircleHospitalityContext Context
+@rendermode InteractiveServer
 @using MyComponents.ItemTypeDropdown
 @using MyComponents.IngredientList
 @using System
@@ -84,6 +85,10 @@
                                     <div class="col">
                                         <InputCheckbox @bind-Value="@IsAtSVI" />
                                         <label for="IsAtSVI" class="form-label ms-2">Sundry - Indy</label>
+                                        @if (IsAtSVI)
+                                        {
+                                            <p>At SVI</p>
+                                        }
                                     </div>
                                 </div>
                                 <div class="row">
@@ -147,7 +152,7 @@
 
     //Might be messing up how a form binds to a model by doing this
 
-    public bool IsAtSVI { get; set; } = true;
+    public bool IsAtSVI { get; set; }
     public bool IsAtSVC { get; set; }
     public bool IsAtCS { get; set; }
 
@@ -166,23 +171,29 @@
         if (IsAtSVI)
         {
             newLocationMenu.LocationID = 1;
-            newLocationMenu.MenuItemID = Context.MenuItems.Max(a => a.MenuItemID);
+            newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+            // newLocationMenu.MenuItemID = Context.MenuItems.Max(a => a.MenuItemID);
             Context.LocationMenus.Add(newLocationMenu);
+            Context.SaveChanges();
         }
 
         if (IsAtSVC)
         {
             newLocationMenu.LocationID = 2;
+            newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
             Context.LocationMenus.Add(newLocationMenu);
+            Context.SaveChanges();
         }
 
         if (IsAtCS)
         {
             newLocationMenu.LocationID = 3;
+            newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
             Context.LocationMenus.Add(newLocationMenu);
+            Context.SaveChanges();
         }
         
-        Context.SaveChanges();
+
     }
 
 
