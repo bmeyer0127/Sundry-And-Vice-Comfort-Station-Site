@@ -3,16 +3,20 @@
 @rendermode InteractiveServer
 @using MyComponents.ItemTypeDropdown
 @using MyComponents.IngredientList
+@using MyComponents.FormModels.MenuItemFormModel
 @using System
 @using System.Linq
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
 
 <div class="container text-center">
     <div class="row">
         <div class="col">
             <div class="container text-center">
-                <EditForm Model=Context.LocationMenus FormName="MenuItemForm" method="post" OnSubmit="OnPost">
+                @* Previous model was "Context.LocationMenus" *@
+                <EditForm Model="model" FormName="MenuItemForm" method="post" OnValidSubmit=@Submit>
+                    <DataAnnotationsValidator />
                     
                     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -22,7 +26,7 @@
                         </div>
 
                         <div class="col">
-                            <InputText @bind-Value=newMenuItem.ItemName />
+                            <InputText @bind-Value=model.ItemName />
                         </div>
                     </div>
 
@@ -31,7 +35,7 @@
                             <label for="description" class="form-label">Description:</label>
                         </div>
                         <div class="col">
-                             <InputText @bind-Value=newMenuItem.ItemDescription />
+                             <InputText @bind-Value=model.ItemDescription />
                         </div>
                     </div>
 
@@ -40,7 +44,7 @@
                             <label for="creatorName" class="form-label">Creator:</label>
                         </div>
                         <div class="col">
-                            <InputText @bind-Value=newMenuItem.CreatorName />
+                            <InputText @bind-Value=model.CreatorName />
                         </div>
                     </div>
 
@@ -49,7 +53,7 @@
                             <label for="price" class="form-label">Price:</label>
                         </div>
                         <div class="col">
-                            <InputNumber @bind-Value="@newLocationMenu.Price" />
+                            <InputNumber @bind-Value="@model.Price" />
                         </div>
                     </div>
 
@@ -61,13 +65,13 @@
                             <div class="container text-center">
                                 <div class="row">
                                     <div class="col">
-                                        <InputCheckbox @bind-Value="@newLocationMenu.HasDairy" />
+                                        <InputCheckbox @bind-Value="@model.HasDairy" />
                                         <label for="hasDairy" class="form-label ms-2">Has Dairy</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <InputCheckbox @bind-Value="@newLocationMenu.HasEgg" />
+                                        <InputCheckbox @bind-Value="@model.HasEgg" />
                                         <label for="hasEgg" class="form-label ms-2">Has Egg</label>
                                     </div>
                                 </div>
@@ -107,7 +111,7 @@
                             <label class="form-label">Cocktail Type:</label>
                         </div>
                         <div class="col">
-                            <InputSelect @bind-Value="@newMenuItem.ItemTypeID">
+                            <InputSelect @bind-Value="@model.ItemTypeID">
                                 @foreach (var itemType in (from IT in Context.ItemTypes
                                                       select new {IT.ItemTypeID, IT.ItemTypeDescription}))
                                 {
@@ -125,7 +129,7 @@
                             <IngredientList />
                         </div>
                     </div>
-                    <button>submit</button>
+                    <button type="submit">submit</button>
                 </EditForm>
             </div>
         </div>
@@ -133,33 +137,35 @@
 </div>
 
 @code {
-    // public LocationChecker locationChecker = new LocationChecker();
 
-
-    // public class LocationChecker
-    // {
-    //     public bool IsAtSVI { get; set; }
-    //     public bool IsAtSVC { get; set; }
-    //     public bool IsAtCS { get; set; }
-    // }
-
-    // [SupplyParameterFromForm]
-    // public MenuItem newMenuItem { get; set; } = new MenuItem();
-
-    //Might be messing up how a form binds to a model by doing this
+    [SupplyParameterFromForm]
+    MenuItemFormModel model { get; set; } = new MenuItemFormModel();
 
     public bool IsAtSVI { get; set; }
     public bool IsAtSVC { get; set; }
     public bool IsAtCS { get; set; }
 
-    [SupplyParameterFromForm]
-    public MenuItem newMenuItem { get; set; } = new MenuItem();
+    // [SupplyParameterFromForm]
+    // public MenuItem newMenuItem = new MenuItem { ItemName = model.ItemName};
 
-    [SupplyParameterFromForm]
-    public LocationMenu newLocationMenu { get; set; } = new LocationMenu();
+    // [SupplyParameterFromForm]
+    // public LocationMenu newLocationMenu { get; set; } = new LocationMenu();
 
-    public void OnPost()
+    public void Submit()
     {
+        MenuItem newMenuItem = new MenuItem 
+            { ItemName = model.ItemName,
+              ItemDescription = model.ItemDescription,
+              CreatorName = model.CreatorName,
+              ItemTypeID = model.ItemTypeID
+            };
+        LocationMenu newLocationMenu = new LocationMenu
+            {
+                Price = model.Price,
+                HasEgg = model.HasEgg,
+                HasDairy = model.HasDairy
+            };
+
 
         Context.MenuItems.Add(newMenuItem);
         Context.SaveChanges();
@@ -168,7 +174,6 @@
         {
             newLocationMenu.LocationID = 1;
             newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
-            // newLocationMenu.MenuItemID = Context.MenuItems.Max(a => a.MenuItemID);
             Context.LocationMenus.Add(newLocationMenu);
             Context.SaveChanges();
         }
@@ -188,8 +193,6 @@
             Context.LocationMenus.Add(newLocationMenu);
             Context.SaveChanges();
         }
-        
+        model = new MenuItemFormModel();
     }
-
-
 }

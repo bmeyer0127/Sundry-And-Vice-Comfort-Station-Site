@@ -21,6 +21,7 @@
     - On submit the app works and give information to database
         - On second submit with the same data, an unhandled error occurs
         - This also happens on second sumbit no even if you change the inputs
+        ! I think I must create a model for the form itself and add model = new model()
 
 
 --STYLINGS--
