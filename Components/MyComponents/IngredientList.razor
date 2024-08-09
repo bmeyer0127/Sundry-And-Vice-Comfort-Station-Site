@@ -35,29 +35,41 @@
     <div class="list-group overflow-auto" style="max-height: 150px; min-height: 150px">
         @foreach (int id in addedIngredientIDs)
         {
-            <li class="list-group-item d-flex">
-                <label class="form-check-label">
-                    @Context.Ingredients.Where(ing => ing.IngredientID == id).Select(ing => ing.IngredientName).First()
-                </label>
-                <div class="dropdown btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Measure Type
-                    </button>
-                    <ul class="justify-content-end dropdown-menu">
-                        @foreach (var measurement in (from M in Context.Measurements select M.MeasurementDescription))
-                        {
-                            <li class="dropdown-item">
-                                @measurement
-                            </li>
-                        }
-                    </ul>
+            <div class="list-group-item d-flex">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-6 text-start">
+                            <label class="form-check-label">
+                                @Context.Ingredients.Where(ing => ing.IngredientID == id).Select(ing => ing.IngredientName).First()
+                            </label>
+                        </div>
+                        <div class="col-2 p-2">
+                            <InputNumber TValue="float" DisplayName="How much" @bind-Value="ingredientAmount" class="w-100"/>
+                        </div>
+                        <div class="col-4">
+                            <div class="dropdown btn-group w-100">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Measure Type
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @foreach (var measurement in (from M in Context.Measurements select M.MeasurementDescription))
+                                    {
+                                        <li class="dropdown-item">
+                                            @measurement
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </li>
+            </div>
         }
         </div>
 </div>
 
 @code {
+    float ingredientAmount; 
     string searchInput = "";
     public List<int> addedIngredientIDs = new List<int> { };
 
