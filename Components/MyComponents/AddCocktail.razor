@@ -4,6 +4,7 @@
 @using MyComponents.ItemTypeDropdown
 @using MyComponents.IngredientList
 @using MyComponents.FormModels.MenuItemFormModel
+ @* @using static MyComponents.IngredientList.IngredientList.IngredientMeasurements *@
 @using System
 @using System.Linq
 @using Microsoft.AspNetCore.Mvc.TagHelpers
@@ -143,6 +144,9 @@
     [SupplyParameterFromForm]
     MenuItemFormModel model { get; set; } = new MenuItemFormModel();
 
+    [CascadingParameter]
+    public IngredientList.IngredientMeasurements ingredientMeasurements { get; set; }
+
     public bool IsAtSVI { get; set; }
     public bool IsAtSVC { get; set; }
     public bool IsAtCS { get; set; }
@@ -162,9 +166,21 @@
                 HasDairy = model.HasDairy
             };
 
-
         Context.MenuItems.Add(newMenuItem);
         Context.SaveChanges();
+
+        foreach (IngredientList.IngredientMeasurements ingredients in ingredientMeasurements)
+        {
+            ItemIngredient newItemIngredient = new ItemIngredient
+            {
+                // MenuItemID = ;
+                // IngredientID = ;
+                // MeasurementID = ;
+                // MeasureAmount = ;
+            };
+            Context.ItemIngredients.Add(newItemIngredient);
+            Context.SaveChanges();
+        }
 
         if (IsAtSVI)
         {

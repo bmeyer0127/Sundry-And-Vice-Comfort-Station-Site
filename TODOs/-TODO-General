@@ -29,10 +29,9 @@
         - ItemTypeID is required
 
 - IngredientsList functionality:
-    - Currently adds ingredient to a separate list and gives it its own respective input for 
+    # Currently adds ingredient to a separate list and gives it its own respective input for 
         measurement amount and measurement type.
-    - Add functionality to save the data. Will look into adding a 3d list as a cascading parameter
-        into AddCocktail form. 
+    - Add functionality to save the data.
     - Measurement type dropdown currently has no functionality
         - Make the dropdown itself scrollable rather than 100% height.
         - Make each individual li a button to click on
