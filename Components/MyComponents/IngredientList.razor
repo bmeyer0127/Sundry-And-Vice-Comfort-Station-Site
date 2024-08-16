@@ -6,7 +6,11 @@
 @using System.Collections
 @using System.Linq
 @using MyComponents.AddCocktail
-
+<div>
+    <CascadingValue Value="ingredientMeasurements">
+        <AddCocktail />
+    </CascadingValue>
+</div>
 <div class="container">
     <input type="text" class="form-control-sm w-100" placeholder="search" @bind="searchInput" />
     <div class="list-group overflow-auto mb-3" style="max-height: 150px; min-height: 150px">
@@ -60,11 +64,10 @@
             </div>
         }
         </div>
+    
 </div>
 
-<CascadingValue Value="ingredientMeasurements" >
-    <AddCocktail />
-</CascadingValue>
+
 
 @code {
     float ingredientAmount; 

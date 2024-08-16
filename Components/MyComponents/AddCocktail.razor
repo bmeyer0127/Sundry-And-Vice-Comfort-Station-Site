@@ -4,7 +4,6 @@
 @using MyComponents.ItemTypeDropdown
 @using MyComponents.IngredientList
 @using MyComponents.FormModels.MenuItemFormModel
- @* @using static MyComponents.IngredientList.IngredientList.IngredientMeasurements *@
 @using System
 @using System.Linq
 @using Microsoft.AspNetCore.Mvc.TagHelpers
@@ -122,7 +121,7 @@
                     </div>
 
 
-                    <div class="row mb-3">
+                    @* <div class="row mb-3">
                         <div class="col text-start">
                             <label class="form-label">Ingredient List:</label>
                         </div>
@@ -131,7 +130,7 @@
                         <div class="col text-end">
                             <IngredientList />
                         </div>
-                    </div>
+                    </div> *@
                     <button type="submit">submit</button>
                 </EditForm>
             </div>
@@ -145,7 +144,7 @@
     MenuItemFormModel model { get; set; } = new MenuItemFormModel();
 
     [CascadingParameter]
-    public IngredientList.IngredientMeasurements ingredientMeasurements { get; set; }
+    public List<IngredientList.IngredientMeasurements>? ingredientMeasurements { get; set; }
 
     public bool IsAtSVI { get; set; }
     public bool IsAtSVC { get; set; }
@@ -153,11 +152,12 @@
 
     public void Submit()
     {
-        MenuItem newMenuItem = new MenuItem 
-            { ItemName = model.ItemName,
-              ItemDescription = model.ItemDescription,
-              CreatorName = model.CreatorName,
-              ItemTypeID = model.ItemTypeID
+        MenuItem newMenuItem = new MenuItem
+            {
+                ItemName = model.ItemName,
+                ItemDescription = model.ItemDescription,
+                CreatorName = model.CreatorName,
+                ItemTypeID = model.ItemTypeID
             };
         LocationMenu newLocationMenu = new LocationMenu
             {
@@ -169,15 +169,14 @@
         Context.MenuItems.Add(newMenuItem);
         Context.SaveChanges();
 
-        foreach (IngredientList.IngredientMeasurements ingredients in ingredientMeasurements)
+        foreach (IngredientList.IngredientMeasurements ingredient in ingredientMeasurements)
         {
-            ItemIngredient newItemIngredient = new ItemIngredient
-            {
-                // MenuItemID = ;
-                // IngredientID = ;
-                // MeasurementID = ;
-                // MeasureAmount = ;
-            };
+             ItemIngredient newItemIngredient = new ItemIngredient {
+                    MenuItemID = newMenuItem.MenuItemID,
+                    IngredientID = ingredient.measureIngredientID,
+                    MeasurementID = ingredient.measureTypeID,
+                    MeasurementAmount = ingredient.measurementAmount
+                };
             Context.ItemIngredients.Add(newItemIngredient);
             Context.SaveChanges();
         }
