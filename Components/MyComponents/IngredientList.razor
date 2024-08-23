@@ -7,9 +7,9 @@
 @using System.Linq
 @using MyComponents.AddCocktail
 <div>
-    <CascadingValue Value="ingredientMeasurements">
+    @* <CascadingValue Value="ingredientMeasurements">
         <AddCocktail />
-    </CascadingValue>
+    </CascadingValue> *@
 </div>
 <div class="container">
     <input type="text" class="form-control-sm w-100" placeholder="search" @bind="searchInput" />
@@ -72,7 +72,10 @@
 @code {
     float ingredientAmount; 
     string searchInput = "";
-    public List<IngredientMeasurements> ingredientMeasurements = new List<IngredientMeasurements> { };
+
+    [Parameter]
+    public List<IngredientMeasurements> ingredientMeasurements { get; set; }
+    // public List<IngredientMeasurements> ingredientMeasurements = new List<IngredientMeasurements> { };
 
     public class IngredientMeasurements
     {

@@ -35,12 +35,18 @@
     # Measurement type dropdown currently has no functionality
         # Make the dropdown itself scrollable rather than 100% height.
         # Make each individual li a button to click on
-    ! Okay so it kinda works now. AddCocktail is currently a child of IngredientList, which allows the
+    # Okay so it kinda works now. AddCocktail is currently a child of IngredientList, which allows the
         passing of the CascadingValue that is the list of added ingredient.
         I don't really love this setup because it kind of feels like a round about and messes
         with the layout of the page. I'll try to pass the value without cascading value
-    - Maybe try using NavigationManager and URI routing
-    - Make it all prettier
+    # Maybe try using NavigationManager and URI routing
+    # ^^^ Did not use this but I got it to work by using the following solution:
+        # Add cocktail is now the component used in Admin
+        # IngredientList now has a required parameter called ingredientMeasurement
+            # which is a List<IngredientMeasurement> 
+        # The class is specified in IngredientList but the required parameter is defined in AddCocktail
+            # which is then fed into the IngredientList component in AddCocktail
+    # Clear the ingredientList in AddCocktail after submition
 
 
 --STYLINGS--
