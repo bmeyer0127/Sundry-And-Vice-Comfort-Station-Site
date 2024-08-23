@@ -12,7 +12,7 @@
     </CascadingValue> *@
 </div>
 <div class="container">
-    <input type="text" class="form-control-sm w-100" placeholder="search" @bind="searchInput" />
+    <input type="text" class="form-control-sm w-100" placeholder="search" @bind="searchInput" @bind:event="oninput"/>
     <div class="list-group overflow-auto mb-3" style="max-height: 150px; min-height: 150px">
         <ul>
             @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName!.Contains(searchInput)))
@@ -87,5 +87,10 @@
     public void addIngredient(int ingredientID)
     {
         ingredientMeasurements.Add(new IngredientMeasurements { measureIngredientID = ingredientID } );
+    }
+
+    public void removeIngredient(int ingredientID)
+    {
+        ingredientMeasurements.Remove()
     }
 }

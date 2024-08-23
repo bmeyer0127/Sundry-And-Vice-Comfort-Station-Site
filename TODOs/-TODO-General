@@ -22,11 +22,17 @@
         # This also happens on second sumbit no even if you change the inputs
         # I think I must create a model for the form itself and add model = new model()
             # Worked!
-    - Toast popup after submitting a cocktail
+    # Toast popup after submitting a cocktail
+        # Disappear after ~5 seconds
+    # Whenever I hit enter to update the search in IngredientList it submits the cocktail.
+        # I'll try to have it update on each keystroke
+        # ^^^ Added this with @bind:event="oninput"
+        # Still don't love the idea with it submitting with enter but I guess it's best for accessibility
     - Add input validation for the following:
         - Price must be whole integer
         - ItemName is required
         - ItemTypeID is required
+
 
 - IngredientsList functionality:
     # Currently adds ingredient to a separate list and gives it its own respective input for 
@@ -43,10 +49,11 @@
     # ^^^ Did not use this but I got it to work by using the following solution:
         # Add cocktail is now the component used in Admin
         # IngredientList now has a required parameter called ingredientMeasurement
-            # which is a List<IngredientMeasurement> 
+            # which is a List<IngredientMeasurement> and is defined in AddCocktail
         # The class is specified in IngredientList but the required parameter is defined in AddCocktail
             # which is then fed into the IngredientList component in AddCocktail
     # Clear the ingredientList in AddCocktail after submition
+    - Add ability to remove items from IngredientList
 
 
 --STYLINGS--
