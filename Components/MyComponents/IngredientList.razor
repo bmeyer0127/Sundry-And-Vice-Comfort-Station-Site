@@ -51,13 +51,16 @@
                         <div class="col-2 p-2">
                             <InputNumber TValue="float" @bind-Value="ingredient.measurementAmount" class="w-100"/>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <InputSelect @bind-Value="ingredient.measureTypeID">
                                 @foreach (var measurement in (from M in Context.Measurements select new { M.MeasurementDescription, M.MeasurementID }))
                                 {
                                     <option value=@measurement.MeasurementID>@measurement.MeasurementDescription</option>
                                 }
                             </InputSelect>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-outline-danger">@ingredient.measureIngredientID</button>
                         </div>
                     </div>
                 </div>
@@ -70,12 +73,11 @@
 
 
 @code {
-    float ingredientAmount; 
-    string searchInput = "";
+        float ingredientAmount; 
+        string searchInput = "";
 
-    [Parameter]
-    public List<IngredientMeasurements> ingredientMeasurements { get; set; }
-    // public List<IngredientMeasurements> ingredientMeasurements = new List<IngredientMeasurements> { };
+        [Parameter]
+        public List<IngredientMeasurements> ingredientMeasurements { get; set; }
 
     public class IngredientMeasurements
     {
@@ -91,6 +93,6 @@
 
     public void removeIngredient(int ingredientID)
     {
-        ingredientMeasurements.Remove()
+        ingredientMeasurements.RemoveAt(ingredientMeasurements.IndexOf(ingredientMeasurements.Where(id => id.measureIngredientID == ingredientID).Select(ingredientMeasurements[0])));
     }
 }
