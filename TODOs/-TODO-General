@@ -53,7 +53,8 @@
         # The class is specified in IngredientList but the required parameter is defined in AddCocktail
             # which is then fed into the IngredientList component in AddCocktail
     # Clear the ingredientList in AddCocktail after submition
-    - Add ability to remove items from IngredientList
+    # Add ability to remove items from IngredientList
+    # Make it impossible to add the same ingredient twice to the list
 
 
 --STYLINGS--
