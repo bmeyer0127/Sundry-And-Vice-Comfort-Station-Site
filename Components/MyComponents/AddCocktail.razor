@@ -145,13 +145,13 @@
     [SupplyParameterFromForm]
     MenuItemFormModel model { get; set; } = new MenuItemFormModel();
 
+    List<ToastMessage> messages = new List<ToastMessage>();
+
     public List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements> { };
 
     public bool IsAtSVI { get; set; }
     public bool IsAtSVC { get; set; }
     public bool IsAtCS { get; set; }
-
-    List<ToastMessage> messages = new List<ToastMessage>();
 
     private void showSuccess() => messages.Add(createToastMessage());
 

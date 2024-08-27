@@ -1,5 +1,7 @@
 # CURRENT TASK ###########################################################################################
 
+- Really gotta go through all of this and comment on how it all works, man
+
 --FUNCTIONALITY--
 
 - Actually add ability to add menuItem from Admin page
@@ -28,6 +30,8 @@
         # I'll try to have it update on each keystroke
         # ^^^ Added this with @bind:event="oninput"
         # Still don't love the idea with it submitting with enter but I guess it's best for accessibility
+    - Format better for both desktop and mobile (mobile first)
+        - Consider wrapping AddCocktail in just a dropdown form
     - Add input validation for the following:
         - Price must be whole integer
         - ItemName is required
