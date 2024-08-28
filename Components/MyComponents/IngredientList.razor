@@ -10,10 +10,10 @@
     <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000" />
     <input type="text" class="form-control-sm w-100" placeholder="search" @bind="searchInput" @bind:event="oninput"/>
     <div class="list-group overflow-auto mb-3" style="max-height: 150px; min-height: 150px">
-        <ul>
+        <ul class="ps-0" style="">
             @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName!.Contains(searchInput)))
             {
-                <li class="list-group-item d-flex">
+                <li class="list-group-item text-start" >
                     <button 
                         class="btn btn-outline-primary me-2" 
                         type="button" 
@@ -39,24 +39,24 @@
             <div class="list-group-item d-flex">
                 <div class="container">
                     <div class="row justify-content-start">
-                        <div class="col-6 text-start">
+                        <div class="col-4 text-start">
                             <label class="form-check-label">
                                 @Context.Ingredients.Where(ing => ing.IngredientID == ingredient.measureIngredientID).Select(ing => ing.IngredientName).First()
                             </label>
                         </div>
-                        <div class="col-2 p-2">
-                            <InputNumber TValue="float" @bind-Value="ingredient.measurementAmount" class="w-100"/>
-                        </div>
                         <div class="col-3">
-                            <InputSelect @bind-Value="ingredient.measureTypeID">
+                            <InputNumber TValue="float" @bind-Value="ingredient.measurementAmount" class="w-100" />
+                        </div>
+                        <div class="col-3 p-1">
+                            <InputSelect @bind-Value="ingredient.measureTypeID" class="w-100">
                                 @foreach (var measurement in (from M in Context.Measurements select new { M.MeasurementDescription, M.MeasurementID }))
                                 {
                                     <option value=@measurement.MeasurementID>@measurement.MeasurementDescription</option>
                                 }
                             </InputSelect>
                         </div>
-                        <div class="col-1">
-                            <button type="button" class="btn btn-outline-danger" @onclick="() => removeIngredient(ingredient.measureIngredientID)">@ingredient.measureIngredientID</button>
+                        <div class="col-2 text-end">
+                            <button type="button" class="btn btn-outline-danger btn-sm btn-close" @onclick="() => removeIngredient(ingredient.measureIngredientID)"/>
                         </div>
                     </div>
                 </div>
