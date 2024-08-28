@@ -12,15 +12,16 @@
 
 <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000"/>
 
-<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#addCocktailOffCanvas" aria-controls="addCocktailOffCanvas">
+<button class="btn btn-outline-primary" type="button" @onclick = "async () => await showOffCanvas(AddCocktailOffCanvas)">
     Add Cocktail
 </button>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="addCocktailOffCanvas">
+<Offcanvas @ref="AddCocktailOffCanvas" IsScrollable="true">
+    <BodyTemplate>
 <div class="container text-center">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <div class="container text-center">
+    <div class="row justify-content-center mt-3">
+        <div class="col">
+            <div class="container">
                 <EditForm Model="model" FormName="MenuItemForm" method="post" OnValidSubmit=@Submit>
                     <DataAnnotationsValidator />
                     
@@ -144,7 +145,8 @@
         </div>
     </div>
 </div>
-</div>
+    </BodyTemplate>
+</Offcanvas>
 
 @code {
 
@@ -152,6 +154,8 @@
     MenuItemFormModel model { get; set; } = new MenuItemFormModel();
 
     List<ToastMessage> messages = new List<ToastMessage>();
+
+    private Offcanvas? AddCocktailOffCanvas;
 
     public List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements> { };
 
@@ -167,6 +171,11 @@
                 Type = ToastType.Dark,
                 Message = "Item Submitted!"
             };
+
+    private async Task showOffCanvas(Offcanvas offcanvas)
+    {
+        await offcanvas.ShowAsync();
+    }
 
     public void Submit()
     {
