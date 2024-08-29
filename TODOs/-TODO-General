@@ -32,8 +32,8 @@
         # ^^^ Added this with @bind:event="oninput"
         # Still don't love the idea with it submitting with enter but I guess it's best for accessibility
     - Format better for both desktop and mobile (mobile first)
-        - Consider wrapping AddCocktail in just a dropdown form
-        - OffCanvas might actually be cuter
+        # Consider wrapping AddCocktail in just a dropdown form
+        # OffCanvas might actually be cuter
     - Add input validation for the following:
         - Price must be whole integer
         - ItemName is required

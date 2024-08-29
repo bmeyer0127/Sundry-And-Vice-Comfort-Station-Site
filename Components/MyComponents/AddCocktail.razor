@@ -4,6 +4,7 @@
 @using MyComponents.ItemTypeDropdown
 @using MyComponents.IngredientList
 @using MyComponents.FormModels.MenuItemFormModel
+@using Pages.Admin
 @using System
 @using System.Linq
 @using Microsoft.AspNetCore.Mvc.TagHelpers
@@ -12,7 +13,7 @@
 
 <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000"/>
 
-<button class="btn btn-outline-primary" type="button" @onclick = "async () => await showOffCanvas(AddCocktailOffCanvas)">
+<button class="btn btn-outline-primary" type="button" @onclick = "async () => await AddCocktailOffCanvas.ShowAsync">
     Add Cocktail
 </button>
 
@@ -157,6 +158,8 @@
 
     private Offcanvas? AddCocktailOffCanvas;
 
+    private showOffCanvas = Admin.showOffCanvas;
+
     public List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements> { };
 
     public bool IsAtSVI { get; set; }
@@ -172,10 +175,7 @@
                 Message = "Item Submitted!"
             };
 
-    private async Task showOffCanvas(Offcanvas offcanvas)
-    {
-        await offcanvas.ShowAsync();
-    }
+
 
     public void Submit()
     {
