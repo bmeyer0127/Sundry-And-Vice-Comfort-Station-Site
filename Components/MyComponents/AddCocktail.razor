@@ -13,7 +13,7 @@
 
 <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000"/>
 
-<button class="btn btn-outline-primary" type="button" @onclick = "async () => await AddCocktailOffCanvas.ShowAsync">
+<button class="btn btn-outline-primary" type="button" @onclick = "() => AddCocktailOffCanvas.ShowAsync()">
     Add Cocktail
 </button>
 
@@ -29,47 +29,47 @@
                     <div asp-validation-summary="All" class="text-danger"></div>
 
                     <div class="row mb-3">
-                        <div class="col text-start">
+                        <div class="col-4 text-start">
                             <label asp-for="itemName" class="form-label">Name:</label>
                         </div>
 
-                        <div class="col text-start">
+                        <div class="col-8 text-start">
                             <InputText @bind-Value=model.ItemName />
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col text-start">
+                        <div class="col-4 text-start">
                             <label for="description" class="form-label">Description:</label>
                         </div>
-                        <div class="col text-start">
+                        <div class="col-8 text-start">
                              <InputText @bind-Value=model.ItemDescription />
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col text-start">
+                        <div class="col-4 text-start">
                             <label for="creatorName" class="form-label">Creator:</label>
                         </div>
-                        <div class="col text-start">
+                        <div class="col-8 text-start">
                             <InputText @bind-Value=model.CreatorName />
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col text-start">
+                        <div class="col-4 text-start">
                             <label for="price" class="form-label">Price:</label>
                         </div>
-                        <div class="col text-start">
+                        <div class="col-8 text-start">
                             <InputNumber @bind-Value="@model.Price" />
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col text-start">
+                        <div class="col-4 text-start">
                             <label class="form-label">Allergens:</label>
                         </div>
-                        <div class="col text-start">
+                        <div class="col-8 text-start">
                             <div class="container text-start">
                                 <div class="row">
                                     <div class="col text-start">
@@ -88,10 +88,10 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col text-start">
+                        <div class="col-4 text-start">
                             <label class="form-label">Available at:</label>
                         </div>
-                        <div class="col">
+                        <div class="col-8">
                             <div class="container text-start">
                                 <div class="row">
                                     <div class="col text-start">
@@ -156,9 +156,7 @@
 
     List<ToastMessage> messages = new List<ToastMessage>();
 
-    private Offcanvas? AddCocktailOffCanvas;
-
-    private showOffCanvas = Admin.showOffCanvas;
+    private Offcanvas AddCocktailOffCanvas;
 
     public List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements> { };
 

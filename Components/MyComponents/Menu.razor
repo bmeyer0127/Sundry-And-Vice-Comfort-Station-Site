@@ -16,6 +16,7 @@
                                       join L in Context.LocationMenus
                                       on MI.MenuItemID equals L.MenuItemID
                                       where L.LocationID == locationID
+                                      orderby MI.ItemTypeID
                                       select new { MI.ItemName, MI.ItemDescription, MI.CreatorName, L.Price }))
                 {
                     <MenuItemDisplay ItemName="@item.ItemName"
