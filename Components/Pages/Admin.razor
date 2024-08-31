@@ -2,6 +2,7 @@
 @namespace Pages.Admin
 @using System.Linq
 @using MyComponents.AddCocktail
+@using MyComponents.EditItem
 @using MyComponents.IngredientList
 
 <h3>Admin</h3>
@@ -11,13 +12,13 @@
             <AddCocktail />
         </div>
     </div>
+    <div class="row pt-3">
+        <div class="col">
+            <EditItem />
+        </div>
+    </div>
 </div>
 
 @code {
-
-    // public async Task showOffCanvas(Offcanvas offcanvas)
-    // {
-    //     await offcanvas.ShowAsync();
-    // }
 
 }
