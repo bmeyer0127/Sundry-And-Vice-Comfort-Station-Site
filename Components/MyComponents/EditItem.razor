@@ -1,0 +1,119 @@
+﻿@namespace MyComponents.EditItem
+@inject CircleHospitalityContext Context
+@rendermode InteractiveServer
+@using MyComponents.ItemTypeDropdown
+@using MyComponents.IngredientList
+@using MyComponents.FormModels.MenuItemFormModel
+@using Pages.Admin
+@using System
+@using System.Linq
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+
+<button class="btn btn-outline-primary" type="button" @onclick="() => ChooseItemOffCanvas.ShowAsync()">
+    Edit Item
+</button>
+
+<Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit">
+    <BodyTemplate>
+        <ul class="ps-0">
+            @foreach (MenuItem menuItem in Context.MenuItems)
+            {
+                <li class="list-group-item text-start pb-3">
+                    <button 
+                        class="btn btn-outline-primary"
+                        type="button"
+                        value="@menuItem.MenuItemID"
+                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuitem(menuItem);}">
+                        Edit
+                    </button>
+                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item">
+                        <BodyTemplate>
+                            @*
+                                TextInput with previous value shown.
+                                Each value is editable if change is desired.
+                            *@
+
+                            <div class="row pb-3">
+                                <label>
+                                    @Context.MenuItems.Where(item => item.MenuItemID == itemID).Select(item => item.ItemName).SingleOrDefault()
+                                </label>
+                            </div>
+
+                            <div class="row pb-3">
+                                <label class="col-4">
+                                    Item Name
+                                </label>
+                                <div class="col-8 text-start">
+                                    <InputText @bind-Value="editedMenuItem.ItemName" />
+                                </div>
+                            </div>
+
+                            <div class="row pb-3">
+                                <label class="col-4">
+                                    Item Description
+                                </label>
+                                <div class="col-8 text-start">
+                                    <InputText @bind-Value="editedMenuItem.ItemDescription" />
+                                </div>
+                            </div>
+
+                            <div class="row pb-3">
+                                <label class="col-4">
+                                    Price
+                                </label>
+                                @* SPOT FOR ITEM PRICE. NEED TO JOIN TO LOCATION MENU <div class="col-8 text-start">
+                                    <InputText @bind-Value="" />
+                                </div> *@
+                            </div>
+
+                            <div class="row pb-3">
+                                <label class="col-4">
+                                    Creator's Name
+                                </label>
+                                <div class="col-8 text-start">
+                                    <InputText @bind-Value="editedMenuItem.CreatorName" />
+                                </div>
+                            </div>
+
+                            <button @onclick="() => submitEdit(menuItem)">submit</button>
+
+                        </BodyTemplate>
+                    </Offcanvas>
+                    <label
+                        for="@menuItem.MenuItemID">
+                        @menuItem.ItemName
+                    </label>
+                </li>
+            }
+        </ul>
+    </BodyTemplate>
+</Offcanvas>
+
+
+
+@code {
+    private Offcanvas ChooseItemOffCanvas;
+    private Offcanvas EditItemOffCanvas;
+    private int itemID;
+
+    private MenuItem editedMenuItem = new MenuItem();
+
+    private MenuItem assignMenuitem(MenuItem oldMenuItem)
+    {
+        editedMenuItem = oldMenuItem;
+        return editedMenuItem;
+    }
+
+    private void submitEdit(MenuItem oldMenuItem)
+    {
+        oldMenuItem = editedMenuItem;
+        Context.SaveChanges();
+    }
+
+    private void cancelEdit(MenuItem oldMenuItem)
+    {
+        
+    }
+}

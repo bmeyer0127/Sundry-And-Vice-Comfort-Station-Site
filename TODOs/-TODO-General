@@ -1,10 +1,87 @@
+# CURRENT BUGS ###########################################################################################
+
+- EditItem still saves changes even if submit button is not pressed
+    - Looks like it is happening with each keystroke?
+    - NOT TRUE! It is just saving while I am in the admin page. It reverts if I change pages.
+        - Honestly unsure if I wanna change that
+
 # CURRENT TASK ###########################################################################################
+
+- Really gotta go through all of this and comment on how it all works, man
+- Also need to buckle down and just really fix up the stylings
+
+--FUNCTIONALITY--
+
+- Actually add ability to add menuItem from Admin page
+    # Got to the point where it can submit successfully to the database
+    # Still trying to figure out how to accept input
+    # Beginning to think I have a fundamental misunderstanding about forms. Will study and learn
+        # Began using EditForm component. It felt a lot more suited for the job bc it:
+            # Can use model binding
+            # Can supply parameters directly from the form upon submission
+    # Figure out how to accept dropdown info for ItemType
+        # Just needed some linq and value binding
+        # ItemTypeDropdown is no longer being used
+    # Need to add a price field
+    # Need to be able to add to multiple tables at once
+    # Checkbox input for locations
+    # Checkbox input for allergies
+    # Clear data input on submit
+    # On submit the app works and give information to database
+        # On second submit with the same data, an unhandled error occurs
+        # This also happens on second sumbit no even if you change the inputs
+        # I think I must create a model for the form itself and add model = new model()
+            # Worked!
+    # Toast popup after submitting a cocktail
+        # Disappear after ~5 seconds
+    # Whenever I hit enter to update the search in IngredientList it submits the cocktail.
+        # I'll try to have it update on each keystroke
+        # ^^^ Added this with @bind:event="oninput"
+        # Still don't love the idea with it submitting with enter but I guess it's best for accessibility
+    - Format better for both desktop and mobile (mobile first)
+        # Consider wrapping AddCocktail in just a dropdown form
+        # OffCanvas might actually be cuter
+    - Add input validation for the following:
+        - Price must be whole integer
+        - ItemName is required
+        - ItemTypeID is required
+
+
+- IngredientsList functionality:
+    # Currently adds ingredient to a separate list and gives it its own respective input for 
+        measurement amount and measurement type.
+    # Add functionality to save the data.
+    # Measurement type dropdown currently has no functionality
+        # Make the dropdown itself scrollable rather than 100% height.
+        # Make each individual li a button to click on
+    # Okay so it kinda works now. AddCocktail is currently a child of IngredientList, which allows the
+        passing of the CascadingValue that is the list of added ingredient.
+        I don't really love this setup because it kind of feels like a round about and messes
+        with the layout of the page. I'll try to pass the value without cascading value
+    # Maybe try using NavigationManager and URI routing
+    # ^^^ Did not use this but I got it to work by using the following solution:
+        # Add cocktail is now the component used in Admin
+        # IngredientList now has a required parameter called ingredientMeasurement
+            # which is a List<IngredientMeasurement> and is defined in AddCocktail
+        # The class is specified in IngredientList but the required parameter is defined in AddCocktail
+            # which is then fed into the IngredientList component in AddCocktail
+    # Clear the ingredientList in AddCocktail after submition
+    # Add ability to remove items from IngredientList
+    # Make it impossible to add the same ingredient twice to the list
+
+
+--STYLINGS--
+
+- Wide screen actually may give room for too many columns at a time. Try to limit
+    - Beef up the margins of the container with for large screen
 
 - Filter option stylings:
     - Dropdown Menu:
         - Find a better color pallete. Something that accents the background and text color of main page
     - Button Group:
         - Honestly not bad
+
+- Make Admin button look natural and pretty
 
 # TODO #####################################################################################################
 
