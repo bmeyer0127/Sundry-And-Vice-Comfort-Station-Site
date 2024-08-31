@@ -1,3 +1,10 @@
+# CURRENT BUGS ###########################################################################################
+
+- EditItem still saves changes even if submit button is not pressed
+    - Looks like it is happening with each keystroke?
+    - NOT TRUE! It is just saving while I am in the admin page. It reverts if I change pages.
+        - Honestly unsure if I wanna change that
+
 # CURRENT TASK ###########################################################################################
 
 - Really gotta go through all of this and comment on how it all works, man
