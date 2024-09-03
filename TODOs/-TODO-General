@@ -16,6 +16,8 @@
 
 # TODO #####################################################################################################
 
+- Maybe add a checkbox in AddCocktail and EditCocktail to make pricing universal
+
 - Limit the amount of characters for the description so it fits on one line
 
 - Woof definitely need to clean up NavMenuOffCanvas.scss

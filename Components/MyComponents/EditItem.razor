@@ -18,6 +18,7 @@
 <Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit">
     <BodyTemplate>
         <ul class="ps-0">
+            @* Would like to make this alphabetical *@
             @foreach (MenuItem menuItem in Context.MenuItems)
             {
                 <li class="list-group-item text-start pb-3">
@@ -30,11 +31,6 @@
                     </button>
                     <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item">
                         <BodyTemplate>
-                            @*
-                                TextInput with previous value shown.
-                                Each value is editable if change is desired.
-                            *@
-
                             <div class="row pb-3">
                                 <label>
                                     @Context.MenuItems.Where(item => item.MenuItemID == itemID).Select(item => item.ItemName).SingleOrDefault()
@@ -99,7 +95,10 @@
     private int itemID;
 
     private MenuItem editedMenuItem = new MenuItem();
-    private LocationMenu editedLocationMenu = new LocationMenu();
+    private LocationMenu editedSVILocationMenu = new LocationMenu();
+    private LocationMenu editedSVCLocationMenu = new LocationMenu();
+    private LocationMenu editedCSLocationMenu = new LocationMenu();
+
 
     private MenuItem assignMenuitem(MenuItem oldMenuItem)
     {

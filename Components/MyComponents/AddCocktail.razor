@@ -98,17 +98,26 @@
                                         <InputCheckbox @bind-Value="@IsAtSVI" />
                                         <label for="IsAtSVI" class="form-label ms-2">SVI</label>
                                     </div>
+                                    <div class="col text-start">
+                                        <CurrencyInput @bind-Value="SVIPrice" />
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col text-start">
                                         <InputCheckbox @bind-Value="@IsAtSVC" />
                                         <label for="availSVC" class="form-label ms-2">SVC</label>
                                     </div>
+                                    <div class="col text-start">
+                                        <CurrencyInput @bind-Value="SVCPrice" />
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col text-start">
                                         <InputCheckbox @bind-Value="@IsAtCS" />
                                         <label for="availCS" class="form-label ms-2">CS</label>
+                                    </div>
+                                    <div class="col text-start">
+                                        <CurrencyInput @bind-Value="CSPrice" />
                                     </div>
                                 </div>
                             </div>
@@ -164,6 +173,10 @@
     public bool IsAtSVC { get; set; }
     public bool IsAtCS { get; set; }
 
+    public int SVIPrice { get; set; }
+    public int SVCPrice { get; set; }
+    public int CSPrice { get; set; }
+
     private void showSuccess() => messages.Add(createToastMessage());
 
     private ToastMessage createToastMessage()
@@ -186,7 +199,6 @@
             };
         LocationMenu newLocationMenu = new LocationMenu
             {
-                Price = model.Price,
                 HasEgg = model.HasEgg,
                 HasDairy = model.HasDairy
             };
@@ -210,6 +222,7 @@
         {
             newLocationMenu.LocationID = 1;
             newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+            newLocationMenu.Price = SVIPrice;
             Context.LocationMenus.Add(newLocationMenu);
             Context.SaveChanges();
         }
@@ -218,6 +231,7 @@
         {
             newLocationMenu.LocationID = 2;
             newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+            newLocationMenu.Price = SVCPrice;
             Context.LocationMenus.Add(newLocationMenu);
             Context.SaveChanges();
         }
@@ -226,9 +240,11 @@
         {
             newLocationMenu.LocationID = 3;
             newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+            newLocationMenu.Price = CSPrice;
             Context.LocationMenus.Add(newLocationMenu);
             Context.SaveChanges();
         }
+
         showSuccess();
         model = new MenuItemFormModel();
         IsAtSVI = false;
