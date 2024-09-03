@@ -8,6 +8,8 @@
 # CURRENT TASK ###########################################################################################
 
 ! Add ability to edit Price, allergens and where the item is available
+! Forgot to add individual spots for respective location pricing in AddCocktail and EditItem
+    - I will add a checkbox for availability and if it is checked, the pricing option will be available. Otherwise, it will be grayed out
 
 - Really gotta go through all of this and comment on how it all works, man
 - Also need to buckle down and just really fix up the stylings
