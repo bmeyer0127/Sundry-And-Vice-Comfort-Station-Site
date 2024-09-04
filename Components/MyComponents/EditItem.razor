@@ -56,12 +56,40 @@
                             </div>
 
                             <div class="row pb-3">
-                                <label class="col-4">
-                                    Price
-                                </label>
-                                @* SPOT FOR ITEM PRICE. NEED TO JOIN TO LOCATION MENU <div class="col-8 text-start">
-                                    <InputText @bind-Value="" />
-                                </div> *@
+                                <div class="col-4 text-start">
+                                    <label class="form-label">Available at:</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="container text-start">
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="@IsAtSVI" />
+                                                <label for="IsAtSVI" class="form-label ms-2">SVI</label>
+                                            </div>
+                                            <div class="col text-start">
+                                                <CurrencyInput @bind-Value="SVIPrice" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="@IsAtSVC" />
+                                                <label for="availSVC" class="form-label ms-2">SVC</label>
+                                            </div>
+                                            <div class="col text-start">
+                                                <CurrencyInput @bind-Value="SVCPrice" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="@IsAtCS" />
+                                                <label for="availCS" class="form-label ms-2">CS</label>
+                                            </div>
+                                            <div class="col text-start">
+                                                <CurrencyInput @bind-Value="CSPrice" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row pb-3">
@@ -95,21 +123,56 @@
     private int itemID;
 
     private MenuItem editedMenuItem = new MenuItem();
+
     private LocationMenu editedSVILocationMenu = new LocationMenu();
     private LocationMenu editedSVCLocationMenu = new LocationMenu();
     private LocationMenu editedCSLocationMenu = new LocationMenu();
 
+    private bool IsAtSVI { get; set; }
+    private bool IsAtSVC { get; set; }
+    private bool IsAtCS { get; set; }
+
+    private int SVIPrice { get; set; }
+    private int SVCPrice { get; set; }
+    private int CSPrice { get; set; }
+
+
+
+
+    // if (IsAtSVI)
+    // {
+    //     newLocationMenu.LocationID = 1;
+    //     newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+    //     newLocationMenu.Price = SVIPrice;
+    //     Context.LocationMenus.Add(newLocationMenu);
+    //     Context.SaveChanges();
+    // }
+
+    // if (IsAtSVC)
+    // {
+    //     newLocationMenu.LocationID = 2;
+    //     newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+    //     newLocationMenu.Price = SVCPrice;
+    //     Context.LocationMenus.Add(newLocationMenu);
+    //     Context.SaveChanges();
+    // }
+
+    // if (IsAtCS)
+    // {
+    //     newLocationMenu.LocationID = 3;
+    //     newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
+    //     newLocationMenu.Price = CSPrice;
+    //     Context.LocationMenus.Add(newLocationMenu);
+    //     Context.SaveChanges();
+    // }
 
     private MenuItem assignMenuitem(MenuItem oldMenuItem)
     {
         editedMenuItem = oldMenuItem;
+        editedSVILocationMenu = Context.LocationMenus.Where(item => (item.MenuItemID == oldMenuItem.MenuItemID) && (item.LocationID == 1)).Select(LocationMenu);
+        Console.WriteLine(Context.LocationMenus.Where(item => (item.MenuItemID == oldMenuItem.MenuItemID) && (item.LocationID == 1)));
         return editedMenuItem;
     }
-
-    // private LocationMenu assignLocationMenu(MenuItem oldMenuItem)
-    // {
-    //     editedLocationMenu = 
-    // }
 
     private void submitEdit(MenuItem oldMenuItem)
     {

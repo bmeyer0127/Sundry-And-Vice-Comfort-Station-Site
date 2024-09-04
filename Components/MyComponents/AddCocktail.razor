@@ -169,13 +169,13 @@
 
     public List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements> { };
 
-    public bool IsAtSVI { get; set; }
-    public bool IsAtSVC { get; set; }
-    public bool IsAtCS { get; set; }
+    private bool IsAtSVI { get; set; }
+    private bool IsAtSVC { get; set; }
+    private bool IsAtCS { get; set; }
 
-    public int SVIPrice { get; set; }
-    public int SVCPrice { get; set; }
-    public int CSPrice { get; set; }
+    private int SVIPrice { get; set; }
+    private int SVCPrice { get; set; }
+    private int CSPrice { get; set; }
 
     private void showSuccess() => messages.Add(createToastMessage());
 
