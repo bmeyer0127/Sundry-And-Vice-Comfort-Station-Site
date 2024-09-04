@@ -16,6 +16,9 @@
 
 # TODO #####################################################################################################
 
+- Focus on event page here soon and create ability to add replicative events for a calander
+- "Today, this is happening" kind of component/reminder to put on the menu page: 
+
 - Maybe add a checkbox in AddCocktail and EditCocktail to make pricing universal
 
 - Limit the amount of characters for the description so it fits on one line
