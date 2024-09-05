@@ -29,7 +29,7 @@
                         @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuitem(menuItem);}">
                         Edit
                     </button>
-                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item">
+                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()">
                         <BodyTemplate>
                             <div class="row pb-3">
                                 <label>
@@ -118,15 +118,17 @@
 
 
 @code {
+
+    // I think i need to directly bind the values in the edit form to the database
     private Offcanvas ChooseItemOffCanvas;
     private Offcanvas EditItemOffCanvas;
     private int itemID;
 
     private MenuItem editedMenuItem = new MenuItem();
 
-    private LocationMenu editedSVILocationMenu = new LocationMenu();
-    private LocationMenu editedSVCLocationMenu = new LocationMenu();
-    private LocationMenu editedCSLocationMenu = new LocationMenu();
+    private LocationMenu? editedSVILocationMenu;
+    private LocationMenu? editedSVCLocationMenu;
+    private LocationMenu? editedCSLocationMenu;
 
     private bool IsAtSVI { get; set; }
     private bool IsAtSVC { get; set; }
@@ -136,52 +138,53 @@
     private int SVCPrice { get; set; }
     private int CSPrice { get; set; }
 
-
-
-
-    // if (IsAtSVI)
-    // {
-    //     newLocationMenu.LocationID = 1;
-    //     newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
-    //     newLocationMenu.Price = SVIPrice;
-    //     Context.LocationMenus.Add(newLocationMenu);
-    //     Context.SaveChanges();
-    // }
-
-    // if (IsAtSVC)
-    // {
-    //     newLocationMenu.LocationID = 2;
-    //     newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
-    //     newLocationMenu.Price = SVCPrice;
-    //     Context.LocationMenus.Add(newLocationMenu);
-    //     Context.SaveChanges();
-    // }
-
-    // if (IsAtCS)
-    // {
-    //     newLocationMenu.LocationID = 3;
-    //     newLocationMenu.MenuItemID = newMenuItem.MenuItemID;
-    //     newLocationMenu.Price = CSPrice;
-    //     Context.LocationMenus.Add(newLocationMenu);
-    //     Context.SaveChanges();
-    // }
-
-    private MenuItem assignMenuitem(MenuItem oldMenuItem)
+    private void assignMenuitem(MenuItem oldMenuItem)
     {
         editedMenuItem = oldMenuItem;
-        editedSVILocationMenu = Context.LocationMenus.Where(item => (item.MenuItemID == oldMenuItem.MenuItemID) && (item.LocationID == 1)).Select(LocationMenu);
-        Console.WriteLine(Context.LocationMenus.Where(item => (item.MenuItemID == oldMenuItem.MenuItemID) && (item.LocationID == 1)));
-        return editedMenuItem;
+
+        editedSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
+        editedSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
+        editedCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
+
+        if (editedSVILocationMenu != null)
+        {
+            SVIPrice = editedSVILocationMenu.Price;
+            IsAtSVI = true;
+        }
+
+        if (editedSVCLocationMenu != null)
+        {
+            SVCPrice = editedSVCLocationMenu.Price;
+            IsAtSVC = true;
+        }
+
+        if (editedCSLocationMenu != null)
+        {
+            CSPrice = editedCSLocationMenu.Price;
+            IsAtCS = true;
+        }
     }
+
+
 
     private void submitEdit(MenuItem oldMenuItem)
     {
         oldMenuItem = editedMenuItem;
+
+        editedSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
+        editedSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
+        editedCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
+
         Context.SaveChanges();
     }
 
-    private void cancelEdit(MenuItem oldMenuItem)
+    private void cancelEdit()
     {
-        
+        SVIPrice = 0;
+        SVCPrice = 0;
+        CSPrice = 0;
+        IsAtSVC = false;
+        IsAtSVI = false;
+        IsAtCS = false;
     }
 }
