@@ -58,15 +58,6 @@
 
                     <div class="row mb-3">
                         <div class="col-4 text-start">
-                            <label for="price" class="form-label">Price:</label>
-                        </div>
-                        <div class="col-8 text-start">
-                            <InputNumber @bind-Value="@model.Price" />
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-4 text-start">
                             <label class="form-label">Allergens:</label>
                         </div>
                         <div class="col-8 text-start">
@@ -163,7 +154,7 @@
     [SupplyParameterFromForm]
     MenuItemFormModel model { get; set; } = new MenuItemFormModel();
 
-    List<ToastMessage> messages = new List<ToastMessage>();
+
 
     private Offcanvas AddCocktailOffCanvas;
 
@@ -177,14 +168,7 @@
     private int SVCPrice { get; set; }
     private int CSPrice { get; set; }
 
-    private void showSuccess() => messages.Add(createToastMessage());
 
-    private ToastMessage createToastMessage()
-        => new ToastMessage
-            {
-                Type = ToastType.Dark,
-                Message = "Item Submitted!"
-            };
 
 
 
@@ -252,4 +236,16 @@
         IsAtCS = false;
         ingredientList = new List<IngredientList.IngredientMeasurements> { };
     }
+
+    // Toast Messages
+    List<ToastMessage> messages = new List<ToastMessage>();
+
+    private void showSuccess() => messages.Add(createToastMessage());
+
+    private ToastMessage createToastMessage()
+        => new ToastMessage
+            {
+                Type = ToastType.Dark,
+                Message = "Item Submitted!"
+            };
 }

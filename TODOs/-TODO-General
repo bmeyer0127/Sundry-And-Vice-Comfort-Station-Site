@@ -2,8 +2,14 @@
 
 - EditItem still saves changes even if submit button is not pressed
     - Looks like it is happening with each keystroke?
-    - NOT TRUE! It is just saving while I am in the admin page. It reverts if I change pages.
+    - NOT TRUE! It is just saving while I am in the admin page. It reverts if I change pages or refresh.
         - Honestly unsure if I wanna change that
+
+- Will need to create new item for the LocationMenu if previously was not checked. Will need to edit the row if it was checked
+- The price is currently able to be edited, but I cannot seem to change if it is available
+    - BECAUSE I NEED TO ACTUALLY FUCKING ADD IT????
+
+- Just got some messed up logic with remove the item from the menu. Cannot remove what isn't there, right?
 
 # CURRENT TASK ###########################################################################################
 

@@ -11,6 +11,8 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
 
+<Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000" />
+
 <button class="btn btn-outline-primary" type="button" @onclick="() => ChooseItemOffCanvas.ShowAsync()">
     Edit Item
 </button>
@@ -26,7 +28,7 @@
                         class="btn btn-outline-primary"
                         type="button"
                         value="@menuItem.MenuItemID"
-                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuitem(menuItem);}">
+                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem);}">
                         Edit
                     </button>
                     <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()">
@@ -115,16 +117,16 @@
     </BodyTemplate>
 </Offcanvas>
 
-
-
 @code {
-
-    // I think i need to directly bind the values in the edit form to the database
     private Offcanvas ChooseItemOffCanvas;
     private Offcanvas EditItemOffCanvas;
     private int itemID;
 
     private MenuItem editedMenuItem = new MenuItem();
+
+    private LocationMenu? oldSVILocationMenu;
+    private LocationMenu? oldSVCLocationMenu;
+    private LocationMenu? oldCSLocationMenu;
 
     private LocationMenu? editedSVILocationMenu;
     private LocationMenu? editedSVCLocationMenu;
@@ -138,42 +140,98 @@
     private int SVCPrice { get; set; }
     private int CSPrice { get; set; }
 
-    private void assignMenuitem(MenuItem oldMenuItem)
+    private void assignMenuItem(MenuItem oldMenuItem)
     {
         editedMenuItem = oldMenuItem;
 
-        editedSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
-        editedSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
-        editedCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
+        oldSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
+        oldSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
+        oldCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
 
-        if (editedSVILocationMenu != null)
+        if (oldSVILocationMenu != null)
         {
+            editedSVILocationMenu = oldSVILocationMenu;
             SVIPrice = editedSVILocationMenu.Price;
             IsAtSVI = true;
         }
 
-        if (editedSVCLocationMenu != null)
+        if (oldSVCLocationMenu != null)
         {
+            editedSVCLocationMenu = oldSVCLocationMenu;
             SVCPrice = editedSVCLocationMenu.Price;
             IsAtSVC = true;
         }
 
-        if (editedCSLocationMenu != null)
+        if (oldCSLocationMenu != null)
         {
+            editedCSLocationMenu = oldCSLocationMenu;
             CSPrice = editedCSLocationMenu.Price;
             IsAtCS = true;
         }
+
     }
-
-
 
     private void submitEdit(MenuItem oldMenuItem)
     {
         oldMenuItem = editedMenuItem;
 
-        editedSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
-        editedSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
-        editedCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
+        if (IsAtSVI)
+        {
+            if (oldSVILocationMenu == null)
+            {
+                editedSVILocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 1 };
+                Context.LocationMenus.Add(editedSVILocationMenu);
+            }
+            editedSVILocationMenu.Price = SVIPrice;
+        }
+        else
+        {
+            if (editedSVILocationMenu != null)
+            {
+                Context.LocationMenus.Remove(editedSVILocationMenu);
+            }
+        }
+
+        if (IsAtSVC)
+        {
+            if (oldSVCLocationMenu == null)
+            {
+                editedSVCLocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 2 };
+                Context.LocationMenus.Add(editedSVCLocationMenu);
+            }
+            editedSVCLocationMenu.Price = SVCPrice;
+        }
+        else
+        {
+            if (editedSVCLocationMenu != null)
+            {
+                Context.LocationMenus.Remove(editedSVCLocationMenu);
+            }
+        }
+
+        if (IsAtCS)
+        {
+            if (oldCSLocationMenu == null)
+            {
+                editedCSLocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 3 };
+                Context.LocationMenus.Add(editedCSLocationMenu);
+            }
+            editedCSLocationMenu.Price = CSPrice;
+        }
+        else
+        {
+            if(editedCSLocationMenu != null)
+            {
+                Context.LocationMenus.Remove(editedCSLocationMenu);
+            }
+        }
+
+
+        oldSVILocationMenu = editedSVILocationMenu;
+        oldSVCLocationMenu = editedSVCLocationMenu;
+        oldCSLocationMenu = editedCSLocationMenu;
+
+        showSuccess();
 
         Context.SaveChanges();
     }
@@ -187,4 +245,16 @@
         IsAtSVI = false;
         IsAtCS = false;
     }
+
+    // Toast Messages
+    List<ToastMessage> messages = new List<ToastMessage>();
+
+    private void showSuccess() => messages.Add(createToastMessage());
+
+    private ToastMessage createToastMessage()
+        => new ToastMessage
+            {
+                Type = ToastType.Dark,
+                Message = "Item Edited!"
+            };
 }
