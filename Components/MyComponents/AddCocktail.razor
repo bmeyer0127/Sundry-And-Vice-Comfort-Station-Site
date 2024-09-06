@@ -179,12 +179,13 @@
                 ItemName = model.ItemName,
                 ItemDescription = model.ItemDescription,
                 CreatorName = model.CreatorName,
-                ItemTypeID = model.ItemTypeID
+                ItemTypeID = model.ItemTypeID,
+                HasEgg = model.HasEgg,
+                HasDairy = model.HasDairy
             };
         LocationMenu newLocationMenu = new LocationMenu
             {
-                HasEgg = model.HasEgg,
-                HasDairy = model.HasDairy
+                
             };
 
         Context.MenuItems.Add(newMenuItem);

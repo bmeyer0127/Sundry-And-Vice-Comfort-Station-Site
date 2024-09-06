@@ -193,51 +193,51 @@ public class CircleHospitalityContext : DbContext
         // LOCATIONMENU
         modelBuilder.Entity<LocationMenu>().HasData(
             new LocationMenu
-            { LocationID = 1, MenuItemID = 1, Price = 14, HasEgg = false, HasDairy = false},
+            { LocationID = 1, MenuItemID = 1, Price = 14 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 2, Price = 15, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 2, Price = 15 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 3, Price = 12, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 3, Price = 12 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 5, Price = 6, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 5, Price = 6 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 6, Price = 5, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 6, Price = 5 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 7, Price = 6, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 7, Price = 6 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 8, Price = 4, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 8, Price = 4 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 9, Price = 12, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 9, Price = 12 },
             new LocationMenu
-            { LocationID = 1, MenuItemID = 10, Price = 11, HasEgg = false, HasDairy = false },
+            { LocationID = 1, MenuItemID = 10, Price = 11 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 1, Price = 13, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 1, Price = 13 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 2, Price = 16, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 2, Price = 16 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 5, Price = 7, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 5, Price = 7 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 9, Price = 12, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 9, Price = 12 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 10, Price = 11, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 10, Price = 11 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 6, Price = 5, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 6, Price = 5 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 7, Price = 6, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 7, Price = 6 },
             new LocationMenu
-            { LocationID = 2, MenuItemID = 8, Price = 7, HasEgg = false, HasDairy = false },
+            { LocationID = 2, MenuItemID = 8, Price = 7 },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 2, Price = 15, HasEgg = false, HasDairy = false },
+            { LocationID = 3, MenuItemID = 2, Price = 15 },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 4, Price = 16, HasEgg = false, HasDairy = false },
+            { LocationID = 3, MenuItemID = 4, Price = 16 },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 5, Price = 12, HasEgg = false, HasDairy = false },
+            { LocationID = 3, MenuItemID = 5, Price = 12 },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 8, Price = 4, HasEgg = false, HasDairy = false },
+            { LocationID = 3, MenuItemID = 8, Price = 4 },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 9, Price = 12, HasEgg = false, HasDairy = false },
+            { LocationID = 3, MenuItemID = 9, Price = 12 },
             new LocationMenu
-            { LocationID = 3, MenuItemID = 10, Price = 10, HasEgg = false, HasDairy = false }
+            { LocationID = 3, MenuItemID = 10, Price = 10 }
         );
     }
 

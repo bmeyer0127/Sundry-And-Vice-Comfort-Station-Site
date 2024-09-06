@@ -1,19 +1,19 @@
 # CURRENT BUGS ###########################################################################################
 
-! Need to change all of the references of LocationMenu.HasEgg/HasDairy to MenuItem
+
 
 # CURRENT TASK ###########################################################################################
 
-- Need to update MenuItem and LocationMenu context so that HasDairy and HasEgg are in MenuItem and not LocationMenu
+- Need to add ability to change specs in EditItem
 
-! Add ability to edit Price, allergens and where the item is available
-! Forgot to add individual spots for respective location pricing in AddCocktail and EditItem
-    - I will add a checkbox for availability and if it is checked, the pricing option will be available. Otherwise, it will be grayed out
+- Go through and try to fix all of the potential null reference warnings
 
 - Really gotta go through all of this and comment on how it all works, man
 - Also need to buckle down and just really fix up the stylings
 
 # TODO #####################################################################################################
+
+- Completely forgot that I made a MenuItemFormModel... Might rework EditItem to just use that. Would be a lot shorter I think
 
 - Think about possibility of adding a backbar section
 - Focus on event page here soon and create ability to add replicative events for a calander
@@ -111,6 +111,13 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Add ability to edit Price, allergens and where the item is available
+# Forgot to add individual spots for respective location pricing in AddCocktail and EditItem
+
+# Need to update MenuItem and LocationMenu context so that HasDairy and HasEgg are in MenuItem and not LocationMenu
+
+# Need to change all of the references of LocationMenu.HasEgg/HasDairy to MenuItem
 
 # EditItem still saves changes even if submit button is not pressed
     # Looks like it is happening with each keystroke?

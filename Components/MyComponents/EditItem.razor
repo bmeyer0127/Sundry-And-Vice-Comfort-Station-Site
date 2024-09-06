@@ -28,12 +28,12 @@
                         class="btn btn-outline-primary"
                         type="button"
                         value="@menuItem.MenuItemID"
-                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem);}">
+                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem); }">
                         Edit
                     </button>
                     <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()">
                         <BodyTemplate>
-                            <div class="row pb-3">
+                            <div class="row pb-3 text-center fw-bolder">
                                 <label>
                                     @Context.MenuItems.Where(item => item.MenuItemID == itemID).Select(item => item.ItemName).SingleOrDefault()
                                 </label>
@@ -54,6 +54,38 @@
                                 </label>
                                 <div class="col-8 text-start">
                                     <InputText @bind-Value="editedMenuItem.ItemDescription" />
+                                </div>
+                            </div>
+
+                            <div class="row pb-3">
+                                <label class="col-4">
+                                    Creator's Name
+                                </label>
+                                <div class="col-8 text-start">
+                                    <InputText @bind-Value="editedMenuItem.CreatorName" />
+                                </div>
+                            </div>
+
+                            @* Allergens *@
+                            <div class="row mb-3">
+                                <div class="col-4 text-start">
+                                    <label class="form-label">Allergens:</label>
+                                </div>
+                                <div class="col-8 text-start">
+                                    <div class="container text-start">
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="editedMenuItem.HasDairy" />
+                                                <label for="hasDairy" class="form-label ms-2">Has Dairy</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="editedMenuItem.HasEgg" />
+                                                <label for="hasEgg" class="form-label ms-2">Has Egg</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -94,12 +126,17 @@
                                 </div>
                             </div>
 
-                            <div class="row pb-3">
-                                <label class="col-4">
-                                    Creator's Name
-                                </label>
-                                <div class="col-8 text-start">
-                                    <InputText @bind-Value="editedMenuItem.CreatorName" />
+                            @* Cocktail Type *@
+
+                            @* Ingredient List *@
+                            <div class="row mb-3">
+                                <div class="col text-start">
+                                    <label class="form-label">Ingredient List:</label>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col text-start">
+                                    <IngredientList ingredientMeasurements="ingredientList" />
                                 </div>
                             </div>
 
@@ -124,6 +161,8 @@
 
     private MenuItem editedMenuItem = new MenuItem();
 
+    private List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements>();
+
     private LocationMenu? oldSVILocationMenu;
     private LocationMenu? oldSVCLocationMenu;
     private LocationMenu? oldCSLocationMenu;
@@ -140,9 +179,6 @@
     private int SVCPrice { get; set; }
     private int CSPrice { get; set; }
 
-    private bool HasEgg { get; set; }
-    private bool HasDairy { get; set; }
-
     private void assignMenuItem(MenuItem oldMenuItem)
     {
         editedMenuItem = oldMenuItem;
@@ -150,6 +186,19 @@
         oldSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
         oldSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
         oldCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
+
+        if (ingredientList.Count == 0)
+        {
+            foreach (ItemIngredient ingredient in Context.ItemIngredients.Where(ing => ing.MenuItemID == editedMenuItem.MenuItemID))
+            {
+                ingredientList.Add(new IngredientList.IngredientMeasurements
+                    {
+                        measureIngredientID = ingredient.IngredientID,
+                        measureTypeID = ingredient.MeasurementID,
+                        measurementAmount = ingredient.MeasurementAmount
+                    });
+            }
+        }
 
         if (oldSVILocationMenu != null)
         {
@@ -227,6 +276,29 @@
             {
                 Context.LocationMenus.Remove(editedCSLocationMenu);
             }
+        }
+
+        // This is going to be a pretty big cop out.
+        // I will basically be deleting all rows in ItemIngredients with the corresponding MenuItemID
+        // and will just repopulate it regardless of whether it was altered or not. 
+        // I'm positive this is not the best way to go, but its good for now.
+
+        foreach (ItemIngredient ingredient in Context.ItemIngredients.Where(ing => ing.MenuItemID == editedMenuItem.MenuItemID))
+        {
+            Context.ItemIngredients.Remove(ingredient);
+        }
+
+        foreach (IngredientList.IngredientMeasurements ingredient in ingredientList)
+        {
+            ItemIngredient newItemIngredient = new ItemIngredient
+                {
+                    MenuItemID = editedMenuItem.MenuItemID,
+                    IngredientID = ingredient.measureIngredientID,
+                    MeasurementID = ingredient.measureTypeID,
+                    MeasurementAmount = ingredient.measurementAmount
+                };
+            Context.ItemIngredients.Add(newItemIngredient);
+            Context.SaveChanges();
         }
 
 
