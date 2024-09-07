@@ -13,8 +13,8 @@
 
 <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000" />
 
-<button class="btn btn-outline-primary" type="button" @onclick="() => ChooseItemOffCanvas.ShowAsync()">
-    Edit Item
+<button class="btn btn-outline-primary" type="button" @onclick="() => {if (ChooseItemOffCanvas != null) ChooseItemOffCanvas.ShowAsync();}">
+    Edit Menu Item
 </button>
 
 <Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit">
@@ -28,7 +28,7 @@
                         class="btn btn-outline-primary"
                         type="button"
                         value="@menuItem.MenuItemID"
-                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem); }">
+                        @onclick="() => { if (EditItemOffCanvas != null) EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem); }">
                         Edit
                     </button>
                     <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()">
@@ -155,8 +155,8 @@
 </Offcanvas>
 
 @code {
-    private Offcanvas ChooseItemOffCanvas;
-    private Offcanvas EditItemOffCanvas;
+    private Offcanvas? ChooseItemOffCanvas;
+    private Offcanvas? EditItemOffCanvas;
     private int itemID;
 
     private MenuItem editedMenuItem = new MenuItem();
@@ -234,14 +234,13 @@
                 editedSVILocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 1 };
                 Context.LocationMenus.Add(editedSVILocationMenu);
             }
+            if (editedSVILocationMenu != null)
             editedSVILocationMenu.Price = SVIPrice;
         }
         else
         {
             if (editedSVILocationMenu != null)
-            {
                 Context.LocationMenus.Remove(editedSVILocationMenu);
-            }
         }
 
         if (IsAtSVC)
@@ -251,7 +250,8 @@
                 editedSVCLocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 2 };
                 Context.LocationMenus.Add(editedSVCLocationMenu);
             }
-            editedSVCLocationMenu.Price = SVCPrice;
+            if (editedSVCLocationMenu != null)
+                editedSVCLocationMenu.Price = SVCPrice;
         }
         else
         {
@@ -268,7 +268,8 @@
                 editedCSLocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 3 };
                 Context.LocationMenus.Add(editedCSLocationMenu);
             }
-            editedCSLocationMenu.Price = CSPrice;
+            if (editedCSLocationMenu != null)
+                editedCSLocationMenu.Price = CSPrice;
         }
         else
         {

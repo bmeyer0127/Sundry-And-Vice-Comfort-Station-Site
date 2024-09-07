@@ -4,9 +4,7 @@
 
 # CURRENT TASK ###########################################################################################
 
-- Need to add ability to change specs in EditItem
-
-- Go through and try to fix all of the potential null reference warnings
+- Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
 
 - Really gotta go through all of this and comment on how it all works, man
 - Also need to buckle down and just really fix up the stylings
@@ -112,6 +110,9 @@
 
 # FINISHED #################################################################################################
 
+# Go through and try to fix all of the potential null reference warnings
+
+# Need to add ability to change specs in EditItem
 # Add ability to edit Price, allergens and where the item is available
 # Forgot to add individual spots for respective location pricing in AddCocktail and EditItem
 

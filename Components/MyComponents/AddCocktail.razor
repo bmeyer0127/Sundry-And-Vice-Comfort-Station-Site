@@ -13,8 +13,8 @@
 
 <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000"/>
 
-<button class="btn btn-outline-primary" type="button" @onclick = "() => AddCocktailOffCanvas.ShowAsync()">
-    Add Cocktail
+<button class="btn btn-outline-primary" type="button" @onclick = "() => {if (AddCocktailOffCanvas != null) AddCocktailOffCanvas.ShowAsync();}">
+    Add Menu Item
 </button>
 
 <Offcanvas @ref="AddCocktailOffCanvas" IsScrollable="true" Title="Add Item">
@@ -156,7 +156,7 @@
 
 
 
-    private Offcanvas AddCocktailOffCanvas;
+    private Offcanvas? AddCocktailOffCanvas;
 
     public List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements> { };
 

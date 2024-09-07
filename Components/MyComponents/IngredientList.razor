@@ -34,33 +34,36 @@
 </div>
 <div class="container border border-dark rounded p-0">
     <div class="list-group overflow-auto" style="max-height: 150px; min-height: 150px">
-        @foreach (IngredientMeasurements ingredient in ingredientMeasurements)
+        @if (ingredientMeasurements != null)
         {
-            <div class="list-group-item d-flex p-0">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-4 text-start">
-                            <label class="form-check-label">
-                                @Context.Ingredients.Where(ing => ing.IngredientID == ingredient.measureIngredientID).Select(ing => ing.IngredientName).First()
-                            </label>
-                        </div>
-                        <div class="col-3">
-                            <InputNumber TValue="float" @bind-Value="ingredient.measurementAmount" class="w-100" />
-                        </div>
-                        <div class="col-3 p-1">
-                            <InputSelect @bind-Value="ingredient.measureTypeID" class="w-100">
-                                @foreach (var measurement in (from M in Context.Measurements select new { M.MeasurementDescription, M.MeasurementID }))
-                                {
-                                    <option value=@measurement.MeasurementID>@measurement.MeasurementDescription</option>
-                                }
-                            </InputSelect>
-                        </div>
-                        <div class="col-2 text-end">
-                            <button type="button" class="btn btn-outline-danger btn-sm btn-close" @onclick="() => removeIngredient(ingredient.measureIngredientID)"/>
+            foreach (IngredientMeasurements ingredient in ingredientMeasurements)
+            {
+                <div class="list-group-item d-flex p-0">
+                    <div class="container">
+                        <div class="row justify-content-start">
+                            <div class="col-4 text-start">
+                                <label class="form-check-label">
+                                    @Context.Ingredients.Where(ing => ing.IngredientID == ingredient.measureIngredientID).Select(ing => ing.IngredientName).First()
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <InputNumber TValue="float" @bind-Value="ingredient.measurementAmount" class="w-100" />
+                            </div>
+                            <div class="col-3 p-1">
+                                <InputSelect @bind-Value="ingredient.measureTypeID" class="w-100">
+                                    @foreach (var measurement in (from M in Context.Measurements select new { M.MeasurementDescription, M.MeasurementID }))
+                                    {
+                                        <option value=@measurement.MeasurementID>@measurement.MeasurementDescription</option>
+                                    }
+                                </InputSelect>
+                            </div>
+                            <div class="col-2 text-end">
+                                <button type="button" class="btn btn-outline-danger btn-sm btn-close" @onclick="() => removeIngredient(ingredient.measureIngredientID)"/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        }
         }
         </div>
     
@@ -74,7 +77,7 @@
     List<ToastMessage> messages = new List<ToastMessage>();
 
     [Parameter]
-    public List<IngredientMeasurements> ingredientMeasurements { get; set; }
+    public List<IngredientMeasurements>? ingredientMeasurements { get; set; }
 
     public class IngredientMeasurements
     {
@@ -85,20 +88,26 @@
 
     public void addIngredient(int ingredientID)
     {
-        foreach (IngredientMeasurements item in ingredientMeasurements)
+        if (ingredientMeasurements != null)
         {
-            if (item.measureIngredientID == ingredientID)
+            foreach (IngredientMeasurements item in ingredientMeasurements)
             {
-                showDuplicateIngredient();
-                return;
+                if (item.measureIngredientID == ingredientID)
+                {
+                    showDuplicateIngredient();
+                    return;
+                }
             }
+            ingredientMeasurements.Add(new IngredientMeasurements { measureIngredientID = ingredientID });
         }
-        ingredientMeasurements.Add(new IngredientMeasurements { measureIngredientID = ingredientID } );
     }
 
     public void removeIngredient(int ingredientID)
     {
-        ingredientMeasurements.RemoveAt(ingredientMeasurements.IndexOf(ingredientMeasurements.Single(item => item.measureIngredientID == ingredientID)));
+        if (ingredientMeasurements != null)
+        {
+            ingredientMeasurements.RemoveAt(ingredientMeasurements.IndexOf(ingredientMeasurements.Single(item => item.measureIngredientID == ingredientID)));
+        }
     }
 
     private void showDuplicateIngredient() => messages.Add(createToastMessage());
