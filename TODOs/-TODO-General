@@ -4,6 +4,8 @@
 
 # CURRENT TASK ###########################################################################################
 
+- Add password protection for admin page
+
 - Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
 
 - Really gotta go through all of this and comment on how it all works, man
