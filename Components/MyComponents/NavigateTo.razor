@@ -1,12 +1,16 @@
 @namespace MyComponents.NavigateTo
 
 <li class="nav-item navButton offcanvas-part">
-  <a class="nav-link active offcanvas-part" href='@string.Format("{0}", link)'>@text</a>
+    <a class="nav-link active offcanvas-part" href='@string.Format("{0}", link)' @onclick="() => {if (canvas != null) canvas.HideAsync();}">@text</a>
 </li>
 
 @code {
-  [Parameter]
-  public string? link { get; set; } = "";
-  [Parameter]
-  public string? text { get; set; } = "";
+    [Parameter]
+    public string? link { get; set; } = "";
+    [Parameter]
+    public string? text { get; set; } = "";
+    [Parameter]
+    public Offcanvas? canvas { get; set; }
+
+    
 }

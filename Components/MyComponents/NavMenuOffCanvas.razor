@@ -9,8 +9,18 @@
     style="display: @(isSplash ? "none" : "block")"
     src="https://images.squarespace-cdn.com/content/v1/54d7dbb9e4b002f56c3f34ca/1473388448478-59R1LBCCJE5PAVDEIS4S/favicon.ico?" />
 
-<Offcanvas @ref="NavMenuCanvas">
+@* <div class="offcanvas offcanvas-start prevent-select" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header offcanvas-part">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Looking for something?</h5>
+        <button type="button" class="btn-close offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body offcanvas-part">
+ *@
+
+<Offcanvas @ref="NavMenuCanvas" Placement="Placement.Start" style="background-color: #33322a;">
     <BodyTemplate>
+        <div>
         <div class="accordion">
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -22,20 +32,22 @@
                 <div id="collapseOne" class="accordion-collapse collapse">
                     <div class="accordion-body offcanvas-part">
                         <ul class="nav flex-column">
-                            <NavigateTo link="svi-home" text="S&V - Indy" @onclick="() => {if (NavMenuCanvas != null) NavMenuCanvas.HideAsync();}"/>
-                            <NavigateTo link="svc-home" text="S&V - Cincy" />
-                            <NavigateTo link="cs-home" text="Comfort Station" />
+                            <NavigateTo link="svi-home" text="S&V - Indy" canvas=NavMenuCanvas/>
+                            <NavigateTo link="svc-home" text="S&V - Cincy" canvas=NavMenuCanvas />
+                            <NavigateTo link="cs-home" text="Comfort Station" canvas=NavMenuCanvas />
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <ul class="nav flex-column">
-            <NavigateTo link="events" text="Events" />
-            <NavigateTo link="gallery" text="Gallery" />
-            <NavigateTo link="hours" text="Hours" />
-            <NavigateTo link="join-team" text="Join the Team" />
+            <NavigateTo link="events" text="Events" canvas=NavMenuCanvas />
+            <NavigateTo link="gallery" text="Gallery" canvas=NavMenuCanvas />
+            <NavigateTo link="hours" text="Hours" canvas=NavMenuCanvas />
+            <NavigateTo link="join-team" text="Join the Team" canvas=NavMenuCanvas />
         </ul>
+
+        </div>
     </BodyTemplate>
 </Offcanvas>
 

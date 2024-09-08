@@ -17,7 +17,7 @@
     Edit Menu Item
 </button>
 
-<Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit">
+<Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit" style="background-color: #33322a !important; color: #a19a61 !important;">
     <BodyTemplate>
         <ul class="ps-0">
             @* Would like to make this alphabetical *@
@@ -31,7 +31,7 @@
                         @onclick="() => { if (EditItemOffCanvas != null) EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem); }">
                         Edit
                     </button>
-                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()">
+                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()" style="background-color: #33322a !important; color: #a19a61 !important;">
                         <BodyTemplate>
                             <div class="row pb-3 text-center fw-bolder">
                                 <label>
