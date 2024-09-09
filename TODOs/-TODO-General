@@ -1,8 +1,15 @@
 # CURRENT BUGS ###########################################################################################
 
-
+- In EditItem the ingredient list stays the same as the first one that is clicked on
 
 # CURRENT TASK ###########################################################################################
+
+# Create an AddIngredient component
+    # Need to find an efficient way to check for duplicate ingredients
+
+- Look into Digital Ocean for cloud hosting ideas
+
+- Add Cocktail Type in EditItem
 
 - Add password protection for admin page
 
@@ -111,6 +118,8 @@
   - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# When removing Created By part of an item, the tag still stays there. Instead conditional null, make it conditional blank space
 
 # Go through and try to fix all of the potential null reference warnings
 

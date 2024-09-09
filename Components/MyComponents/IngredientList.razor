@@ -7,11 +7,14 @@
 @using System.Linq
 @using MyComponents.AddCocktail
 <div class="container border border-dark rounded p-0 mb-3">
+
     <Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000" />
+
     <input type="text" class="form-control-sm w-100" placeholder="search" @bind="searchInput" @bind:event="oninput"/>
+
     <div class="list-group overflow-auto" style="max-height: 150px; min-height: 150px">
         <ul class="ps-0">
-            @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName!.Contains(searchInput)))
+            @foreach (Ingredient ingredient in Context.Ingredients.Where(i => i.IngredientName!.Contains(searchInput)).OrderBy(i => i.IngredientName))
             {
                 <li class="list-group-item text-start" >
                     <button 
