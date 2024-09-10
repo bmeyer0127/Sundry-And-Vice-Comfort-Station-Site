@@ -1,16 +1,19 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #a19a61;
+  background-color: #33322a;
   overflow-y: hidden;
   flex: 0;
 }
 
-body {
-  background-color: #33322a;
-}
-
 ::-webkit-scrollbar {
   display: none;
+}
+
+.caveat-header {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 a, .btn-link {

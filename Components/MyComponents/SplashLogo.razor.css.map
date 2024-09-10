@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../Resources/styles/SplashLogo.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;;;AAGJ;EACI;EACA","file":"SplashLogo.razor.css"}
+{"version":3,"sourceRoot":"","sources":["../../Resources/styles/Components/SplashLogo.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;EACA;;;AAGJ;EACI;EACA","file":"SplashLogo.razor.css"}

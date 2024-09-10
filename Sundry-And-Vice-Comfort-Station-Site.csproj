@@ -10,6 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\Aesthetic\Prescriptions.jpg" />
+    <None Include="wwwroot\assets\Cocktails\SundryandVice+250.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Apothocary-Vibes.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Bar.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Cocktail-Pour.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Corner-Bar.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Decal.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Lamp-Post.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Outside-Corner.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Outside-Doors.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Prescriptions-W-Lamp.jpg" />
+    <None Include="wwwroot\assets\OTR-Specific\Trio.jpg" />
+    <None Include="wwwroot\assets\S&amp;V-Icons\S&amp;V-285x160.png" />
+    <None Include="wwwroot\assets\S&amp;V-Icons\sv-favicon.png" />
+    <None Include="wwwroot\assets\Aesthetic\Rosey-Baby.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Blazor.Bootstrap" Version="2.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">

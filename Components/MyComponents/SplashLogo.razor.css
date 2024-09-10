@@ -1,6 +1,7 @@
 .logo-button {
   border: 1px;
-  border-color: black;
+  border-style: solid;
+  border-color: #8c8656;
   color: #8c8656;
 }
 

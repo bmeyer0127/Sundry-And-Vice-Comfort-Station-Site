@@ -1,21 +1,21 @@
 # CURRENT BUGS ###########################################################################################
 
-- In EditItem the ingredient list stays the same as the first one that is clicked on
+
 
 # CURRENT TASK ###########################################################################################
 
-# Create an AddIngredient component
-    # Need to find an efficient way to check for duplicate ingredients
+- Really gotta go through all of this and comment on how it all works, man
 
+- Look into server hosting for Circle Hospitality database
 - Look into Digital Ocean for cloud hosting ideas
 
 - Add Cocktail Type in EditItem
 
 - Add password protection for admin page
 
-- Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
+# Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
 
-- Really gotta go through all of this and comment on how it all works, man
+
 - Also need to buckle down and just really fix up the stylings
 
 # TODO #####################################################################################################
@@ -28,13 +28,9 @@
 
 - Maybe add a checkbox in AddCocktail and EditCocktail to make pricing universal
 
-- Limit the amount of characters for the description so it fits on one line
-
 - Woof definitely need to clean up NavMenuOffCanvas.scss
     - Still not completely happy with it but breakpoints for the button are fine for now
         - Def need to be more size appropriate
-
-
 
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
@@ -51,13 +47,9 @@
 - Admin page: 
     - Allow user to reorganize item ingredients for how they are displayed
 
-- Trying to populate a collection of Ingredients to a list if they are checked
-- I am not looking to add anything to any database until the AddCocktail submit button is hit
-- I just need to create a temorary array to hold the ingredient names (and maybe IDs)
-
 - Admin functionality:
-    - Add form
-        - Creates a menu item from scratch. Will have:
+    # Add form
+        # Creates a menu item from scratch. Will have:
             # Cocktail name form
             # Cocktail description form
             # Creator form
@@ -67,16 +59,16 @@
             # Form for type of cocktail (draft, classic, unique)
                 # Dropdown list to select the type. Types are:
                     # Draft, classic, house
-            - Ingredients checklist. Specs of functionality will be as follows:
+            # Ingredients checklist. Specs of functionality will be as follows:
                 # A scroll form will list all of the ingredients in the database
                 # The container will also have a search function that filters with each letter typed
                 # Each ingredient will have a checkbox next to it
 
-                - Once checked, another container will be populated and will look like the following:
-                    - To the left: a dropdown menu to select the amount necessary
-                    - In the center: the name of the ingredient
-                    - To the right: an X to remove the ingredient
-                - Populate the container and then add the ingredient - menuitem combo on submit
+                # Once checked, another container will be populated and will look like the following:
+                    # To the left: a dropdown menu to select the amount necessary
+                    # In the center: the name of the ingredient
+                    # To the right: an X to remove the ingredient
+                # Populate the container and then add the ingredient - menuitem combo on submit
     - Update/Delete form
 
 - Create admin page for CRUD options for all of the tables
@@ -84,14 +76,8 @@
     - Add password protection for admins.
         - Creates accounts manually rather than having a separate page for that.
 
-- Look into server hosting for Circle Hospitality database
-
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
     - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
-
-# Understand how to load an image asset from local files rather than linking to squarespace asset
-    # Use PostImage
-- Download specific font styles to use
 
 - Events Page:
   - Have a form to let people leave info
@@ -105,19 +91,33 @@
   - Join the team
   - Menu
   - Menu Item
-- Create admin page for editing, removing and adding cocktails
-  - This will utilize EF Core
-  - on click brings up dropdown menu for other locations
-  - after initial location tag, provide option for dropdown nav menu for the side, this provides nav options for
-    - Menu (default)
-    - Gallery
-    - Events
-    - Hours
-    - Join the team
-  - Consider adding breakpoint for nav menu to become horizonal and permanent on large screen
-  - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Create admin page for editing, removing and adding cocktails
+  # This will utilize EF Core
+  # on click brings up dropdown menu for other locations
+  # after initial location tag, provide option for dropdown nav menu for the side, this provides nav options for
+    # Menu (default)
+    # Gallery
+    # Events
+    # Hours
+    # Join the team
+  # Consider adding breakpoint for nav menu to become horizonal and permanent on large screen
+  # Make a navigation button component to reuse with all pages and homes
+
+# Understand how to load an image asset from local files rather than linking to squarespace asset
+    # Use PostImage
+# Download specific font styles to use
+
+# Trying to populate a collection of Ingredients to a list if they are checked
+# I am not looking to add anything to any database until the AddCocktail submit button is hit
+# I just need to create a temorary array to hold the ingredient names (and maybe IDs)
+
+# In EditItem the ingredient list stays the same as the first one that is clicked on
+
+# Create an AddIngredient component
+    # Need to find an efficient way to check for duplicate ingredients
 
 # When removing Created By part of an item, the tag still stays there. Instead conditional null, make it conditional blank space
 

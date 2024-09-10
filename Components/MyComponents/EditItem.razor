@@ -235,7 +235,7 @@
                 Context.LocationMenus.Add(editedSVILocationMenu);
             }
             if (editedSVILocationMenu != null)
-            editedSVILocationMenu.Price = SVIPrice;
+                editedSVILocationMenu.Price = SVIPrice;
         }
         else
         {
@@ -307,6 +307,7 @@
         oldSVCLocationMenu = editedSVCLocationMenu;
         oldCSLocationMenu = editedCSLocationMenu;
 
+        ingredientList = new List<IngredientList.IngredientMeasurements>();
         showSuccess();
 
         Context.SaveChanges();
@@ -320,6 +321,7 @@
         IsAtSVC = false;
         IsAtSVI = false;
         IsAtCS = false;
+        ingredientList = new List<IngredientList.IngredientMeasurements>();
     }
 
     // Toast Messages
