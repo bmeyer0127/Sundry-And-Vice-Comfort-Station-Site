@@ -8,28 +8,37 @@
 @using MyComponents.NavMenuOffCanvas
 
 <PageTitle>Home</PageTitle>
-<img class="background img-fluid position-absolute z-0" src="https://i.postimg.cc/d3rx75Y7/Rosey-Baby.jpg" />
+
+<img class="background img-fluid position-absolute z-0" src="\assets\Aesthetic\Rosey-Baby.jpg" />
+
 <div class="container text-center position-relative z-1">
+
     <div class="row">
-    <div class="col header">
-        <h1 class="caveat-header mt-3">Where ya headed, handsome?</h1>
+        <div class="col header">
+            <h1 class="caveat-header mt-3">Where ya headed, handsome?</h1>
+        </div>
     </div>
+
+    <div class="row pb-4">
+        <div class="col">
+            <SplashLogo logo="Sundry - Indy" link="svi-home" />
+        </div>
+
+        <div class="col">
+            <SplashLogo logo="Sundry - Cincy" link="svc-home" />
+        </div>
     </div>
-    <div class="row logo-row">
-    <div class="col logo-col">
-        <SplashLogo logo="Sundry - Indy" link="svi-home" />
-    </div>
-    <div class="col logo-col">
-        <SplashLogo logo="Sundry - Cincy" link="svc-home" />
-    </div>
-    </div>
-    <div class="row logo-row">
-    <div class="col logo-col">
-        <SplashLogo logo="Comfort - Cincy" link="cs-home" />
-    </div>
+
+    <div class="row pb-4">
+        <div class="col">
+            <SplashLogo logo="Comfort - Cincy" link="cs-home" />
+        </div>
     </div>
 </div>
-<a class="admin-btn position-absolute z-1 fixed-bottom"  href="admin">admin spot</a>
+
+<a class="position-absolute z-1 fixed-bottom" href="admin">
+    admin spot
+</a>
 
 @code {
 }

@@ -1,0 +1,100 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/_accordion.scss";
+@import "../../../node_modules/bootstrap/scss/_offcanvas.scss";
+
+//Breakpoints
+
+
+//Required
+
+// Default variable overrides
+$accordion-border-width: 0;
+$accordion-button-focus-box-shadow: 0;
+$accordion-border-radius: 0;
+$accordion-icon-active-color: #a19a61;
+$accordion-icon-color: #a19a61;
+$btn-close-color: white;
+
+.prevent-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.offcanvas-opener {
+    width: 10%;
+    height: auto;
+    padding-left: 0;
+    margin: 5%;
+}
+
+.offcanvas-opener:active {
+    border-style: none;
+}
+
+.offcanvas-opener:focus {
+    border-style: none;
+    box-shadow: none;
+}
+
+.offcanvas-part {
+    background-color: #33322a !important;
+    color: #a19a61 !important;
+    box-shadow: none;
+}
+
+.accordion-collapse {
+    background-color: #33322a;
+}
+
+.accordion-header {
+    background-color: #33322a;
+}
+
+.accordion-button:is(.collapsed) {
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    background-image: url('assets/icons/arrow-up.svg');
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url('assets/icons/arrow-up.svg');
+    transform: rotate(180deg);
+
+}
+
+    .accordion-item {
+        border-style: none;
+        background-color: #33322a;
+    }
+
+    .navButton {
+        font-family: "Raleway", Arial, sans-serif;
+        font-weight: 500;
+    }
+
+    @include media-breakpoint-up(sm) {
+        .offcanvas-opener {
+            width: 7%;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .offcanvas-opener {
+            width: 5%;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .offcanvas-opener {
+            width: 3%;
+        }
+    }

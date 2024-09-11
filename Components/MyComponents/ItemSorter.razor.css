@@ -1,12 +1,36 @@
-.sort-button {
-  border: 1px;
-  border-color: black;
-  color: #8c8656;
+.dropdown-menu {
+  background-color: #636049;
 }
 
-.sort-button:hover {
+.long-sort-button {
+  border: 1px;
+  border-style: solid;
+  border-color: #8c8656;
+  color: #8c8656;
+  background-color: #33322a;
+}
+
+.long-sort-button:hover {
   background-color: #8c8656;
   color: #33322a;
+}
+
+.dropdown-toggle {
+  border: 1px;
+  border-style: solid;
+  border-color: #8c8656;
+  color: #8c8656;
+  background-color: #33322a;
+}
+
+.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.short-sort-button {
+  border-style: none;
+  color: #a19a61;
+  background-color: #636049;
 }
 
 .filter-container {

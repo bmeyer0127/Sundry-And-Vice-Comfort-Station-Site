@@ -1,0 +1,89 @@
+﻿@namespace MyComponents.AddIngredient
+@inject CircleHospitalityContext Context
+@rendermode InteractiveServer
+@using MyComponents.ItemTypeDropdown
+@using MyComponents.IngredientList
+@using MyComponents.FormModels.MenuItemFormModel
+@using Pages.Admin
+@using System
+@using System.Linq
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+
+<Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000"/>
+
+<button class="btn btn-outline-primary" type="button" @onclick = "() => {if (AddItemOffCanvas != null) AddItemOffCanvas.ShowAsync();}">
+    Add Item Ingredient
+</button>
+
+<Offcanvas @ref="AddItemOffCanvas" IsScrollable="true" Title="Add Ingredient" style="background-color: #33322a !important; color: #a19a61 !important;">
+    <BodyTemplate>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col">
+                    <label class="form-label">
+                        Ingredient: 
+                    </label>
+                    <InputText @bind-Value="addedIngredient" />
+                </div>
+            </div>
+        </div>
+        <button @onclick="() => submitItem()">submit</button>
+    </BodyTemplate>
+</Offcanvas>
+
+@code {
+    private Offcanvas? AddItemOffCanvas;
+    private string? addedIngredient;
+    Ingredient? ingredient;
+
+    private bool isUnique(Ingredient newIngredient)
+    {
+        foreach (Ingredient ingredient in Context.Ingredients)
+        {
+            if (ingredient.IngredientName != null && newIngredient.IngredientName != null)
+            {
+                if (ingredient.IngredientName.ToLower().Trim() == newIngredient.IngredientName.ToLower().Trim())
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private void submitItem()
+    {
+        ingredient = new Ingredient { IngredientName = addedIngredient };
+        if (isUnique(ingredient))
+        {
+            Context.Ingredients.Add(ingredient);
+            Context.SaveChanges();
+            showSuccess();
+            return;
+        }
+        showDuplicate();
+    }
+
+    // Toast Messages
+    List<ToastMessage> messages = new List<ToastMessage>();
+
+    private void showDuplicate() => messages.Add(createDuplicateMessage());
+
+    private void showSuccess() => messages.Add(createSuccessMessage());
+
+    private ToastMessage createSuccessMessage()
+        => new ToastMessage
+            {
+                Type = ToastType.Dark,
+                Message = "Ingredient Added!"
+            };
+
+    private ToastMessage createDuplicateMessage()
+    => new ToastMessage
+        {
+            Type = ToastType.Dark,
+            Message = "This ingredient already exists, idiot."
+        };
+}

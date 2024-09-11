@@ -9,7 +9,7 @@
         <div class="row">
             <p class="col text-start align-self-end mb-0 fw-light">@ItemDescription</p>
         </div>
-        @if (CreatorName != null)
+        @if (CreatorName != "" && CreatorName != null)
             {
                 <div class="row">
                     <p class="col text-start align-self-end mb-0 fst-italic">Created by: @CreatorName</p>

@@ -641,6 +641,10 @@
   user-select: none;
 }
 
+.btn-close {
+  background-image: url("assets/icons/close.svg") !important;
+}
+
 .offcanvas-opener {
   width: 10%;
   height: auto;
@@ -648,9 +652,49 @@
   margin: 5%;
 }
 
+.offcanvas-opener:active {
+  border-style: none;
+}
+
+.offcanvas-opener:focus {
+  border-style: none;
+  box-shadow: none;
+}
+
 .offcanvas-part {
   background-color: #33322a !important;
   color: #a19a61 !important;
+  box-shadow: none;
+}
+
+.accordion-collapse {
+  background-color: #33322a;
+}
+
+.accordion-header {
+  background-color: #33322a;
+}
+
+.accordion-button:is(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-button::after {
+  background-image: url("assets/icons/arrow-up.svg");
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("assets/icons/arrow-up.svg");
+  transform: rotate(180deg);
+}
+
+.accordion-item {
+  border-style: none;
+  background-color: #33322a;
 }
 
 .navButton {

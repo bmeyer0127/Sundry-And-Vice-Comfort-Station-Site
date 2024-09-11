@@ -1,97 +1,36 @@
 # CURRENT BUGS ###########################################################################################
 
-- EditItem still saves changes even if submit button is not pressed
-    - Looks like it is happening with each keystroke?
-    - NOT TRUE! It is just saving while I am in the admin page. It reverts if I change pages.
-        - Honestly unsure if I wanna change that
+
 
 # CURRENT TASK ###########################################################################################
 
 - Really gotta go through all of this and comment on how it all works, man
+
+- Look into server hosting for Circle Hospitality database
+- Look into Digital Ocean for cloud hosting ideas
+
+- Add Cocktail Type in EditItem
+
+- Add password protection for admin page
+
+# Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
+
+
 - Also need to buckle down and just really fix up the stylings
-
---FUNCTIONALITY--
-
-- Actually add ability to add menuItem from Admin page
-    # Got to the point where it can submit successfully to the database
-    # Still trying to figure out how to accept input
-    # Beginning to think I have a fundamental misunderstanding about forms. Will study and learn
-        # Began using EditForm component. It felt a lot more suited for the job bc it:
-            # Can use model binding
-            # Can supply parameters directly from the form upon submission
-    # Figure out how to accept dropdown info for ItemType
-        # Just needed some linq and value binding
-        # ItemTypeDropdown is no longer being used
-    # Need to add a price field
-    # Need to be able to add to multiple tables at once
-    # Checkbox input for locations
-    # Checkbox input for allergies
-    # Clear data input on submit
-    # On submit the app works and give information to database
-        # On second submit with the same data, an unhandled error occurs
-        # This also happens on second sumbit no even if you change the inputs
-        # I think I must create a model for the form itself and add model = new model()
-            # Worked!
-    # Toast popup after submitting a cocktail
-        # Disappear after ~5 seconds
-    # Whenever I hit enter to update the search in IngredientList it submits the cocktail.
-        # I'll try to have it update on each keystroke
-        # ^^^ Added this with @bind:event="oninput"
-        # Still don't love the idea with it submitting with enter but I guess it's best for accessibility
-    - Format better for both desktop and mobile (mobile first)
-        # Consider wrapping AddCocktail in just a dropdown form
-        # OffCanvas might actually be cuter
-    - Add input validation for the following:
-        - Price must be whole integer
-        - ItemName is required
-        - ItemTypeID is required
-
-
-- IngredientsList functionality:
-    # Currently adds ingredient to a separate list and gives it its own respective input for 
-        measurement amount and measurement type.
-    # Add functionality to save the data.
-    # Measurement type dropdown currently has no functionality
-        # Make the dropdown itself scrollable rather than 100% height.
-        # Make each individual li a button to click on
-    # Okay so it kinda works now. AddCocktail is currently a child of IngredientList, which allows the
-        passing of the CascadingValue that is the list of added ingredient.
-        I don't really love this setup because it kind of feels like a round about and messes
-        with the layout of the page. I'll try to pass the value without cascading value
-    # Maybe try using NavigationManager and URI routing
-    # ^^^ Did not use this but I got it to work by using the following solution:
-        # Add cocktail is now the component used in Admin
-        # IngredientList now has a required parameter called ingredientMeasurement
-            # which is a List<IngredientMeasurement> and is defined in AddCocktail
-        # The class is specified in IngredientList but the required parameter is defined in AddCocktail
-            # which is then fed into the IngredientList component in AddCocktail
-    # Clear the ingredientList in AddCocktail after submition
-    # Add ability to remove items from IngredientList
-    # Make it impossible to add the same ingredient twice to the list
-
-
---STYLINGS--
-
-- Wide screen actually may give room for too many columns at a time. Try to limit
-    - Beef up the margins of the container with for large screen
-
-- Filter option stylings:
-    - Dropdown Menu:
-        - Find a better color pallete. Something that accents the background and text color of main page
-    - Button Group:
-        - Honestly not bad
-
-- Make Admin button look natural and pretty
 
 # TODO #####################################################################################################
 
-- Limit the amount of characters for the description so it fits on one line
+- Completely forgot that I made a MenuItemFormModel... Might rework EditItem to just use that. Would be a lot shorter I think
+
+- Think about possibility of adding a backbar section
+- Focus on event page here soon and create ability to add replicative events for a calander
+- "Today, this is happening" kind of component/reminder to put on the menu page: 
+
+- Maybe add a checkbox in AddCocktail and EditCocktail to make pricing universal
 
 - Woof definitely need to clean up NavMenuOffCanvas.scss
     - Still not completely happy with it but breakpoints for the button are fine for now
         - Def need to be more size appropriate
-
-
 
 - Welcome Component
     - Display the same message with a unique styling depending on the current location
@@ -108,13 +47,9 @@
 - Admin page: 
     - Allow user to reorganize item ingredients for how they are displayed
 
-- Trying to populate a collection of Ingredients to a list if they are checked
-- I am not looking to add anything to any database until the AddCocktail submit button is hit
-- I just need to create a temorary array to hold the ingredient names (and maybe IDs)
-
 - Admin functionality:
-    - Add form
-        - Creates a menu item from scratch. Will have:
+    # Add form
+        # Creates a menu item from scratch. Will have:
             # Cocktail name form
             # Cocktail description form
             # Creator form
@@ -124,16 +59,16 @@
             # Form for type of cocktail (draft, classic, unique)
                 # Dropdown list to select the type. Types are:
                     # Draft, classic, house
-            - Ingredients checklist. Specs of functionality will be as follows:
+            # Ingredients checklist. Specs of functionality will be as follows:
                 # A scroll form will list all of the ingredients in the database
                 # The container will also have a search function that filters with each letter typed
                 # Each ingredient will have a checkbox next to it
 
-                - Once checked, another container will be populated and will look like the following:
-                    - To the left: a dropdown menu to select the amount necessary
-                    - In the center: the name of the ingredient
-                    - To the right: an X to remove the ingredient
-                - Populate the container and then add the ingredient - menuitem combo on submit
+                # Once checked, another container will be populated and will look like the following:
+                    # To the left: a dropdown menu to select the amount necessary
+                    # In the center: the name of the ingredient
+                    # To the right: an X to remove the ingredient
+                # Populate the container and then add the ingredient - menuitem combo on submit
     - Update/Delete form
 
 - Create admin page for CRUD options for all of the tables
@@ -141,14 +76,8 @@
     - Add password protection for admins.
         - Creates accounts manually rather than having a separate page for that.
 
-- Look into server hosting for Circle Hospitality database
-
 - Build dynamic components for Events, Gallery, Hours, JoinTeam and Home.
     - These components will have customization options but the components will more or less have the same info displayed, just cooresponds to location
-
-# Understand how to load an image asset from local files rather than linking to squarespace asset
-    # Use PostImage
-- Download specific font styles to use
 
 - Events Page:
   - Have a form to let people leave info
@@ -162,19 +91,56 @@
   - Join the team
   - Menu
   - Menu Item
-- Create admin page for editing, removing and adding cocktails
-  - This will utilize EF Core
-  - on click brings up dropdown menu for other locations
-  - after initial location tag, provide option for dropdown nav menu for the side, this provides nav options for
-    - Menu (default)
-    - Gallery
-    - Events
-    - Hours
-    - Join the team
-  - Consider adding breakpoint for nav menu to become horizonal and permanent on large screen
-  - Make a navigation button component to reuse with all pages and homes
 
 # FINISHED #################################################################################################
+
+# Create admin page for editing, removing and adding cocktails
+  # This will utilize EF Core
+  # on click brings up dropdown menu for other locations
+  # after initial location tag, provide option for dropdown nav menu for the side, this provides nav options for
+    # Menu (default)
+    # Gallery
+    # Events
+    # Hours
+    # Join the team
+  # Consider adding breakpoint for nav menu to become horizonal and permanent on large screen
+  # Make a navigation button component to reuse with all pages and homes
+
+# Understand how to load an image asset from local files rather than linking to squarespace asset
+    # Use PostImage
+# Download specific font styles to use
+
+# Trying to populate a collection of Ingredients to a list if they are checked
+# I am not looking to add anything to any database until the AddCocktail submit button is hit
+# I just need to create a temorary array to hold the ingredient names (and maybe IDs)
+
+# In EditItem the ingredient list stays the same as the first one that is clicked on
+
+# Create an AddIngredient component
+    # Need to find an efficient way to check for duplicate ingredients
+
+# When removing Created By part of an item, the tag still stays there. Instead conditional null, make it conditional blank space
+
+# Go through and try to fix all of the potential null reference warnings
+
+# Need to add ability to change specs in EditItem
+# Add ability to edit Price, allergens and where the item is available
+# Forgot to add individual spots for respective location pricing in AddCocktail and EditItem
+
+# Need to update MenuItem and LocationMenu context so that HasDairy and HasEgg are in MenuItem and not LocationMenu
+
+# Need to change all of the references of LocationMenu.HasEgg/HasDairy to MenuItem
+
+# EditItem still saves changes even if submit button is not pressed
+    # Looks like it is happening with each keystroke?
+    # NOT TRUE! It is just saving while I am in the admin page. It reverts if I change pages or refresh.
+        # Honestly unsure if I wanna change that
+
+# Will need to create new item for the LocationMenu if previously was not checked. Will need to edit the row if it was checked
+# The price is currently able to be edited, but I cannot seem to change if it is available
+    # BECAUSE I NEED TO ACTUALLY FUCKING ADD IT????
+
+# Just got some messed up logic with remove the item from the menu. Cannot remove what isn't there, right?
 
 # Add sorting buttons for all, beers, house cocktail, classic cocktails and draft cocktail
     # This will involve just creating a component that holds all the buttons
@@ -301,3 +267,60 @@ Menu format:
   #   Will have 3 logos to choose from
   #   Scrollbar will not be visible
   #   Will not be able to be navigated to after this option besides searchbar I guess
+
+  - Actually add ability to add menuItem from Admin page
+    # Got to the point where it can submit successfully to the database
+    # Still trying to figure out how to accept input
+    # Beginning to think I have a fundamental misunderstanding about forms. Will study and learn
+        # Began using EditForm component. It felt a lot more suited for the job bc it:
+            # Can use model binding
+            # Can supply parameters directly from the form upon submission
+    # Figure out how to accept dropdown info for ItemType
+        # Just needed some linq and value binding
+        # ItemTypeDropdown is no longer being used
+    # Need to add a price field
+    # Need to be able to add to multiple tables at once
+    # Checkbox input for locations
+    # Checkbox input for allergies
+    # Clear data input on submit
+    # On submit the app works and give information to database
+        # On second submit with the same data, an unhandled error occurs
+        # This also happens on second sumbit no even if you change the inputs
+        # I think I must create a model for the form itself and add model = new model()
+            # Worked!
+    # Toast popup after submitting a cocktail
+        # Disappear after ~5 seconds
+    # Whenever I hit enter to update the search in IngredientList it submits the cocktail.
+        # I'll try to have it update on each keystroke
+        # ^^^ Added this with @bind:event="oninput"
+        # Still don't love the idea with it submitting with enter but I guess it's best for accessibility
+    - Format better for both desktop and mobile (mobile first)
+        # Consider wrapping AddCocktail in just a dropdown form
+        # OffCanvas might actually be cuter
+    - Add input validation for the following:
+        - Price must be whole integer
+        - ItemName is required
+        - ItemTypeID is required
+
+
+- IngredientsList functionality:
+    # Currently adds ingredient to a separate list and gives it its own respective input for 
+        measurement amount and measurement type.
+    # Add functionality to save the data.
+    # Measurement type dropdown currently has no functionality
+        # Make the dropdown itself scrollable rather than 100% height.
+        # Make each individual li a button to click on
+    # Okay so it kinda works now. AddCocktail is currently a child of IngredientList, which allows the
+        passing of the CascadingValue that is the list of added ingredient.
+        I don't really love this setup because it kind of feels like a round about and messes
+        with the layout of the page. I'll try to pass the value without cascading value
+    # Maybe try using NavigationManager and URI routing
+    # ^^^ Did not use this but I got it to work by using the following solution:
+        # Add cocktail is now the component used in Admin
+        # IngredientList now has a required parameter called ingredientMeasurement
+            # which is a List<IngredientMeasurement> and is defined in AddCocktail
+        # The class is specified in IngredientList but the required parameter is defined in AddCocktail
+            # which is then fed into the IngredientList component in AddCocktail
+    # Clear the ingredientList in AddCocktail after submition
+    # Add ability to remove items from IngredientList
+    # Make it impossible to add the same ingredient twice to the list

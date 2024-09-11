@@ -11,13 +11,16 @@
 @using Microsoft.AspNetCore.Components.Forms
 @using System.ComponentModel.DataAnnotations
 
-<button class="btn btn-outline-primary" type="button" @onclick="() => ChooseItemOffCanvas.ShowAsync()">
-    Edit Item
+<Toasts class="p-3" Messages="messages" Placement="ToastsPlacement.BottomLeft" AutoHide="true" Delay="5000" />
+
+<button class="btn btn-outline-primary" type="button" @onclick="() => {if (ChooseItemOffCanvas != null) ChooseItemOffCanvas.ShowAsync();}">
+    Edit Menu Item
 </button>
 
-<Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit">
+<Offcanvas @ref="ChooseItemOffCanvas" IsScrollable="true" Title="Choose Item to Edit" style="background-color: #33322a !important; color: #a19a61 !important;">
     <BodyTemplate>
         <ul class="ps-0">
+            @* Would like to make this alphabetical *@
             @foreach (MenuItem menuItem in Context.MenuItems)
             {
                 <li class="list-group-item text-start pb-3">
@@ -25,17 +28,12 @@
                         class="btn btn-outline-primary"
                         type="button"
                         value="@menuItem.MenuItemID"
-                        @onclick="() => { EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuitem(menuItem);}">
+                        @onclick="() => { if (EditItemOffCanvas != null) EditItemOffCanvas.ShowAsync(); itemID = menuItem.MenuItemID; assignMenuItem(menuItem); }">
                         Edit
                     </button>
-                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item">
+                    <Offcanvas @ref="EditItemOffCanvas" IsScrollable="true" Title="Edit the Item" OnHiding="() => cancelEdit()" style="background-color: #33322a !important; color: #a19a61 !important;">
                         <BodyTemplate>
-                            @*
-                                TextInput with previous value shown.
-                                Each value is editable if change is desired.
-                            *@
-
-                            <div class="row pb-3">
+                            <div class="row pb-3 text-center fw-bolder">
                                 <label>
                                     @Context.MenuItems.Where(item => item.MenuItemID == itemID).Select(item => item.ItemName).SingleOrDefault()
                                 </label>
@@ -61,19 +59,84 @@
 
                             <div class="row pb-3">
                                 <label class="col-4">
-                                    Price
-                                </label>
-                                @* SPOT FOR ITEM PRICE. NEED TO JOIN TO LOCATION MENU <div class="col-8 text-start">
-                                    <InputText @bind-Value="" />
-                                </div> *@
-                            </div>
-
-                            <div class="row pb-3">
-                                <label class="col-4">
                                     Creator's Name
                                 </label>
                                 <div class="col-8 text-start">
                                     <InputText @bind-Value="editedMenuItem.CreatorName" />
+                                </div>
+                            </div>
+
+                            @* Allergens *@
+                            <div class="row mb-3">
+                                <div class="col-4 text-start">
+                                    <label class="form-label">Allergens:</label>
+                                </div>
+                                <div class="col-8 text-start">
+                                    <div class="container text-start">
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="editedMenuItem.HasDairy" />
+                                                <label for="hasDairy" class="form-label ms-2">Has Dairy</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="editedMenuItem.HasEgg" />
+                                                <label for="hasEgg" class="form-label ms-2">Has Egg</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row pb-3">
+                                <div class="col-4 text-start">
+                                    <label class="form-label">Available at:</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="container text-start">
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="@IsAtSVI" />
+                                                <label for="IsAtSVI" class="form-label ms-2">SVI</label>
+                                            </div>
+                                            <div class="col text-start">
+                                                <CurrencyInput @bind-Value="SVIPrice" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="@IsAtSVC" />
+                                                <label for="availSVC" class="form-label ms-2">SVC</label>
+                                            </div>
+                                            <div class="col text-start">
+                                                <CurrencyInput @bind-Value="SVCPrice" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col text-start">
+                                                <InputCheckbox @bind-Value="@IsAtCS" />
+                                                <label for="availCS" class="form-label ms-2">CS</label>
+                                            </div>
+                                            <div class="col text-start">
+                                                <CurrencyInput @bind-Value="CSPrice" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @* Cocktail Type *@
+
+                            @* Ingredient List *@
+                            <div class="row mb-3">
+                                <div class="col text-start">
+                                    <label class="form-label">Ingredient List:</label>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col text-start">
+                                    <IngredientList ingredientMeasurements="ingredientList" />
                                 </div>
                             </div>
 
@@ -91,29 +154,185 @@
     </BodyTemplate>
 </Offcanvas>
 
-
-
 @code {
-    private Offcanvas ChooseItemOffCanvas;
-    private Offcanvas EditItemOffCanvas;
+    private Offcanvas? ChooseItemOffCanvas;
+    private Offcanvas? EditItemOffCanvas;
     private int itemID;
 
     private MenuItem editedMenuItem = new MenuItem();
 
-    private MenuItem assignMenuitem(MenuItem oldMenuItem)
+    private List<IngredientList.IngredientMeasurements> ingredientList = new List<IngredientList.IngredientMeasurements>();
+
+    private LocationMenu? oldSVILocationMenu;
+    private LocationMenu? oldSVCLocationMenu;
+    private LocationMenu? oldCSLocationMenu;
+
+    private LocationMenu? editedSVILocationMenu;
+    private LocationMenu? editedSVCLocationMenu;
+    private LocationMenu? editedCSLocationMenu;
+
+    private bool IsAtSVI { get; set; }
+    private bool IsAtSVC { get; set; }
+    private bool IsAtCS { get; set; }
+
+    private int SVIPrice { get; set; }
+    private int SVCPrice { get; set; }
+    private int CSPrice { get; set; }
+
+    private void assignMenuItem(MenuItem oldMenuItem)
     {
         editedMenuItem = oldMenuItem;
-        return editedMenuItem;
+
+        oldSVILocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 1)).FirstOrDefault();
+        oldSVCLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 2)).FirstOrDefault();
+        oldCSLocationMenu = Context.LocationMenus.Where(locationMenu => (locationMenu.MenuItemID == editedMenuItem.MenuItemID) && (locationMenu.LocationID == 3)).FirstOrDefault();
+
+        if (ingredientList.Count == 0)
+        {
+            foreach (ItemIngredient ingredient in Context.ItemIngredients.Where(ing => ing.MenuItemID == editedMenuItem.MenuItemID))
+            {
+                ingredientList.Add(new IngredientList.IngredientMeasurements
+                    {
+                        measureIngredientID = ingredient.IngredientID,
+                        measureTypeID = ingredient.MeasurementID,
+                        measurementAmount = ingredient.MeasurementAmount
+                    });
+            }
+        }
+
+        if (oldSVILocationMenu != null)
+        {
+            editedSVILocationMenu = oldSVILocationMenu;
+            SVIPrice = editedSVILocationMenu.Price;
+            IsAtSVI = true;
+        }
+
+        if (oldSVCLocationMenu != null)
+        {
+            editedSVCLocationMenu = oldSVCLocationMenu;
+            SVCPrice = editedSVCLocationMenu.Price;
+            IsAtSVC = true;
+        }
+
+        if (oldCSLocationMenu != null)
+        {
+            editedCSLocationMenu = oldCSLocationMenu;
+            CSPrice = editedCSLocationMenu.Price;
+            IsAtCS = true;
+        }
+
     }
 
     private void submitEdit(MenuItem oldMenuItem)
     {
         oldMenuItem = editedMenuItem;
+
+        if (IsAtSVI)
+        {
+            if (oldSVILocationMenu == null)
+            {
+                editedSVILocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 1 };
+                Context.LocationMenus.Add(editedSVILocationMenu);
+            }
+            if (editedSVILocationMenu != null)
+                editedSVILocationMenu.Price = SVIPrice;
+        }
+        else
+        {
+            if (editedSVILocationMenu != null)
+                Context.LocationMenus.Remove(editedSVILocationMenu);
+        }
+
+        if (IsAtSVC)
+        {
+            if (oldSVCLocationMenu == null)
+            {
+                editedSVCLocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 2 };
+                Context.LocationMenus.Add(editedSVCLocationMenu);
+            }
+            if (editedSVCLocationMenu != null)
+                editedSVCLocationMenu.Price = SVCPrice;
+        }
+        else
+        {
+            if (editedSVCLocationMenu != null)
+            {
+                Context.LocationMenus.Remove(editedSVCLocationMenu);
+            }
+        }
+
+        if (IsAtCS)
+        {
+            if (oldCSLocationMenu == null)
+            {
+                editedCSLocationMenu = new LocationMenu { MenuItemID = oldMenuItem.MenuItemID, LocationID = 3 };
+                Context.LocationMenus.Add(editedCSLocationMenu);
+            }
+            if (editedCSLocationMenu != null)
+                editedCSLocationMenu.Price = CSPrice;
+        }
+        else
+        {
+            if(editedCSLocationMenu != null)
+            {
+                Context.LocationMenus.Remove(editedCSLocationMenu);
+            }
+        }
+
+        // This is going to be a pretty big cop out.
+        // I will basically be deleting all rows in ItemIngredients with the corresponding MenuItemID
+        // and will just repopulate it regardless of whether it was altered or not. 
+        // I'm positive this is not the best way to go, but its good for now.
+
+        foreach (ItemIngredient ingredient in Context.ItemIngredients.Where(ing => ing.MenuItemID == editedMenuItem.MenuItemID))
+        {
+            Context.ItemIngredients.Remove(ingredient);
+        }
+
+        foreach (IngredientList.IngredientMeasurements ingredient in ingredientList)
+        {
+            ItemIngredient newItemIngredient = new ItemIngredient
+                {
+                    MenuItemID = editedMenuItem.MenuItemID,
+                    IngredientID = ingredient.measureIngredientID,
+                    MeasurementID = ingredient.measureTypeID,
+                    MeasurementAmount = ingredient.measurementAmount
+                };
+            Context.ItemIngredients.Add(newItemIngredient);
+            Context.SaveChanges();
+        }
+
+
+        oldSVILocationMenu = editedSVILocationMenu;
+        oldSVCLocationMenu = editedSVCLocationMenu;
+        oldCSLocationMenu = editedCSLocationMenu;
+
+        ingredientList = new List<IngredientList.IngredientMeasurements>();
+        showSuccess();
+
         Context.SaveChanges();
     }
 
-    private void cancelEdit(MenuItem oldMenuItem)
+    private void cancelEdit()
     {
-        
+        SVIPrice = 0;
+        SVCPrice = 0;
+        CSPrice = 0;
+        IsAtSVC = false;
+        IsAtSVI = false;
+        IsAtCS = false;
+        ingredientList = new List<IngredientList.IngredientMeasurements>();
     }
+
+    // Toast Messages
+    List<ToastMessage> messages = new List<ToastMessage>();
+
+    private void showSuccess() => messages.Add(createToastMessage());
+
+    private ToastMessage createToastMessage()
+        => new ToastMessage
+            {
+                Type = ToastType.Dark,
+                Message = "Item Edited!"
+            };
 }

@@ -1,0 +1,18 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+html, body {
+    margin: 0 !important;
+}
+
+.header {
+    padding-bottom: 10%;
+}
+
+.background {
+    overflow: hidden;
+    object-fit: cover;
+    width: 2500px;
+    height: 100%;
+}
