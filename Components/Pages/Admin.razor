@@ -5,6 +5,37 @@
 @using MyComponents.EditItem
 @using MyComponents.IngredientList
 @using MyComponents.AddIngredient
+@using Microsoft.AspNetCore.Components.Authorization
+
+@* <AuthorizeView>
+    <Authorized>
+        <div class="container text-center">
+            <div class="row pt-3">
+                <div class="col">
+                    <h3>Admin Options</h3>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col">
+                    <AddCocktail />
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col">
+                    <EditItem />
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col">
+                    <AddIngredient />
+                </div>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <h3>Get fucked or sign in</h3>
+    </NotAuthorized>
+</AuthorizeView> *@
 
 <div class="container text-center">
     <div class="row pt-3">
@@ -28,6 +59,7 @@
         </div>
     </div>
 </div>
+
 
 @code {
 

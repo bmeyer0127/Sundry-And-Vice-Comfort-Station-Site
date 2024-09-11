@@ -4,14 +4,15 @@
 
 # CURRENT TASK ###########################################################################################
 
+- Add password protection for admin page
+    - Frankly wanna just see how someone else may do this. CyberSecurity is something I know not a whole lot about.
+
 - Really gotta go through all of this and comment on how it all works, man
 
 - Look into server hosting for Circle Hospitality database
 - Look into Digital Ocean for cloud hosting ideas
 
 - Add Cocktail Type in EditItem
-
-- Add password protection for admin page
 
 # Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
 
