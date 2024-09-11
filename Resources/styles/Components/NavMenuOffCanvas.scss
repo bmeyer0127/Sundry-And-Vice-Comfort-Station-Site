@@ -1,8 +1,8 @@
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-@import "../../node_modules/bootstrap/scss/_accordion.scss";
-@import "../../node_modules/bootstrap/scss/_offcanvas.scss";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/_accordion.scss";
+@import "../../../node_modules/bootstrap/scss/_offcanvas.scss";
 
 //Breakpoints
 
@@ -18,37 +18,41 @@ $accordion-icon-color: #a19a61;
 $btn-close-color: white;
 
 .prevent-select {
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .offcanvas-opener {
-width: 10%;
-height: auto;
-//padding-bottom: 4%;
-padding-left: 0;
-margin: 5%;
-//position: fixed;
+    width: 10%;
+    height: auto;
+    padding-left: 0;
+    margin: 5%;
+}
+
+.offcanvas-opener:active {
+    border-style: none;
+}
+
+.offcanvas-opener:focus {
+    border-style: none;
+    box-shadow: none;
 }
 
 .offcanvas-close {
-  
 }
 
 .offcanvas-part {
-  background-color: #33322a !important;
-  color: #a19a61 !important;
-
+    background-color: #33322a !important;
+    color: #a19a61 !important;
 }
 
 .navButton {
-  font-family: "Raleway", Arial, sans-serif;
-  font-weight: 500;
+    font-family: "Raleway", Arial, sans-serif;
+    font-weight: 500;
 }
 
-@include media-breakpoint-up(sm)
-{
+@include media-breakpoint-up(sm) {
     .offcanvas-opener {
         width: 7%;
     }

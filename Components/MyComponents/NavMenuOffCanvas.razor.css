@@ -648,6 +648,15 @@
   margin: 5%;
 }
 
+.offcanvas-opener:active {
+  border-style: none;
+}
+
+.offcanvas-opener:focus {
+  border-style: none;
+  box-shadow: none;
+}
+
 .offcanvas-part {
   background-color: #33322a !important;
   color: #a19a61 !important;
