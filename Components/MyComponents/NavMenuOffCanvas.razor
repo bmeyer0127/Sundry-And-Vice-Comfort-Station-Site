@@ -11,8 +11,8 @@
 
 <Offcanvas @ref="NavMenuCanvas" Placement="Placement.Start" style="background-color: #33322a;">
     <BodyTemplate>
-@*         <div class="prevent-select">
-            <div class="accordion">
+        <div class="prevent-select">
+            <div class="accordion ">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button offcanvas-part" type="button" data-bs-toggle="collapse"
@@ -37,9 +37,9 @@
                 <NavigateTo link="hours" text="Hours" canvas=NavMenuCanvas />
                 <NavigateTo link="join-team" text="Join the Team" canvas=NavMenuCanvas />
             </ul>
-        </div> *@
-        <div class="prevent-select">
-            <Accordion>
+        </div>
+@*         <div class="prevent-select accordion-component" style="background-color: #33322a; color: #a19a61;">
+            <Accordion class="accordion-component">
                 <AccordionItem>
                     <TitleTemplate>
                         Where ya headed
@@ -59,7 +59,7 @@
                 <NavigateTo link="hours" text="Hours" canvas=NavMenuCanvas />
                 <NavigateTo link="join-team" text="Join the Team" canvas=NavMenuCanvas />
             </ul>
-        </div>
+        </div> *@
     </BodyTemplate>
 </Offcanvas>
 

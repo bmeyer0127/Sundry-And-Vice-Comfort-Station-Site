@@ -16,6 +16,11 @@ html, body {
   font-style: normal;
 }
 
+.accordion-component {
+  background-color: #33322a !important;
+  color: #a19a61 !important;
+}
+
 a, .btn-link {
   color: #006bb7;
 }

@@ -39,33 +39,62 @@ $btn-close-color: white;
     box-shadow: none;
 }
 
-.offcanvas-close {
-}
-
 .offcanvas-part {
     background-color: #33322a !important;
     color: #a19a61 !important;
+    box-shadow: none;
 }
 
-.navButton {
-    font-family: "Raleway", Arial, sans-serif;
-    font-weight: 500;
+.accordion-collapse {
+    background-color: #33322a;
 }
 
-@include media-breakpoint-up(sm) {
-    .offcanvas-opener {
-        width: 7%;
+.accordion-header {
+    background-color: #33322a;
+}
+
+.accordion-button:is(.collapsed) {
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    background-image: url('assets/icons/arrow-up.svg');
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url('assets/icons/arrow-up.svg');
+    transform: rotate(180deg);
+
+}
+
+    .accordion-item {
+        border-style: none;
+        background-color: #33322a;
     }
-}
 
-@include media-breakpoint-up(md) {
-    .offcanvas-opener {
-        width: 5%;
+    .navButton {
+        font-family: "Raleway", Arial, sans-serif;
+        font-weight: 500;
     }
-}
 
-@include media-breakpoint-up(lg) {
-    .offcanvas-opener {
-        width: 3%;
+    @include media-breakpoint-up(sm) {
+        .offcanvas-opener {
+            width: 7%;
+        }
     }
-}
+
+    @include media-breakpoint-up(md) {
+        .offcanvas-opener {
+            width: 5%;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .offcanvas-opener {
+            width: 3%;
+        }
+    }
