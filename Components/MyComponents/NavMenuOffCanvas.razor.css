@@ -641,17 +641,26 @@
   user-select: none;
 }
 
-.btn-close {
-  background-image: url("assets/icons/close.svg") !important;
-}
-
 .offcanvas-opener {
-  width: 10%;
+  width: 30px;
   height: auto;
-  padding-left: 0;
-  margin: 5%;
 }
 
+@media (min-width: 576px) {
+  .offcanvas-opener {
+    width: 30px;
+  }
+}
+@media (min-width: 768px) {
+  .offcanvas-opener {
+    width: 35px;
+  }
+}
+@media (min-width: 992px) {
+  .offcanvas-opener {
+    width: 35px;
+  }
+}
 .offcanvas-opener:active {
   border-style: none;
 }
@@ -700,22 +709,6 @@
 .navButton {
   font-family: "Raleway", Arial, sans-serif;
   font-weight: 500;
-}
-
-@media (min-width: 576px) {
-  .offcanvas-opener {
-    width: 7%;
-  }
-}
-@media (min-width: 768px) {
-  .offcanvas-opener {
-    width: 5%;
-  }
-}
-@media (min-width: 992px) {
-  .offcanvas-opener {
-    width: 3%;
-  }
 }
 
 /*# sourceMappingURL=NavMenuOffCanvas.razor.css.map */

@@ -24,11 +24,31 @@ $btn-close-color: white;
 }
 
 .offcanvas-opener {
-    width: 10%;
+    width: 30px;
     height: auto;
-    padding-left: 0;
-    margin: 5%;
 }
+
+// >576
+@include media-breakpoint-up(sm)  {
+    .offcanvas-opener {
+        width: 30px;
+    }
+}
+
+// >768
+@include media-breakpoint-up(md) {
+    .offcanvas-opener {
+        width: 35px;
+    }
+}
+
+// >992
+@include media-breakpoint-up(lg) {
+    .offcanvas-opener {
+        width: 35px;
+    }
+}
+
 
 .offcanvas-opener:active {
     border-style: none;
@@ -68,33 +88,15 @@ $btn-close-color: white;
 .accordion-button:not(.collapsed)::after {
     background-image: url('assets/icons/arrow-up.svg');
     transform: rotate(180deg);
-
 }
 
-    .accordion-item {
-        border-style: none;
-        background-color: #33322a;
-    }
+.accordion-item {
+    border-style: none;
+    background-color: #33322a;
+}
 
-    .navButton {
-        font-family: "Raleway", Arial, sans-serif;
-        font-weight: 500;
-    }
+.navButton {
+    font-family: "Raleway", Arial, sans-serif;
+    font-weight: 500;
+}
 
-    @include media-breakpoint-up(sm) {
-        .offcanvas-opener {
-            width: 7%;
-        }
-    }
-
-    @include media-breakpoint-up(md) {
-        .offcanvas-opener {
-            width: 5%;
-        }
-    }
-
-    @include media-breakpoint-up(lg) {
-        .offcanvas-opener {
-            width: 3%;
-        }
-    }

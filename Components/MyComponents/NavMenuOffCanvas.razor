@@ -2,9 +2,7 @@
 @rendermode InteractiveServer
 @using MyComponents.NavigateTo
 
-
-
-<img class="btn offcanvas-opener prevent-select" type="button"
+<img class="btn offcanvas-opener prevent-select mt-3 ms-3 p-0 pb-4" type="button"
     @onclick="() => {if (NavMenuCanvas != null) NavMenuCanvas.ShowAsync();}" aria-controls="offcanvasScrolling"
     style="display: @(isSplash ? "none" : "block")"
     src="/assets/S&V-Icons/sv-favicon.png" />
