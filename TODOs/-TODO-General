@@ -13,9 +13,6 @@
 
 - Add password protection for admin page
 
-# Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
-
-
 - Also need to buckle down and just really fix up the stylings
 
 # TODO #####################################################################################################
@@ -92,7 +89,9 @@
   - Menu
   - Menu Item
 
-# FINISHED #################################################################################################
+# FINISHED #################################################################################################'
+
+# Wanna swap NavMenuOffCanvas to blazor specific OffCanvas component
 
 # Create admin page for editing, removing and adding cocktails
   # This will utilize EF Core

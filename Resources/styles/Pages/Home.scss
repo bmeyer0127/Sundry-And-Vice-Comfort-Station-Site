@@ -17,15 +17,3 @@ html, body {
     height: 100%;
 }
 
-.curly-line {
-    height: 50px;
-    width: 50px;
-    background-color: white;
-    color: white;
-    position: relative;
-}
-
-.curly-line:before {
-    content: 'hey';
-    color: black;
-}
